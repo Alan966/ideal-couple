@@ -4,11 +4,11 @@ import com.mycompany.proyectouveg.Students.*;
 import java.util.Scanner;
 
 public interface ServicesEmotionals {
-    public void start();
-    public void StartGame(User user);
-    public void FistQuestion(Scanner sn);
-    public void SecondQuestion(Scanner sn);
-    public void ThirdQuestion(Scanner sn);
-    public void FourthQuestion(Scanner sn);
-    public void FifthQuestion(Scanner sn);
+    void start();
+    boolean StartGame(User user);
+    void FistQuestion(Scanner sn);
+    void SecondQuestion(Scanner sn);
+    void ThirdQuestion(Scanner sn);
+    void FourthQuestion(Scanner sn);
+    void FifthQuestion(Scanner sn);
 }

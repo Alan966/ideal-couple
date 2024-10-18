@@ -27,7 +27,13 @@ public class ProyectoUVEG {
         int age;
         age = Integer.parseInt(sc.nextLine());
         System.out.println("Ingresa el sexo");
-        Gender gender = Gender.valueOf(sc.nextLine());
+        String response_gender_scanner = sc.nextLine();
+        Gender gender;
+        if(response_gender_scanner.equals("Masculino")){
+            gender = Gender.Masculino;
+        }else{
+            gender = Gender.Femenino;
+        }
         System.out.println("Ingresa email");
         String email = sc.nextLine();
         System.out.println("Ingresa Password");
@@ -38,8 +44,14 @@ public class ProyectoUVEG {
         ServicesEmotionals emotional_service = null;
         // Here we execute to for know their emotional sevice
         switch (response_gender){
-            case Masculino -> emotional_service = (ServicesEmotionals) new ManServiceEmotions(sc, user);
-            case Femenino -> emotional_service = (ServicesEmotionals) new WomanServiceEmotionals(sc, user);
+            case Masculino -> {
+                emotional_service =  new ManServiceEmotions(sc, user);
+                break;
+            }
+            case Femenino -> {
+                emotional_service = new WomanServiceEmotionals(sc, user);
+                break;
+            }
         }
         emotional_service.start();
     }

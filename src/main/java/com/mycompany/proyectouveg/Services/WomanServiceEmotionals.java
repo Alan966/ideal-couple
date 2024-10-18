@@ -13,7 +13,11 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         this.user = user;
     }
     public void start(){
-        StartGame(this.user);
+        boolean user_could_play = StartGame(this.user);
+        if(!user_could_play){
+            System.out.println("Finish the game");
+            return;
+        }
         System.out.println("This is the first part for know what do you want");
         FistQuestion(this.scanner);
         SecondQuestion(this.scanner);
@@ -31,12 +35,15 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         }
         user.setEmotionalParnet(emotions_man);
     }
-    public void StartGame(User user){
+    public boolean StartGame(User user){
+        boolean response = false;
         if(user.getAge() > 28){
             System.out.println("Hora de Coitorrear!!");
+            response = true;
         }else{
             System.out.println("Cierra la computadora");
         }
+        return response;
     }
     public String isValidresponse(String response){
         if(response.equals("a") || response.equals("b") || response.equals("c") || response.equals("d")) {

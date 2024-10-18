@@ -4,7 +4,7 @@ import com.mycompany.proyectouveg.Students.User;
 
 import java.util.Scanner;
 
-public class ManServiceEmotions {
+public class ManServiceEmotions implements  ServicesEmotionals{
     int points;
     emotional_woman emotions_woman;
     private Scanner scanner;
@@ -14,7 +14,11 @@ public class ManServiceEmotions {
         this.user = user;
     }
     public void start(){
-        StartGame(user);
+        boolean user_could_play = StartGame(user);
+        if(!user_could_play){
+            System.out.println("Finish the game");
+            return;
+        }
         System.out.println("This is the first part for know that do you want");
         FistQuestion(scanner);
         SecondQuestion(scanner);
@@ -32,12 +36,15 @@ public class ManServiceEmotions {
         }
     }
 
-    public void StartGame(User user) {
-        if (user.getAge() > 28) {
+    public boolean StartGame(User user) {
+        boolean response= false;
+        if (user.getAge() > 18) {
             System.out.println("Hora de Coitorrear!!");
+            response = true;
         } else {
             System.out.println("Cierra la computadora");
         }
+        return response;
     }
 
     public String isValidresponse(String response) {
