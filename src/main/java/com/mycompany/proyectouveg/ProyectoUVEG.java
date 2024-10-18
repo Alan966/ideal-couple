@@ -3,8 +3,11 @@
  */
 package com.mycompany.proyectouveg;
 
+import com.mycompany.proyectouveg.Services.ManServiceEmotions;
+import com.mycompany.proyectouveg.Services.ServicesEmotionals;
 import com.mycompany.proyectouveg.Services.WomanServiceEmotionals;
 import com.mycompany.proyectouveg.Students.Gender;
+import com.mycompany.proyectouveg.Students.User;
 
 import java.util.Scanner;
 
@@ -29,7 +32,15 @@ public class ProyectoUVEG {
         String email = sc.nextLine();
         System.out.println("Ingresa Password");
         String password = sc.nextLine();
-        WomanServiceEmotionals user_service = new WomanServiceEmotionals();
-        user_service.addUser(first_name, last_name, age, gender, email, password);
+        User user = new User(first_name, last_name, age, gender, email, password);
+        System.out.println("So we'll start the game");
+        Gender response_gender = user.getGender();
+        ServicesEmotionals emotional_service = null;
+        // Here we execute to for know their emotional sevice
+        switch (response_gender){
+            case Masculino -> emotional_service = (ServicesEmotionals) new ManServiceEmotions(sc, user);
+            case Femenino -> emotional_service = (ServicesEmotionals) new WomanServiceEmotionals(sc, user);
+        }
+        emotional_service.start();
     }
 }

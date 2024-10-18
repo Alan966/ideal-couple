@@ -4,6 +4,7 @@ import com.mycompany.proyectouveg.Students.*;
 import java.util.Scanner;
 
 public interface ServicesEmotionals {
+    public void start();
     public void StartGame(User user);
     public void FistQuestion(Scanner sn);
     public void SecondQuestion(Scanner sn);

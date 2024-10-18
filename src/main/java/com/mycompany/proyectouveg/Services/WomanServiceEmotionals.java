@@ -6,14 +6,20 @@ import java.util.Scanner;
 public class WomanServiceEmotionals implements ServicesEmotionals{
     int points;
     emotional_man emotions_man;
-    public void WomanServiceEmotionals(Scanner scanner, User user) {
-        StartGame(user);
+    private Scanner scanner;
+    private User user;
+    public  WomanServiceEmotionals(Scanner scanner, User user) {
+        this.scanner = scanner;
+        this.user = user;
+    }
+    public void start(){
+        StartGame(this.user);
         System.out.println("This is the first part for know what do you want");
-        FistQuestion(scanner);
-        SecondQuestion(scanner);
-        ThirdQuestion(scanner);
-        FourthQuestion(scanner);
-        FifthQuestion(scanner);
+        FistQuestion(this.scanner);
+        SecondQuestion(this.scanner);
+        ThirdQuestion(this.scanner);
+        FourthQuestion(this.scanner);
+        FifthQuestion(this.scanner);
         if(points < 8){
             emotions_man = emotional_man.stoic_protector;
         }else if(points <=12 ){
@@ -64,8 +70,8 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
-            System.out.println("You are not valid");
-            return;
+            System.out.println("You response is not valid, Tried again");
+            FistQuestion(scanner);
         }
         addPoints(response);
     }
@@ -78,8 +84,8 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
-            System.out.println("You are not valid");
-            return;
+            System.out.println("Your response is invalid, tried again");
+            SecondQuestion(scanner);
         }
         addPoints(response);
     }
@@ -92,8 +98,8 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
-            System.out.println("You are not valid");
-            return;
+            System.out.println("Your response is invalid,tried again");
+            ThirdQuestion(scanner);
         }
         addPoints(response);
     }
@@ -106,8 +112,8 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
-            System.out.println("You are not valid");
-            return;
+            System.out.println("Your response is invalid,tried again");
+            FourthQuestion(scanner);
         }
         addPoints(response);
     }
@@ -119,8 +125,8 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
-            System.out.println("You are not valid");
-            return;
+            System.out.println("Your response is invalid,tried again");
+            FifthQuestion(scanner);
         }
         addPoints(response);
     }
