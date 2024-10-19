@@ -37,7 +37,7 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
     }
     public boolean StartGame(User user){
         boolean response = false;
-        if(user.getAge() > 28){
+        if(user.getAge() > 18){
             System.out.println("Hora de Coitorrear!!");
             response = true;
         }else{

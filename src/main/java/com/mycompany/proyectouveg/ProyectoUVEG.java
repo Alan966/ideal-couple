@@ -18,6 +18,9 @@ import java.util.Scanner;
 public class ProyectoUVEG {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        EmmotionalProcess(sc);
+    }
+    public static void EmmotionalProcess(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
         System.out.println("Ingresa el nombre");
         String first_name  = sc.nextLine();
