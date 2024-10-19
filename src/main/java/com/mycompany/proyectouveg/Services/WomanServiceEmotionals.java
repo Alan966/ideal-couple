@@ -4,8 +4,8 @@ import com.mycompany.proyectouveg.Students.User;
 
 import java.util.Scanner;
 public class WomanServiceEmotionals implements ServicesEmotionals{
-    int points;
-    emotional_man emotions_man;
+    private int points;
+    private emotional_man emotional_partner;
     private Scanner scanner;
     private User user;
     public  WomanServiceEmotionals(Scanner scanner, User user) {
@@ -25,15 +25,15 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
         if(points < 8){
-            emotions_man = emotional_man.stoic_protector;
+            emotional_partner = emotional_man.stoic_protector;
         }else if(points <=12 ){
-            emotions_man = emotional_man.calm_problem_solver;
+            emotional_partner = emotional_man.calm_problem_solver;
         }else if(points <=17 ){
-            emotions_man = emotional_man.balanced_listener;
+            emotional_partner = emotional_man.balanced_listener;
         }else {
-            emotions_man = emotional_man.emotional_connection;
+            emotional_partner = emotional_man.emotional_connection;
         }
-        user.setEmotionalParnet(emotions_man);
+        user.setEmotionalParnet(emotional_partner);
     }
     public boolean StartGame(User user){
         boolean response = false;
@@ -46,7 +46,7 @@ public class WomanServiceEmotionals implements ServicesEmotionals{
         return response;
     }
     public String isValidresponse(String response){
-        if(response.equals("a") || response.equals("b") || response.equals("c") || response.equals("d")) {
+        if(!response.equals("a") && !response.equals("b") && !response.equals("c") && !response.equals("d")) {
             System.out.println("Wrong response");
             return "Not_valid";
         }

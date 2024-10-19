@@ -5,8 +5,8 @@ import com.mycompany.proyectouveg.Students.User;
 import java.util.Scanner;
 
 public class ManServiceEmotions implements  ServicesEmotionals{
-    int points;
-    emotional_woman emotions_woman;
+    private int points;
+    private emotional_woman emotions_partner;
     private Scanner scanner;
     private User user;
     public ManServiceEmotions(Scanner scanner, User user) {
@@ -26,14 +26,15 @@ public class ManServiceEmotions implements  ServicesEmotionals{
         FourthQuestion(scanner);
         FifthQuestion(scanner);
         if(points < 8){
-            emotions_woman = emotional_woman.emotionally_reserved;
+            emotions_partner = emotional_woman.emotionally_reserved;
         }else if(points <= 12){
-            emotions_woman = emotional_woman.emotionally_independent;
+            emotions_partner = emotional_woman.emotionally_independent;
         }else if(points <= 17){
-            emotions_woman = emotional_woman.emotionally_balanced;
+            emotions_partner = emotional_woman.emotionally_balanced;
         }else{
-            emotions_woman = emotional_woman.emotionally_engaged;
+            emotions_partner = emotional_woman.emotionally_engaged;
         }
+        user.setEmotionalParnet(emotions_partner);
     }
 
     public boolean StartGame(User user) {
@@ -48,7 +49,7 @@ public class ManServiceEmotions implements  ServicesEmotionals{
     }
 
     public String isValidresponse(String response) {
-        if (response.equals("a") || response.equals("b") || response.equals("c") || response.equals("d")) {
+        if (!response.equals("a") && !response.equals("b") && !response.equals("c") && !response.equals("d")) {
             System.out.println("Wrong response");
             return "Not_valid";
         }
@@ -75,7 +76,7 @@ public class ManServiceEmotions implements  ServicesEmotionals{
     public void FistQuestion(Scanner sn) {
         System.out.println("How important is emotional vulnerability in your partner ?");
         System.out.println("a) I appreciate when she feels comfortable being open and vulnerable with me about her feelings");
-        System.out.println("b) I like when seh shares her emotions, but I also value her ability to maintain composure during tough times");
+        System.out.println("b) I like when she shares her emotions, but I also value her ability to maintain composure during tough times");
         System.out.println("c) I want her to be emotionally strong most of the time, sharing feelings only when necessary ");
         System.out.println("d) I prefer if she remains private about her emotions and deals with them independetly");
         String response = sn.nextLine();

@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg.Students;
 import java.util.Date;
-import com.mycompany.proyectouveg.Services.emotional_man;
+import com.mycompany.proyectouveg.Services.*;
 
 public class User implements IUser {
     private String first_name;
@@ -11,7 +11,7 @@ public class User implements IUser {
     private boolean is_authenticated;
     private String token;
     private String password;
-    private emotional_man emotional_parnet;
+    private emotional_states emotional_parnet;
     public User(String first_name, String last_name, int age , Gender gender, String email, String password){
         this.first_name = first_name;
         this.last_name = last_name;
@@ -20,10 +20,10 @@ public class User implements IUser {
         this.email = email;
         this.password = password;
     }
-    public emotional_man getEmotionalPartner(){
+    public emotional_states getEmotionalPartner(){
         return emotional_parnet;
     }
-    public void setEmotionalParnet(emotional_man emotional){
+    public void setEmotionalParnet(emotional_states emotional){
         this.emotional_parnet = emotional;
     }
     public java.lang.String getFullName() {
