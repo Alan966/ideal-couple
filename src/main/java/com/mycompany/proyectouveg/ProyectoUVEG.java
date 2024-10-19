@@ -21,6 +21,7 @@ public class ProyectoUVEG {
         User user = StartGame(sc);
         SetEmotionalPartner(sc, user);
     }
+    //StartGame: is the method that initialice the program
     public static User StartGame(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
         System.out.println("Ingresa el nombre");
