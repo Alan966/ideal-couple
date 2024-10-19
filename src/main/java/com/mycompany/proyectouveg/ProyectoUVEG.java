@@ -18,9 +18,10 @@ import java.util.Scanner;
 public class ProyectoUVEG {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        EmmotionalProcess(sc);
+        User user = StartGame(sc);
+        SetEmotionalPartner(sc, user);
     }
-    public static void EmmotionalProcess(Scanner sc){
+    public static User StartGame(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
         System.out.println("Ingresa el nombre");
         String first_name  = sc.nextLine();
@@ -41,7 +42,10 @@ public class ProyectoUVEG {
         String email = sc.nextLine();
         System.out.println("Ingresa Password");
         String password = sc.nextLine();
-        User user = new User(first_name, last_name, age, gender, email, password);
+        User new_user = new User(first_name, last_name, age, gender, email, password);
+        return new_user;
+    }
+    public static void SetEmotionalPartner(Scanner sc, User user){
         System.out.println("So we'll start the game");
         Gender response_gender = user.getGender();
         ServicesEmotionals emotional_service = null;
