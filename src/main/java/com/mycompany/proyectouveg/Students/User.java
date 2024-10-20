@@ -1,5 +1,7 @@
 package com.mycompany.proyectouveg.Students;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
 import com.mycompany.proyectouveg.interfaces.emotional_states;
@@ -16,7 +18,8 @@ public class User implements ServicesEmotionals.IUser {
     private String password;
     private emotional_states emotional_parnet;
     double id_counter = 0.00000001;
-    public User(String first_name, String last_name, int age , Gender gender, String email, String password){
+    Calendar birhtday;
+    public User(String first_name, String last_name, int age , Gender gender, String email, String password, String year_mo_da){
         id_counter++;
         this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
@@ -25,6 +28,10 @@ public class User implements ServicesEmotionals.IUser {
         this.gender = gender;
         this.email = email;
         this.password = password;
+        int year = Integer.parseInt(year_mo_da.split("/")[0]);
+        int month =  Integer.parseInt(year_mo_da.split("/")[1]) - 1;
+        int day =Integer.parseInt(year_mo_da.split("/")[2]);
+        this.birhtday = new GregorianCalendar(year, month, day);
     }
     public emotional_states getEmotionalPartner(){
         return emotional_parnet;

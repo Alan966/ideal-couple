@@ -61,7 +61,9 @@ public class ProyectoUVEG {
         String email = sc.nextLine();
         System.out.println("Ingresa Password");
         String password = sc.nextLine();
-        return new User(first_name, last_name, age, gender, email, password);
+        System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
+        String birthday = sc.nextLine();
+        return new User(first_name, last_name, age, gender, email, password, birthday);
     }
     public static void SetEmotionalPartner(Scanner sc, User user){
         System.out.println("So we'll start the game");
