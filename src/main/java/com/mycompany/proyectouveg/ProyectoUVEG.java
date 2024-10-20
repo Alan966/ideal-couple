@@ -3,6 +3,7 @@
  */
 package com.mycompany.proyectouveg;
 
+import com.mycompany.proyectouveg.Services.MakeCouplesServices;
 import com.mycompany.proyectouveg.Services.ManServiceEmotions;
 import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
 import com.mycompany.proyectouveg.Services.WomanServiceEmotionals;
@@ -18,10 +19,10 @@ import java.util.Scanner;
  */
 public class ProyectoUVEG {
     static ArrayList<User> users = new ArrayList<>();
+    static MakeCouplesServices made_couples = new MakeCouplesServices();
     public static void main(String[] args) {
         StartGame();
     }
-
     //StartGame: is the method that initialice the program
     public  static void StartGame(){
         Scanner sc = new Scanner(System.in);
@@ -30,12 +31,14 @@ public class ProyectoUVEG {
         users.add(user);
         System.out.println("This is your id: "+ user.getIdUser());
         System.out.println("Has finish to upload the users ?");
-        System.out.println("Response true or flase");
+        System.out.println("Response true or false");
         if(sc.nextLine().equals("true")){
             return;
         }else{
+            made_couples.setOrder(false);
             StartGame();
         }
+        made_couples.sortUsersByGender(users);
     }
     public static User AddNewUser(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
