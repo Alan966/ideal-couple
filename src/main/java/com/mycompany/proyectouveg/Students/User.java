@@ -1,8 +1,11 @@
 package com.mycompany.proyectouveg.Students;
 import java.util.Date;
-import com.mycompany.proyectouveg.Services.*;
 
-public class User implements IUser {
+import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
+import com.mycompany.proyectouveg.interfaces.emotional_states;
+
+public class User implements ServicesEmotionals.IUser {
+    private int id_user;
     private String first_name;
     private String last_name;
     private int age;
@@ -13,6 +16,7 @@ public class User implements IUser {
     private String password;
     private emotional_states emotional_parnet;
     public User(String first_name, String last_name, int age , Gender gender, String email, String password){
+        this.id_user = (int) (Math.random() * 100000000);
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
@@ -25,6 +29,9 @@ public class User implements IUser {
     }
     public void setEmotionalParnet(emotional_states emotional){
         this.emotional_parnet = emotional;
+    }
+    public int getIdUser(){
+        return this.id_user;
     }
     public java.lang.String getFullName() {
         return this.first_name + " " + this.last_name;
