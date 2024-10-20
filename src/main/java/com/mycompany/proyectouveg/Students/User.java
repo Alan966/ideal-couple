@@ -18,7 +18,7 @@ public class User implements ServicesEmotionals.IUser {
     double id_counter = 0.00000001;
     public User(String first_name, String last_name, int age , Gender gender, String email, String password){
         id_counter++;
-        this.id_user = (int) (id_counter * 100000000);
+        this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
