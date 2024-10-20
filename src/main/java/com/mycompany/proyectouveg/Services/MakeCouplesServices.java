@@ -6,7 +6,10 @@ import com.mycompany.proyectouveg.interfaces.*;
 import com.mycompany.proyectouveg.enums.*;
 
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MakeCouplesServices {
     private static ArrayList<User> womans = new ArrayList<>();
@@ -43,51 +46,35 @@ public class MakeCouplesServices {
         }
         return emotional_couples;
     };
+    private static final Map<Map.Entry<emotional_states, emotional_states>, Integer> compatibilityMap = new HashMap<>();
+    static {
+        //emotional_man.emotional_connection
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection, emotional_woman.emotionally_engaged), 80);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_balanced), 85);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_independent), 60);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_reserved), 70);
+       //emotional_man.balanced_listener
+
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_engaged ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_balanced ), 95);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_independent ), 75);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_reserved ), 80);
+
+        //emotional_man.calm_problem_solver
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_engaged ), 85);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_balanced ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_independent ), 95);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_reserved ), 85);
+
+        //emotional_man.stoic_protector
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_engaged ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_balanced ), 80);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_independent ), 70);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_reserved ), 60);
+
+    };
     static int getCompatibilityEmotionalStates(emotional_states index_emotional, emotional_states couple_emotional){
-        if(index_emotional == emotional_man.emotional_connection && couple_emotional == emotional_woman.emotionally_engaged){
-            return 80;
-        }else if(index_emotional == emotional_man.emotional_connection && couple_emotional == emotional_woman.emotionally_balanced){
-            return 85;
-        }
-        else if(index_emotional == emotional_man.emotional_connection && couple_emotional == emotional_woman.emotionally_independent){
-            return 60;
-        }
-        else if(index_emotional == emotional_man.emotional_connection && couple_emotional == emotional_woman.emotionally_reserved){
-            return 70;
-        }
-        else if(index_emotional == emotional_man.balanced_listener && couple_emotional == emotional_woman.emotionally_engaged){
-            return 90;
-        }else if(index_emotional == emotional_man.balanced_listener && couple_emotional == emotional_woman.emotionally_balanced){
-            return 95;
-        }
-        else if(index_emotional == emotional_man.balanced_listener && couple_emotional == emotional_woman.emotionally_independent){
-            return 75;
-        }
-        else if(index_emotional == emotional_man.balanced_listener && couple_emotional == emotional_woman.emotionally_reserved){
-            return 80;
-        }
-        else if(index_emotional == emotional_man.calm_problem_solver && couple_emotional == emotional_woman.emotionally_engaged){
-            return 85;
-        }else if(index_emotional == emotional_man.calm_problem_solver && couple_emotional == emotional_woman.emotionally_balanced){
-            return 90;
-        }
-        else if(index_emotional == emotional_man.calm_problem_solver && couple_emotional == emotional_woman.emotionally_independent){
-            return 95;
-        }
-        else if(index_emotional == emotional_man.calm_problem_solver && couple_emotional == emotional_woman.emotionally_reserved){
-            return 85;
-        }
-        else if(index_emotional == emotional_man.stoic_protector && couple_emotional == emotional_woman.emotionally_engaged){
-            return 90;
-        }else if(index_emotional == emotional_man.stoic_protector && couple_emotional == emotional_woman.emotionally_balanced){
-            return 80;
-        }
-        else if(index_emotional == emotional_man.stoic_protector && couple_emotional == emotional_woman.emotionally_independent){
-            return 70;
-        }
-        else{
-            return 60;
-        }
+        return compatibilityMap.getOrDefault(new AbstractMap.SimpleEntry<>(index_emotional, couple_emotional),60 );
     };
     static User findUserByBinarySearch(int id_user){
         int left = 0;
