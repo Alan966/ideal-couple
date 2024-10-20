@@ -28,18 +28,28 @@ public class MakeCouplesServices {
         if(index_user.getGender() == Gender.Masculino){
             length_users = womans.size() - 1;
             while(length_users>=0){
-                int emotional_copability = getCompatibilityEmotionalStates( womans.get(length_users).getEmotionalPartner(), index_user.getEmotionalPartner());
+                User index_woman = womans.get(length_users);
+                int difference_age = index_user.getBirthday().getYear() - index_woman.getBirthday().getYear();
+                if(difference_age < -3 || difference_age > 3){
+                    continue;
+                }
+                int emotional_copability = getCompatibilityEmotionalStates( index_woman.getEmotionalPartner(), index_user.getEmotionalPartner());
                 if (emotional_copability > 74 && emotional_copability < 86) {
-                    emotional_couples.add(womans.get(length_users));
+                    emotional_couples.add(index_woman);
                 };
                 length_users--;
             }
         }else {
             length_users = mans.size() - 1;
             while(length_users >= 0){
-                int emotional_copability = getCompatibilityEmotionalStates(index_user.getEmotionalPartner(), mans.get(length_users).getEmotionalPartner());
+                User index_man = mans.get(length_users);
+                int difference_age = index_user.getBirthday().getYear() - index_man.getBirthday().getYear();
+                if(difference_age < -3 || difference_age > 3){
+                    continue;
+                }
+                int emotional_copability = getCompatibilityEmotionalStates(index_user.getEmotionalPartner(), index_man.getEmotionalPartner());
                 if(emotional_copability >74 && emotional_copability < 86){
-                    emotional_couples.add(mans.get(length_users));
+                    emotional_couples.add(index_man);
                 }
                 length_users--;
             }

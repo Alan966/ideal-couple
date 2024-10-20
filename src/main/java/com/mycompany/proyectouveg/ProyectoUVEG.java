@@ -66,7 +66,7 @@ public class ProyectoUVEG {
         return new User(first_name, last_name, age, gender, email, password, birthday);
     }
     public static void SetEmotionalPartner(Scanner sc, User user){
-        System.out.println("So we'll start the game");
+        System.out.println(user.getBirthday());
         Gender response_gender = user.getGender();
         ServicesEmotionals emotional_service = null;
         // Here we execute to for know their emotional sevice
