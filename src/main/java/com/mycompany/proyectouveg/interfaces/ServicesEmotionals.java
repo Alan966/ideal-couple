@@ -21,6 +21,7 @@ public interface ServicesEmotionals {
         String getEmail();
         void setFistName(String first_name);
         void setLastName(String last_name);
+        void setBirthday(String birthday);
         void setAge(int age);
         void setGender(Gender gender);
         void setEmail(String email);
