@@ -11,7 +11,6 @@ public class User implements ServicesEmotionals.IUser {
     private int id_user;
     private String first_name;
     private String last_name;
-    private int age;
     private Gender gender;
     private String email;
     private boolean is_authenticated;
@@ -21,12 +20,11 @@ public class User implements ServicesEmotionals.IUser {
     double id_counter = 0.00000001;
     Calendar birhtday;
 
-    public User(String first_name, String last_name, int age, Gender gender, String email, String password, String year_mo_da) {
+    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da) {
         id_counter++;
         this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
         this.last_name = last_name;
-        this.age = age;
         this.gender = gender;
         this.email = email;
         this.password = password;
@@ -57,10 +55,6 @@ public class User implements ServicesEmotionals.IUser {
         this.last_name = last_name;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public void setGender(Gender gender) {
         this.gender = gender;
     }
@@ -89,10 +83,6 @@ public class User implements ServicesEmotionals.IUser {
         return this.last_name;
     }
 
-    public int getAge() {
-        return this.age;
-    }
-
     public Gender getGender() {
         return this.gender;
     }
@@ -104,8 +94,10 @@ public class User implements ServicesEmotionals.IUser {
     ;
 
     public Date getBirthday() {
-       return this.birhtday.getTime();
-    };
+        return this.birhtday.getTime();
+    }
+
+    ;
 
     public void Authentication(String username, String password) {
         //TODO: Implement database for authenticated

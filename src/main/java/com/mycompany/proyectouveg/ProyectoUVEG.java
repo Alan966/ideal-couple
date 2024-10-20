@@ -46,9 +46,6 @@ public class ProyectoUVEG {
         String first_name  = sc.nextLine();
         System.out.println("Ingresa el apellido");
         String last_name  = sc.nextLine();
-        System.out.println("Ingresa la edad");
-        int age;
-        age = Integer.parseInt(sc.nextLine());
         System.out.println("Ingresa el sexo");
         String response_gender_scanner = sc.nextLine();
         Gender gender;
@@ -63,7 +60,7 @@ public class ProyectoUVEG {
         String password = sc.nextLine();
         System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
         String birthday = sc.nextLine();
-        return new User(first_name, last_name, age, gender, email, password, birthday);
+        return new User(first_name, last_name, gender, email, password, birthday);
     }
     public static void SetEmotionalPartner(Scanner sc, User user){
         System.out.println(user.getBirthday());
