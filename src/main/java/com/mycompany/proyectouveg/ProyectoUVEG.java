@@ -4,11 +4,12 @@
 package com.mycompany.proyectouveg;
 
 import com.mycompany.proyectouveg.Services.ManServiceEmotions;
-import com.mycompany.proyectouveg.Services.ServicesEmotionals;
+import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
 import com.mycompany.proyectouveg.Services.WomanServiceEmotionals;
 import com.mycompany.proyectouveg.Students.Gender;
 import com.mycompany.proyectouveg.Students.User;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -16,13 +17,27 @@ import java.util.Scanner;
  * @author alanu
  */
 public class ProyectoUVEG {
+    static ArrayList<User> users = new ArrayList<>();
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        User user = StartGame(sc);
-        SetEmotionalPartner(sc, user);
+        StartGame();
     }
+
     //StartGame: is the method that initialice the program
-    public static User StartGame(Scanner sc){
+    public  static void StartGame(){
+        Scanner sc = new Scanner(System.in);
+        User user = AddNewUser(sc);
+        SetEmotionalPartner(sc, user);
+        users.add(user);
+        System.out.println("This is your id: "+ user.getIdUser());
+        System.out.println("Has finish to upload the users ?");
+        System.out.println("Response true or flase");
+        if(sc.nextLine().equals("true")){
+            return;
+        }else{
+            StartGame();
+        }
+    }
+    public static User AddNewUser(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
         System.out.println("Ingresa el nombre");
         String first_name  = sc.nextLine();
