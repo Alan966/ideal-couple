@@ -1,9 +1,11 @@
 package com.mycompany.proyectouveg.Services;
 
 import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.enums.emotional_man;
+import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
 
 import java.util.Scanner;
-public class WomanServiceEmotionals implements ServicesEmotionals{
+public class WomanServiceEmotionals implements ServicesEmotionals {
     private int points;
     private emotional_man emotional_partner;
     private Scanner scanner;
