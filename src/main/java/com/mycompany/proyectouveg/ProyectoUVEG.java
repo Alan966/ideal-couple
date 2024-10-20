@@ -18,13 +18,13 @@ import java.util.Scanner;
  * @author alanu
  */
 public class ProyectoUVEG {
-    static ArrayList<User> users = new ArrayList<>();
     static MakeCouplesServices made_couples = new MakeCouplesServices();
     public static void main(String[] args) {
-        StartGame();
+
+        StartGame(DB.getUsers());
     }
     //StartGame: is the method that initialice the program
-    public  static void StartGame(){
+    public  static void StartGame(ArrayList<User> users){
         Scanner sc = new Scanner(System.in);
         User user = AddNewUser(sc);
         SetEmotionalPartner(sc, user);
@@ -36,9 +36,9 @@ public class ProyectoUVEG {
             return;
         }else{
             made_couples.setOrder(false);
-            StartGame();
+            StartGame(users);
         }
-        made_couples.sortUsersByGender(users);
+        made_couples.sortUsersByGender();
     }
     public static User AddNewUser(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");

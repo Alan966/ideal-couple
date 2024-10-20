@@ -1,4 +1,5 @@
 package com.mycompany.proyectouveg.Services;
+import com.mycompany.proyectouveg.DB;
 import com.mycompany.proyectouveg.Students.Gender;
 import com.mycompany.proyectouveg.Students.User;
 
@@ -8,10 +9,11 @@ public class MakeCouplesServices {
     private static ArrayList<User> womans = new ArrayList<>();
     private static ArrayList<User> mans = new ArrayList<>();
     private  boolean is_order = true;
+    private ArrayList<User> users = DB.getUsers();
     public User searchCoupleForUserId(User[] users, int idUser) {
         return users[0];
     };
-    public void sortUsersByGender(ArrayList<User> users){
+    public void sortUsersByGender(){
         if(this.is_order == true){
             System.out.println("Not Order the users are ordered");
             return;
