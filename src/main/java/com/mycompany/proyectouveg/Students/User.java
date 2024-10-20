@@ -15,8 +15,10 @@ public class User implements ServicesEmotionals.IUser {
     private String token;
     private String password;
     private emotional_states emotional_parnet;
+    double id_counter = 0.00000001;
     public User(String first_name, String last_name, int age , Gender gender, String email, String password){
-        this.id_user = (int) (Math.random() * 100000000);
+        id_counter++;
+        this.id_user = (int) (id_counter * 100000000);
         this.first_name = first_name;
         this.last_name = last_name;
         this.age = age;
