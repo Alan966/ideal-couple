@@ -1,11 +1,13 @@
-package com.mycompany.proyectouveg.Services;
+package com.mycompany.proyectouveg.emotionalsCouples;
 
 import com.mycompany.proyectouveg.Students.User;
-import com.mycompany.proyectouveg.enums.emotional_man;
-import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
+import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_man;
+import com.mycompany.proyectouveg.interfaces.Services;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
-public class WomanServiceEmotionals implements ServicesEmotionals {
+public class WomanServiceEmotionals implements Services {
     private int points;
     private emotional_man emotional_partner;
     private Scanner scanner;
@@ -19,7 +21,7 @@ public class WomanServiceEmotionals implements ServicesEmotionals {
         if(!user_could_play){
             System.out.println("Finish the game");
             return;
-        }
+        };
         System.out.println("This is the first part for know what do you want");
         FistQuestion(this.scanner);
         SecondQuestion(this.scanner);
@@ -39,7 +41,9 @@ public class WomanServiceEmotionals implements ServicesEmotionals {
     }
     public boolean StartGame(User user){
         boolean response = false;
-        if(user.getAge() > 18){
+        Calendar now = new GregorianCalendar();
+        int difference = user.getBirthday().getYear() - now.getTime().getYear();
+        if( difference > 18 || difference < -18 ){
             System.out.println("Hora de Coitorrear!!");
             response = true;
         }else{

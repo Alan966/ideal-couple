@@ -4,10 +4,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
+import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.interfaces.emotional_states;
 
-public class User implements ServicesEmotionals.IUser {
+public class User implements Services.IUser {
     private int id_user;
     private String first_name;
     private String last_name;

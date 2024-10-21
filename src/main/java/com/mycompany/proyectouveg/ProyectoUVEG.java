@@ -3,10 +3,10 @@
  */
 package com.mycompany.proyectouveg;
 
-import com.mycompany.proyectouveg.Services.MakeCouplesServices;
-import com.mycompany.proyectouveg.Services.ManServiceEmotions;
-import com.mycompany.proyectouveg.interfaces.ServicesEmotionals;
-import com.mycompany.proyectouveg.Services.WomanServiceEmotionals;
+import com.mycompany.proyectouveg.emotionalsCouples.MakeCouplesEmotionalsPartner;
+import com.mycompany.proyectouveg.emotionalsCouples.ManServiceEmotions;
+import com.mycompany.proyectouveg.interfaces.Services;
+import com.mycompany.proyectouveg.emotionalsCouples.WomanServiceEmotionals;
 import com.mycompany.proyectouveg.Students.Gender;
 import com.mycompany.proyectouveg.Students.User;
 
@@ -18,9 +18,8 @@ import java.util.Scanner;
  * @author alanu
  */
 public class ProyectoUVEG {
-    static MakeCouplesServices made_couples = new MakeCouplesServices();
+    static MakeCouplesEmotionalsPartner made_couples = new MakeCouplesEmotionalsPartner();
     public static void main(String[] args) {
-
         StartGame(DB.getUsers());
     }
     //StartGame: is the method that initialice the program
@@ -65,7 +64,7 @@ public class ProyectoUVEG {
     public static void SetEmotionalPartner(Scanner sc, User user){
         System.out.println(user.getBirthday());
         Gender response_gender = user.getGender();
-        ServicesEmotionals emotional_service = null;
+        Services emotional_service = null;
         // Here we execute to for know their emotional sevice
         switch (response_gender){
             case Masculino -> {
@@ -79,4 +78,7 @@ public class ProyectoUVEG {
         }
         emotional_service.start();
     }
+    public static void setLifeGoalsAndAmbitions(Scanner sc, User user){
+
+    };
 }

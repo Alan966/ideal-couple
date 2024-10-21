@@ -1,9 +1,10 @@
-package com.mycompany.proyectouveg.Services;
+package com.mycompany.proyectouveg.emotionalsCouples;
 import com.mycompany.proyectouveg.DB;
 import com.mycompany.proyectouveg.Students.Gender;
 import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_man;
+import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_woman;
 import com.mycompany.proyectouveg.interfaces.*;
-import com.mycompany.proyectouveg.enums.*;
 
 
 import java.util.AbstractMap;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MakeCouplesServices {
+public class MakeCouplesEmotionalsPartner {
     private static ArrayList<User> womans = new ArrayList<>();
     private static ArrayList<User> mans = new ArrayList<>();
     private int orders = 0;

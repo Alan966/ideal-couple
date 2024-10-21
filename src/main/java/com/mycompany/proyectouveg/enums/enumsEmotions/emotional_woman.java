@@ -1,4 +1,4 @@
-package com.mycompany.proyectouveg.enums;
+package com.mycompany.proyectouveg.enums.enumsEmotions;
 
 import com.mycompany.proyectouveg.interfaces.emotional_states;
 

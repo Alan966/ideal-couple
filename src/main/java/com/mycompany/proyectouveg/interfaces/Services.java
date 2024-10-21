@@ -4,7 +4,7 @@ import com.mycompany.proyectouveg.Students.*;
 
 import java.util.Scanner;
 
-public interface ServicesEmotionals {
+public interface Services {
     void start();
 
     boolean StartGame(User user);
