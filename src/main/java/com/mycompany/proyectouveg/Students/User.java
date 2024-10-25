@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 
 import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.interfaces.emotional_states;
+import  com.mycompany.proyectouveg.interfaces.life_and_ambitions;
 
 public class User implements Services.IUser {
     private int id_user;
@@ -17,6 +18,7 @@ public class User implements Services.IUser {
     private String token;
     private String password;
     private emotional_states emotional_parnet;
+    private life_and_ambitions life_and_ambition_partner;
     double id_counter = 0.00000001;
     Calendar birhtday;
 
@@ -36,6 +38,9 @@ public class User implements Services.IUser {
 
     public void setEmotionalParnet(emotional_states emotional) {
         this.emotional_parnet = emotional;
+    };
+    public void  setLifeAndAmbitionPartner(life_and_ambitions life_am){
+        this.life_and_ambition_partner = life_am;
     }
 
     public void setBirthday(String birthday) {
@@ -68,8 +73,11 @@ public class User implements Services.IUser {
     }
 
     public emotional_states getEmotionalPartner() {
-        return emotional_parnet;
-    }
+        return this.emotional_parnet;
+    };
+    public life_and_ambitions getLifeAndAmbitions(){
+        return this.life_and_ambition_partner;
+    };
 
     public java.lang.String getFullName() {
         return this.first_name + " " + this.last_name;

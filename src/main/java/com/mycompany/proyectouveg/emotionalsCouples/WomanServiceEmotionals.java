@@ -37,7 +37,7 @@ public class WomanServiceEmotionals implements Services {
         }else {
             emotional_partner = emotional_man.emotional_connection;
         }
-        user.setEmotionalParnet(emotional_partner);
+        this.user.setEmotionalParnet(emotional_partner);
     }
     public boolean StartGame(User user){
         boolean response = false;

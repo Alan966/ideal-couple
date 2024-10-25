@@ -1,7 +1,7 @@
 package com.mycompany.proyectouveg.lifeGoalsAndAmbitions;
 import com.mycompany.proyectouveg.Students.User;
 import  com.mycompany.proyectouveg.interfaces.Services;
-import com.mycompany.proyectouveg.enums.enumsLifeandAmbitions.*;
+import com.mycompany.proyectouveg.enums.enumsLifeandAmbitions.life_and_ambitions_man;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class WomanServiceLifeandGoals implements  Services{
     private int points;
-    private life_and_ambitions_man life_and_ambitions_man;
+    private life_and_ambitions_man life_and_ambition_partner;
     private Scanner scanner;
     private User user;
     WomanServiceLifeandGoals(Scanner scanner, User user){
@@ -30,6 +30,16 @@ public class WomanServiceLifeandGoals implements  Services{
         ThirdQuestion(this.scanner);
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
+        if(points <= 5){
+            life_and_ambition_partner = life_and_ambitions_man.traditional_provider_led_relationship;
+        }else if(points <= 10){
+            life_and_ambition_partner = life_and_ambitions_man.more_traditional_family_focused;
+        }else if (points <= 15){
+            life_and_ambition_partner = life_and_ambitions_man.balanced_team_oriented_partner;
+        }else{
+            life_and_ambition_partner = life_and_ambitions_man.highly_ambitious_supportive_partner;
+        }
+        this.user.setLifeAndAmbitionPartner(life_and_ambition_partner);
     }
 
     @Override
@@ -117,14 +127,33 @@ public class WomanServiceLifeandGoals implements  Services{
     }
     @Override
     public void FourthQuestion(Scanner sn) {
-        System.out.println("I prefer to focus on my career for now and think about family planning much later");
+        System.out.println("How do you view family planning in relation to your personal ambitions?");
+        System.out.println("a) I prefer to focus on my career for now and think about family planning much later");
         System.out.println("a) I'd like to balance both family and personal goals from the start");
         System.out.println("b) I am open to focusing on family sooner, but I want to keep working on personal ambitions");
         System.out.println("c) I would prioritize family over personal ambitions when the time comes");
+        String response = sn.nextLine();
+        String is_valid = isValidresponse(response);
+        if(is_valid.equals("Not_valid")){
+            System.out.println("You response is not valid, Tried again");
+            SecondQuestion(sn);
+        }
+        addPoints(response);
     }
 
     @Override
     public void FifthQuestion(Scanner sn) {
-
+        System.out.println("How do you feel about traveling or relocating for career opportunities ?");
+        System.out.println("a) I am very open to relocating or traveling often for career growth, even if it means long-distance");
+        System.out.println("b) I would consider relocating or traveling for work if my partner is onboard with it");
+        System.out.println("c) I prefer stability but would relocate if it's important for us as a couple");
+        System.out.println("d) I don't like the idea of relocating and prefer a stable, settled life");
+        String response = sn.nextLine();
+        String is_valid = isValidresponse(response);
+        if(is_valid.equals("Not_valid")){
+            System.out.println("You response is not valid, Tried again");
+            SecondQuestion(sn);
+        }
+        addPoints(response);
     }
 }
