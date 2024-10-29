@@ -13,6 +13,7 @@ import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.ManServiceLifeandGoals;
 import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.WomanServiceLifeandGoals;
 
 import java.security.Provider;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,9 +30,11 @@ public class ProyectoUVEG {
     public  static void StartGame(ArrayList<User> users){
         Scanner sc = new Scanner(System.in);
         User user = AddNewUser(sc);
-        SetEmotionalPartner(sc, user);
+        SetCoupleSupport(sc, user);
         users.add(user);
         System.out.println("This is your id: "+ user.getIdUser());
+        System.out.println("This is your couple emotional :"+ user.getEmotionalPartner());
+        System.out.println("This is your life and goal partner : "+ user.getLifeAndAmbitions());
         System.out.println("Has finish to upload the users ?");
         System.out.println("Response true or false");
         if(sc.nextLine().equals("true")){

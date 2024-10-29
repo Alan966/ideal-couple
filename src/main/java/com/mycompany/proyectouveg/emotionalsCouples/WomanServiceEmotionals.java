@@ -135,6 +135,7 @@ public class WomanServiceEmotionals implements Services {
         System.out.println("a) Talk openly about their feelings, and share what's bothering them");
         System.out.println("b) Be calm but share their concerns after reflecting");
         System.out.println("c) stay composed and focus on solving the problem rather than talking about emotions");
+        System.out.println("d) Stay composed and focus on solving the problem rather than talking about emotions ");
         String response = scanner.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){

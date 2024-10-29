@@ -129,9 +129,9 @@ public class WomanServiceLifeandGoals implements  Services{
     public void FourthQuestion(Scanner sn) {
         System.out.println("How do you view family planning in relation to your personal ambitions?");
         System.out.println("a) I prefer to focus on my career for now and think about family planning much later");
-        System.out.println("a) I'd like to balance both family and personal goals from the start");
-        System.out.println("b) I am open to focusing on family sooner, but I want to keep working on personal ambitions");
-        System.out.println("c) I would prioritize family over personal ambitions when the time comes");
+        System.out.println("b) I'd like to balance both family and personal goals from the start");
+        System.out.println("c) I am open to focusing on family sooner, but I want to keep working on personal ambitions");
+        System.out.println("d) I would prioritize family over personal ambitions when the time comes");
         String response = sn.nextLine();
         String is_valid = isValidresponse(response);
         if(is_valid.equals("Not_valid")){
