@@ -9,7 +9,10 @@ import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.emotionalsCouples.WomanServiceEmotionals;
 import com.mycompany.proyectouveg.Students.Gender;
 import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.ManServiceLifeandGoals;
+import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.WomanServiceLifeandGoals;
 
+import java.security.Provider;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -61,24 +64,24 @@ public class ProyectoUVEG {
         String birthday = sc.nextLine();
         return new User(first_name, last_name, gender, email, password, birthday);
     }
-    public static void SetEmotionalPartner(Scanner sc, User user){
-        System.out.println(user.getBirthday());
+    public static void SetCoupleSupport(Scanner sc, User user){
         Gender response_gender = user.getGender();
         Services emotional_service = null;
+        Services life_and_goals = null;
         // Here we execute to for know their emotional sevice
         switch (response_gender){
             case Masculino -> {
                 emotional_service =  new ManServiceEmotions(sc, user);
+                life_and_goals = new ManServiceLifeandGoals(sc, user);
                 break;
             }
             case Femenino -> {
                 emotional_service = new WomanServiceEmotionals(sc, user);
+                life_and_goals = new WomanServiceLifeandGoals(sc, user);
                 break;
             }
         }
         emotional_service.start();
+        life_and_goals.start();
     }
-    public static void setLifeGoalsAndAmbitions(Scanner sc, User user){
-
-    };
 }

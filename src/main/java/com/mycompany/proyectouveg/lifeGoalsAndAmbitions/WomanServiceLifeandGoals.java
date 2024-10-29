@@ -12,7 +12,7 @@ public class WomanServiceLifeandGoals implements  Services{
     private life_and_ambitions_man life_and_ambition_partner;
     private Scanner scanner;
     private User user;
-    WomanServiceLifeandGoals(Scanner scanner, User user){
+    public WomanServiceLifeandGoals(Scanner scanner, User user){
         this.scanner = scanner;
         this.user = user;
     }
