@@ -25,7 +25,6 @@ public class ManLoveLenguageAndAffection  implements Services {
             System.out.println("Finish the game");
             return;
         };
-        System.out.println("This is the first part for know what do you want");
         FistQuestion(this.scanner);
         SecondQuestion(this.scanner);
         ThirdQuestion(this.scanner);
