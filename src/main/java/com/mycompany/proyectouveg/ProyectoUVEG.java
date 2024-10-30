@@ -3,6 +3,8 @@
  */
 package com.mycompany.proyectouveg;
 
+import com.mycompany.proyectouveg.LoveLenguageAndAffectio.ManLoveLenguageAndAffection;
+import com.mycompany.proyectouveg.LoveLenguageAndAffectio.WomanLoveLenguageAndAffection;
 import com.mycompany.proyectouveg.emotionalsCouples.MakeCouplesEmotionalsPartner;
 import com.mycompany.proyectouveg.emotionalsCouples.ManServiceEmotions;
 import com.mycompany.proyectouveg.interfaces.Services;
@@ -71,20 +73,24 @@ public class ProyectoUVEG {
         Gender response_gender = user.getGender();
         Services emotional_service = null;
         Services life_and_goals = null;
+        Services love_lenguage_and_affection = null;
         // Here we execute to for know their emotional sevice
         switch (response_gender){
             case Masculino -> {
                 emotional_service =  new ManServiceEmotions(sc, user);
                 life_and_goals = new ManServiceLifeandGoals(sc, user);
+                love_lenguage_and_affection = new ManLoveLenguageAndAffection(sc, user);
                 break;
             }
             case Femenino -> {
                 emotional_service = new WomanServiceEmotionals(sc, user);
                 life_and_goals = new WomanServiceLifeandGoals(sc, user);
+                love_lenguage_and_affection = new WomanLoveLenguageAndAffection(sc, user);
                 break;
             }
         }
         emotional_service.start();
         life_and_goals.start();
+        love_lenguage_and_affection.start();
     }
 }
