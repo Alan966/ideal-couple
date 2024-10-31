@@ -30,11 +30,11 @@ public class WomanLoveLenguageAndAffection implements Services {
         ThirdQuestion(this.scanner);
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
-        if(points <= 5){
+        if(this.points <= 5){
             love_lenguage_partner = man_love_lenguage_and_affection.independent_reserved_partner;
-        }else if (points <= 10){
+        }else if (this.points <= 10){
             love_lenguage_partner = man_love_lenguage_and_affection.low_key_reliable_partner;
-        }else if(points <= 15){
+        }else if(this.points <= 15){
             love_lenguage_partner = man_love_lenguage_and_affection.supportive_balanced_partner;
         }else {
             love_lenguage_partner = man_love_lenguage_and_affection.thoughtful_emotionally_engaged;
