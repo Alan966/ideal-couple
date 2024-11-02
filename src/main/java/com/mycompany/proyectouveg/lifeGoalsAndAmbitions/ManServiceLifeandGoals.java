@@ -1,5 +1,5 @@
 package com.mycompany.proyectouveg.lifeGoalsAndAmbitions;
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.enums.enumsLifeandAmbitions.*;
 import com.mycompany.proyectouveg.interfaces.Services;
 

@@ -1,15 +1,13 @@
-package com.mycompany.proyectouveg.Students;
+package com.mycompany.proyectouveg.Users;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
-import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.interfaces.emotional_states;
 import  com.mycompany.proyectouveg.interfaces.life_and_ambitions;
 import com.mycompany.proyectouveg.interfaces.love_lenguage_and_affection;
 
-public class User implements Services.IUser {
+public class User implements IUser {
     private int id_user;
     private String first_name;
     private String last_name;
@@ -37,13 +35,18 @@ public class User implements Services.IUser {
         int day = Integer.parseInt(year_mo_da.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
     }
-
-    public void setEmotionalParnet(emotional_states emotional) {
-        this.emotional_parnet = emotional;
+    @Override
+    public void setEmotionalPartner(emotional_states emotional_parnet) {
+        this.emotional_parnet = emotional_parnet;
     };
+    @Override
     public void  setLifeAndAmbitionPartner(life_and_ambitions life_am){
         this.life_and_ambition_partner = life_am;
     }
+
+    @Override
+    public void setLenguageAndAffectionPartner(love_lenguage_and_affection love_lenguage_and_affection_partner) {}
+
 
     public void setBirthday(String birthday) {
         int year = Integer.parseInt(birthday.split("/")[0]);
@@ -67,12 +70,10 @@ public class User implements Services.IUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
     public void  setLoveLenguagePartner( love_lenguage_and_affection loveL_lenguage_partner){
         this.love_lenguage_partner = loveL_lenguage_partner;
-    }
-
-    public int getIdUser() {
-        return this.id_user;
     }
     public  love_lenguage_and_affection getLoveLenguagePartner() {
         return this.love_lenguage_partner;
@@ -85,6 +86,10 @@ public class User implements Services.IUser {
         return this.life_and_ambition_partner;
     };
 
+    @Override
+    public int getUserId() {
+        return this.id_user;
+    }
     public java.lang.String getFullName() {
         return this.first_name + " " + this.last_name;
     }
@@ -125,6 +130,11 @@ public class User implements Services.IUser {
 
     public boolean isAuthenticated() {
         return is_authenticated;
+    }
+
+    @Override
+    public void generateToken() {
+
     }
 
     public void generateToken(String username) {

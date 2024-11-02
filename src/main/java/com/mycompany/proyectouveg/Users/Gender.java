@@ -1,4 +1,4 @@
-package com.mycompany.proyectouveg.Students;
+package com.mycompany.proyectouveg.Users;
 
 public enum Gender {
     Masculino,

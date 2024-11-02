@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg.LoveLenguageAndAffectio;
 
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.enums.LoveLenguageAndAffection.man_love_lenguage_and_affection;
 import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.interfaces.love_lenguage_and_affection;

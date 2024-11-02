@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg;
 
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.User;
 
 import java.util.ArrayList;
 

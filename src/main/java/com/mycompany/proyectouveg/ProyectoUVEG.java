@@ -9,13 +9,11 @@ import com.mycompany.proyectouveg.emotionalsCouples.MakeCouplesEmotionalsPartner
 import com.mycompany.proyectouveg.emotionalsCouples.ManServiceEmotions;
 import com.mycompany.proyectouveg.interfaces.Services;
 import com.mycompany.proyectouveg.emotionalsCouples.WomanServiceEmotionals;
-import com.mycompany.proyectouveg.Students.Gender;
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.Gender;
+import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.ManServiceLifeandGoals;
 import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.WomanServiceLifeandGoals;
 
-import java.security.Provider;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -92,5 +90,8 @@ public class ProyectoUVEG {
         emotional_service.start();
         life_and_goals.start();
         love_lenguage_and_affection.start();
+        System.out.println(user.getEmotionalPartner());
+        System.out.println(user.getLifeAndAmbitions());
+        System.out.println(user.getLoveLenguagePartner());
     }
 }

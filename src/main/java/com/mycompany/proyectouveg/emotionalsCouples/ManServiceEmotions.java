@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg.emotionalsCouples;
 
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_woman;
 import com.mycompany.proyectouveg.interfaces.Services;
 
@@ -97,7 +97,7 @@ public class ManServiceEmotions implements Services {
     ;
 
     public void SecondQuestion(Scanner sn) {
-        System.out.println("When your partner is upset, how would you like here to express it ?");
+        System.out.println("When your partner is upset, how would you like her to express it ?");
         System.out.println("a) Share her emotions openly with me, so we can talk through it together");
         System.out.println("b) Express her feelings but do calmly without letting emotions take over");
         System.out.println("c) Keep her feelings mostly to herself and talk about it only if absolutely needed");

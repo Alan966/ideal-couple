@@ -1,4 +1,4 @@
-package com.mycompany.proyectouveg.Students;
+package com.mycompany.proyectouveg.Users;
 public enum Actions_enums {
     action_one,
     action_two,

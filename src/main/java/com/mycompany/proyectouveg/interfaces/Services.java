@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg.interfaces;
 
-import com.mycompany.proyectouveg.Students.*;
+import com.mycompany.proyectouveg.Users.*;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
 package com.mycompany.proyectouveg.emotionalsCouples;
 
-import com.mycompany.proyectouveg.Students.User;
+import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_man;
 import com.mycompany.proyectouveg.interfaces.Services;
 
