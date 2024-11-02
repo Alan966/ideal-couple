@@ -19,33 +19,4 @@ public interface Services {
 
     void FifthQuestion(Scanner sn);
 
-    interface IUser {
-        String getFullName();
-
-        String getFirstName();
-
-        String getLastName();
-
-        Gender getGender();
-
-        String getEmail();
-
-        void setFistName(String first_name);
-
-        void setLastName(String last_name);
-
-        void setBirthday(String birthday);
-
-        void setGender(Gender gender);
-
-        void setEmail(String email);
-
-        void getAction(Actions_enums action);
-
-        void Authentication(String username, String password);
-
-        boolean isAuthenticated();
-
-        void generateToken(String username);
-    }
 }
