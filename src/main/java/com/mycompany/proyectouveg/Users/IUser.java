@@ -1,5 +1,7 @@
 package com.mycompany.proyectouveg.Users;
-import com.mycompany.proyectouveg.interfaces.*;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.life_and_ambitions_states;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.love_lenguage_states;
 
 import java.util.Date;
 
@@ -13,8 +15,8 @@ public interface IUser {
 
     //Setters for states of their partner
     public void setEmotionalPartner(emotional_states emotional_state_partner);
-    public void setLifeAndAmbitionPartner(life_and_ambitions life_and_ambitions_partner);
-    public void setLenguageAndAffectionPartner(love_lenguage_and_affection love_lenguage_and_affection_partner);
+    public void setLifeAndAmbitionPartner(life_and_ambitions_states life_and_ambitions_partner);
+    public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner);
 
 
     // Getters methods
@@ -29,9 +31,9 @@ public interface IUser {
 
 
     //Getters for states of their partner
-    public love_lenguage_and_affection getLoveLenguagePartner();
+    public love_lenguage_states getLoveLenguagePartner();
     public emotional_states getEmotionalPartner();
-    public life_and_ambitions getLifeAndAmbitions();
+    public life_and_ambitions_states getLifeAndAmbitions();
 
     public void Authentication (String username, String password);
     public boolean isAuthenticated();

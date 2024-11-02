@@ -1,20 +1,18 @@
-package com.mycompany.proyectouveg.LoveLenguageAndAffectio;
+package com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.enums.LoveLenguageAndAffection.man_love_lenguage_and_affection;
-import com.mycompany.proyectouveg.interfaces.Services;
-import com.mycompany.proyectouveg.interfaces.love_lenguage_and_affection;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class WomanLoveLenguageAndAffection implements Services {
+public class WomanLoveLenguageQuestions implements Services {
     private int points;
     private Scanner scanner;
     private User user;
-    public love_lenguage_and_affection love_lenguage_partner;
-    public WomanLoveLenguageAndAffection(Scanner sn, User user){
+    public love_lenguage_states love_lenguage_partner;
+    public WomanLoveLenguageQuestions(Scanner sn, User user){
         this.scanner = sn;
         this.user = user;
     }
@@ -31,13 +29,13 @@ public class WomanLoveLenguageAndAffection implements Services {
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
         if(this.points <= 5){
-            love_lenguage_partner = man_love_lenguage_and_affection.independent_reserved_partner;
+            love_lenguage_partner = love_lenguage_states_man.independent_reserved_partner;
         }else if (this.points <= 10){
-            love_lenguage_partner = man_love_lenguage_and_affection.low_key_reliable_partner;
+            love_lenguage_partner = love_lenguage_states_man.low_key_reliable_partner;
         }else if(this.points <= 15){
-            love_lenguage_partner = man_love_lenguage_and_affection.supportive_balanced_partner;
+            love_lenguage_partner = love_lenguage_states_man.supportive_balanced_partner;
         }else {
-            love_lenguage_partner = man_love_lenguage_and_affection.thoughtful_emotionally_engaged;
+            love_lenguage_partner = love_lenguage_states_man.thoughtful_emotionally_engaged;
         }
         this.user.setLoveLenguagePartner(love_lenguage_partner);
     }

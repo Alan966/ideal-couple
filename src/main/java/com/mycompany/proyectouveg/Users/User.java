@@ -3,9 +3,9 @@ package com.mycompany.proyectouveg.Users;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import com.mycompany.proyectouveg.interfaces.emotional_states;
-import  com.mycompany.proyectouveg.interfaces.life_and_ambitions;
-import com.mycompany.proyectouveg.interfaces.love_lenguage_and_affection;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.life_and_ambitions_states;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.love_lenguage_states;
 
 public class User implements IUser {
     private int id_user;
@@ -17,8 +17,8 @@ public class User implements IUser {
     private String token;
     private String password;
     private emotional_states emotional_parnet;
-    private life_and_ambitions life_and_ambition_partner;
-    private love_lenguage_and_affection love_lenguage_partner;
+    private life_and_ambitions_states life_and_ambition_partner;
+    private love_lenguage_states love_lenguage_partner;
     double id_counter = 0.00000001;
     Calendar birhtday;
 
@@ -40,12 +40,12 @@ public class User implements IUser {
         this.emotional_parnet = emotional_parnet;
     };
     @Override
-    public void  setLifeAndAmbitionPartner(life_and_ambitions life_am){
+    public void  setLifeAndAmbitionPartner(life_and_ambitions_states life_am){
         this.life_and_ambition_partner = life_am;
     }
 
     @Override
-    public void setLenguageAndAffectionPartner(love_lenguage_and_affection love_lenguage_and_affection_partner) {}
+    public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {}
 
 
     public void setBirthday(String birthday) {
@@ -72,17 +72,17 @@ public class User implements IUser {
     }
 
 
-    public void  setLoveLenguagePartner( love_lenguage_and_affection loveL_lenguage_partner){
+    public void  setLoveLenguagePartner( love_lenguage_states loveL_lenguage_partner){
         this.love_lenguage_partner = loveL_lenguage_partner;
     }
-    public  love_lenguage_and_affection getLoveLenguagePartner() {
+    public love_lenguage_states getLoveLenguagePartner() {
         return this.love_lenguage_partner;
     }
 
     public emotional_states getEmotionalPartner() {
         return this.emotional_parnet;
     };
-    public life_and_ambitions getLifeAndAmbitions(){
+    public life_and_ambitions_states getLifeAndAmbitions(){
         return this.life_and_ambition_partner;
     };
 

@@ -1,4 +1,4 @@
-package com.mycompany.proyectouveg.interfaces;
+package com.mycompany.proyectouveg.FindCouple;
 
 import com.mycompany.proyectouveg.Users.*;
 

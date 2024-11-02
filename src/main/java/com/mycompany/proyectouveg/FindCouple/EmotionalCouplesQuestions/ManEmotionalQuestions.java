@@ -1,19 +1,18 @@
-package com.mycompany.proyectouveg.emotionalsCouples;
+package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_woman;
-import com.mycompany.proyectouveg.interfaces.Services;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class ManServiceEmotions implements Services {
+public class ManEmotionalQuestions implements Services {
     private int points;
-    private emotional_woman emotions_partner;
+    private emotional_states_woman emotions_partner;
     private Scanner scanner;
     private User user;
-    public ManServiceEmotions(Scanner scanner, User user) {
+    public ManEmotionalQuestions(Scanner scanner, User user) {
         this.scanner = scanner;
         this.user = user;
     }
@@ -30,13 +29,13 @@ public class ManServiceEmotions implements Services {
         FourthQuestion(scanner);
         FifthQuestion(scanner);
         if(points < 8){
-            emotions_partner = emotional_woman.emotionally_reserved;
+            emotions_partner = emotional_states_woman.emotionally_reserved;
         }else if(points <= 12){
-            emotions_partner = emotional_woman.emotionally_independent;
+            emotions_partner = emotional_states_woman.emotionally_independent;
         }else if(points <= 17){
-            emotions_partner = emotional_woman.emotionally_balanced;
+            emotions_partner = emotional_states_woman.emotionally_balanced;
         }else{
-            emotions_partner = emotional_woman.emotionally_engaged;
+            emotions_partner = emotional_states_woman.emotionally_engaged;
         }
         user.setEmotionalPartner(emotions_partner);
     }

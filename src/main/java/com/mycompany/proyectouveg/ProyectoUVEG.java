@@ -3,16 +3,16 @@
  */
 package com.mycompany.proyectouveg;
 
-import com.mycompany.proyectouveg.LoveLenguageAndAffectio.ManLoveLenguageAndAffection;
-import com.mycompany.proyectouveg.LoveLenguageAndAffectio.WomanLoveLenguageAndAffection;
-import com.mycompany.proyectouveg.emotionalsCouples.MakeCouplesEmotionalsPartner;
-import com.mycompany.proyectouveg.emotionalsCouples.ManServiceEmotions;
-import com.mycompany.proyectouveg.interfaces.Services;
-import com.mycompany.proyectouveg.emotionalsCouples.WomanServiceEmotionals;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.FindEmotionalPartnerService;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
+import com.mycompany.proyectouveg.FindCouple.Services;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
 import com.mycompany.proyectouveg.Users.Gender;
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.ManServiceLifeandGoals;
-import com.mycompany.proyectouveg.lifeGoalsAndAmbitions.WomanServiceLifeandGoals;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.ManLifeGoalsQuestions;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.WomanLifeGoalsQuestions;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,7 +22,7 @@ import java.util.Scanner;
  * @author alanu
  */
 public class ProyectoUVEG {
-    static MakeCouplesEmotionalsPartner made_couples = new MakeCouplesEmotionalsPartner();
+    static FindEmotionalPartnerService made_couples = new FindEmotionalPartnerService();
     public static void main(String[] args) {
         StartGame(DB.getUsers());
     }
@@ -75,15 +75,15 @@ public class ProyectoUVEG {
         // Here we execute to for know their emotional sevice
         switch (response_gender){
             case Masculino -> {
-                emotional_service =  new ManServiceEmotions(sc, user);
-                life_and_goals = new ManServiceLifeandGoals(sc, user);
-                love_lenguage_and_affection = new ManLoveLenguageAndAffection(sc, user);
+                emotional_service =  new ManEmotionalQuestions(sc, user);
+                life_and_goals = new ManLifeGoalsQuestions(sc, user);
+                love_lenguage_and_affection = new ManLoveLenguageQuestions(sc, user);
                 break;
             }
             case Femenino -> {
-                emotional_service = new WomanServiceEmotionals(sc, user);
-                life_and_goals = new WomanServiceLifeandGoals(sc, user);
-                love_lenguage_and_affection = new WomanLoveLenguageAndAffection(sc, user);
+                emotional_service = new WomanEmotionalQuestions(sc, user);
+                life_and_goals = new WomanLifeGoalsQuestions(sc, user);
+                love_lenguage_and_affection = new WomanLoveLenguageQuestions(sc, user);
                 break;
             }
         }

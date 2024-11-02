@@ -1,10 +1,7 @@
-package com.mycompany.proyectouveg.emotionalsCouples;
+package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 import com.mycompany.proyectouveg.DB;
 import com.mycompany.proyectouveg.Users.Gender;
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_man;
-import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_woman;
-import com.mycompany.proyectouveg.interfaces.*;
 
 
 import java.util.AbstractMap;
@@ -12,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MakeCouplesEmotionalsPartner {
+public class FindEmotionalPartnerService {
     private static ArrayList<User> womans = new ArrayList<>();
     private static ArrayList<User> mans = new ArrayList<>();
     private int orders = 0;
@@ -60,28 +57,28 @@ public class MakeCouplesEmotionalsPartner {
     private static final Map<Map.Entry<emotional_states, emotional_states>, Integer> compatibilityMap = new HashMap<>();
     static {
         //emotional_man.emotional_connection
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection, emotional_woman.emotionally_engaged), 80);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_balanced), 85);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_independent), 60);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.emotional_connection,emotional_woman.emotionally_reserved), 70);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.emotional_connection, emotional_states_man.emotional_woman.emotionally_engaged), 80);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.emotional_connection, emotional_states_man.emotional_woman.emotionally_balanced), 85);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.emotional_connection, emotional_states_man.emotional_woman.emotionally_independent), 60);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.emotional_connection, emotional_states_man.emotional_woman.emotionally_reserved), 70);
        //emotional_man.balanced_listener
 
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_engaged ), 90);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_balanced ), 95);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_independent ), 75);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.balanced_listener,emotional_woman.emotionally_reserved ), 80);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.balanced_listener, emotional_states_man.emotional_woman.emotionally_engaged ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.balanced_listener, emotional_states_man.emotional_woman.emotionally_balanced ), 95);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.balanced_listener, emotional_states_man.emotional_woman.emotionally_independent ), 75);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.balanced_listener, emotional_states_man.emotional_woman.emotionally_reserved ), 80);
 
         //emotional_man.calm_problem_solver
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_engaged ), 85);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_balanced ), 90);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_independent ), 95);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.calm_problem_solver,emotional_woman.emotionally_reserved ), 85);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.calm_problem_solver, emotional_states_man.emotional_woman.emotionally_engaged ), 85);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.calm_problem_solver, emotional_states_man.emotional_woman.emotionally_balanced ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.calm_problem_solver, emotional_states_man.emotional_woman.emotionally_independent ), 95);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.calm_problem_solver, emotional_states_man.emotional_woman.emotionally_reserved ), 85);
 
         //emotional_man.stoic_protector
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_engaged ), 90);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_balanced ), 80);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_independent ), 70);
-        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_man.stoic_protector,emotional_woman.emotionally_reserved ), 60);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.stoic_protector, emotional_states_man.emotional_woman.emotionally_engaged ), 90);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.stoic_protector, emotional_states_man.emotional_woman.emotionally_balanced ), 80);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.stoic_protector, emotional_states_man.emotional_woman.emotionally_independent ), 70);
+        compatibilityMap.put(new AbstractMap.SimpleEntry<>(emotional_states_man.stoic_protector, emotional_states_man.emotional_woman.emotionally_reserved ), 60);
 
     };
     static int getCompatibilityEmotionalStates(emotional_states index_emotional, emotional_states couple_emotional){

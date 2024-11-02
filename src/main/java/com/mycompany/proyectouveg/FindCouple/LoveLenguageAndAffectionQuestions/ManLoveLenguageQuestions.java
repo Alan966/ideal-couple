@@ -1,20 +1,18 @@
-package com.mycompany.proyectouveg.LoveLenguageAndAffectio;
+package com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.enums.LoveLenguageAndAffection.woman_love_lenguage_and_affection;
-import com.mycompany.proyectouveg.interfaces.Services;
-import com.mycompany.proyectouveg.interfaces.love_lenguage_and_affection;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class ManLoveLenguageAndAffection  implements Services {
+public class ManLoveLenguageQuestions implements Services {
     private int points;
     private Scanner scanner;
     private User user;
-    public love_lenguage_and_affection love_lenguage_partner;
-    public ManLoveLenguageAndAffection(Scanner sn, User user){
+    public love_lenguage_states love_lenguage_partner;
+    public ManLoveLenguageQuestions(Scanner sn, User user){
         this.scanner = sn;
         this.user = user;
     }
@@ -31,13 +29,13 @@ public class ManLoveLenguageAndAffection  implements Services {
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
         if(points <= 5){
-            love_lenguage_partner = woman_love_lenguage_and_affection.reserved_independent_partner;
+            love_lenguage_partner = love_lenguage_states_woman.reserved_independent_partner;
         }else if(points <= 10){
-            love_lenguage_partner = woman_love_lenguage_and_affection.low_key_independent_partner;
+            love_lenguage_partner = love_lenguage_states_woman.low_key_independent_partner;
         }else if(points <= 15){
-            love_lenguage_partner = woman_love_lenguage_and_affection.balanced_supportive_partner;
+            love_lenguage_partner = love_lenguage_states_woman.balanced_supportive_partner;
         }else{
-            love_lenguage_partner = woman_love_lenguage_and_affection.warm_affection_partner;
+            love_lenguage_partner = love_lenguage_states_woman.warm_affection_partner;
         }
         this.user.setLoveLenguagePartner(love_lenguage_partner);
     }

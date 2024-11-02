@@ -1,7 +1,7 @@
-package com.mycompany.proyectouveg.LifeAndSocialPreferences;
+package com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.interfaces.Services;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Scanner;
 

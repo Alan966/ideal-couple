@@ -1,8 +1,6 @@
-package com.mycompany.proyectouveg.enums.enumsEmotions;
+package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
-import com.mycompany.proyectouveg.interfaces.emotional_states;
-
-public enum emotional_woman implements emotional_states {
+public enum emotional_states_woman implements emotional_states{
     emotionally_engaged,
     emotionally_balanced,
     emotionally_independent,

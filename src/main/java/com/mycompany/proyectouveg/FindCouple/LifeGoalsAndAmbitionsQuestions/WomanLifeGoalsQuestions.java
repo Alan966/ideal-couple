@@ -1,18 +1,17 @@
-package com.mycompany.proyectouveg.lifeGoalsAndAmbitions;
+package com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions;
 import com.mycompany.proyectouveg.Users.User;
-import  com.mycompany.proyectouveg.interfaces.Services;
-import com.mycompany.proyectouveg.enums.enumsLifeandAmbitions.life_and_ambitions_man;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class WomanServiceLifeandGoals implements  Services{
+public class WomanLifeGoalsQuestions implements  Services{
     private int points;
-    private life_and_ambitions_man life_and_ambition_partner;
+    private life_and_ambitions_states_man life_and_ambition_partner;
     private Scanner scanner;
     private User user;
-    public WomanServiceLifeandGoals(Scanner scanner, User user){
+    public WomanLifeGoalsQuestions(Scanner scanner, User user){
         this.scanner = scanner;
         this.user = user;
     }
@@ -31,13 +30,13 @@ public class WomanServiceLifeandGoals implements  Services{
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
         if(points <= 5){
-            life_and_ambition_partner = life_and_ambitions_man.traditional_provider_led_relationship;
+            life_and_ambition_partner = life_and_ambitions_states_man.traditional_provider_led_relationship;
         }else if(points <= 10){
-            life_and_ambition_partner = life_and_ambitions_man.more_traditional_family_focused;
+            life_and_ambition_partner = life_and_ambitions_states_man.more_traditional_family_focused;
         }else if (points <= 15){
-            life_and_ambition_partner = life_and_ambitions_man.balanced_team_oriented_partner;
+            life_and_ambition_partner = life_and_ambitions_states_man.balanced_team_oriented_partner;
         }else{
-            life_and_ambition_partner = life_and_ambitions_man.highly_ambitious_supportive_partner;
+            life_and_ambition_partner = life_and_ambitions_states_man.highly_ambitious_supportive_partner;
         }
         this.user.setLifeAndAmbitionPartner(life_and_ambition_partner);
     }

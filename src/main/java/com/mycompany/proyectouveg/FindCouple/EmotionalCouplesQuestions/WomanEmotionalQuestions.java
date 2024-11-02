@@ -1,18 +1,17 @@
-package com.mycompany.proyectouveg.emotionalsCouples;
+package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.enums.enumsEmotions.emotional_man;
-import com.mycompany.proyectouveg.interfaces.Services;
+import com.mycompany.proyectouveg.FindCouple.Services;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-public class WomanServiceEmotionals implements Services {
+public class WomanEmotionalQuestions implements Services {
     private int points;
-    private emotional_man emotional_partner;
+    private emotional_states_man emotional_partner;
     private Scanner scanner;
     private User user;
-    public  WomanServiceEmotionals(Scanner scanner, User user) {
+    public WomanEmotionalQuestions(Scanner scanner, User user) {
         this.scanner = scanner;
         this.user = user;
     }
@@ -29,13 +28,13 @@ public class WomanServiceEmotionals implements Services {
         FourthQuestion(this.scanner);
         FifthQuestion(this.scanner);
         if(points < 8){
-            emotional_partner = emotional_man.stoic_protector;
+            emotional_partner = emotional_states_man.stoic_protector;
         }else if(points <=12 ){
-            emotional_partner = emotional_man.calm_problem_solver;
+            emotional_partner = emotional_states_man.calm_problem_solver;
         }else if(points <=17 ){
-            emotional_partner = emotional_man.balanced_listener;
+            emotional_partner = emotional_states_man.balanced_listener;
         }else {
-            emotional_partner = emotional_man.emotional_connection;
+            emotional_partner = emotional_states_man.emotional_connection;
         }
         this.user.setEmotionalPartner(emotional_partner);
     }
