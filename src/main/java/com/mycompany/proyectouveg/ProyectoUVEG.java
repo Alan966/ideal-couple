@@ -32,7 +32,7 @@ public class ProyectoUVEG {
         User user = AddNewUser(sc);
         SetCoupleSupport(sc, user);
         users.add(user);
-        System.out.println("This is your id: "+ user.getIdUser());
+        System.out.println("This is your id: "+ user.getUserId());
         System.out.println("This is your couple emotional :"+ user.getEmotionalPartner());
         System.out.println("This is your life and goal partner : "+ user.getLifeAndAmbitions());
         System.out.println("Has finish to upload the users ?");
