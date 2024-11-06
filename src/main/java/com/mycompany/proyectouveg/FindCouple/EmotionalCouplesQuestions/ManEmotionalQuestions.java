@@ -18,6 +18,7 @@ public final class ManEmotionalQuestions extends Couples {
         boolean user_could_play = couldPlay();
         if (!user_could_play) {
             System.out.println("Finish the game");
+            return;
         }
         executeQuestions();
         if (points < 8) {
@@ -29,7 +30,7 @@ public final class ManEmotionalQuestions extends Couples {
         } else {
             emotions_partner = emotional_states_woman.emotionally_engaged;
         }
-        user.setEmotionalPartner(emotions_partner);
+        this.user.setEmotionalPartner(emotions_partner);
     }
 
     @Override
