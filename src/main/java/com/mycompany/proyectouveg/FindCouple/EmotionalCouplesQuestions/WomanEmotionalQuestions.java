@@ -2,10 +2,6 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
 import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.FindCouple.Services;
-
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.Scanner;
 public class WomanEmotionalQuestions extends Couples {
     private int points;
