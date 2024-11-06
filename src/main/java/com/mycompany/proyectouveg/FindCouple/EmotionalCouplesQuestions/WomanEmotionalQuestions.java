@@ -4,7 +4,7 @@ import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.Users.User;
 import java.util.Scanner;
 public class WomanEmotionalQuestions extends Couples {
-    private int points;
+    private int points = 0;
     private emotional_states_man emotional_partner;
     private Scanner scanner;
     public WomanEmotionalQuestions(Scanner scanner, User user) {
@@ -40,7 +40,7 @@ public class WomanEmotionalQuestions extends Couples {
             System.out.println("Your response is not valid Tried again");
             FirstQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
     protected void SecondQuestion(){
         System.out.println("What's the ideal way for partner to handle conflict?");
@@ -53,7 +53,7 @@ public class WomanEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             SecondQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class WomanEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             ThirdQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class WomanEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             FourthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -98,6 +98,6 @@ public class WomanEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             FifthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 }

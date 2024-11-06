@@ -4,7 +4,7 @@ import com.mycompany.proyectouveg.Users.User;
 import java.util.Scanner;
 
 public class ManLifeGoalsQuestions extends Couples {
-    private int points;
+    private int points = 0;
     private life_and_ambitions_states_woman life_and_ambitions_partner;
     private Scanner scanner;
     public ManLifeGoalsQuestions(Scanner scanner, User user){
@@ -44,7 +44,7 @@ public class ManLifeGoalsQuestions extends Couples {
             System.out.println("You response is not valid, Tried again");
             FirstQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ManLifeGoalsQuestions extends Couples {
             System.out.println("You response is not valid, Tried again");
             SecondQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class ManLifeGoalsQuestions extends Couples {
             System.out.println("You response is not valid, Tried again");
             ThirdQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class ManLifeGoalsQuestions extends Couples {
             System.out.println("You response is not valid, Tried again");
             FourthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -104,6 +104,6 @@ public class ManLifeGoalsQuestions extends Couples {
             System.out.println("You response is not valid, Tried again");
             FifthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 }

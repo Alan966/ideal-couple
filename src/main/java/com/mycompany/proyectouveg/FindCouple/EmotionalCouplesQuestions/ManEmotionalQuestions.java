@@ -5,7 +5,7 @@ import com.mycompany.proyectouveg.FindCouple.*;
 import java.util.Scanner;
 
 public final class ManEmotionalQuestions extends Couples {
-    private int points;
+    private int points = 0;
     private emotional_states_woman emotions_partner;
     private Scanner scanner;
 
@@ -45,7 +45,7 @@ public final class ManEmotionalQuestions extends Couples {
             System.out.println("Your response is not valid Tried again");
             FirstQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -60,7 +60,7 @@ public final class ManEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             SecondQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -75,7 +75,7 @@ public final class ManEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             ThirdQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -90,7 +90,7 @@ public final class ManEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             FourthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 
     @Override
@@ -105,6 +105,6 @@ public final class ManEmotionalQuestions extends Couples {
             System.out.println("Your response is invalid,tried again");
             FifthQuestion();
         }
-        this.points = returnPoints(response);
+        this.points += returnPoints(response);
     }
 }
