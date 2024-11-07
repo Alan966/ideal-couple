@@ -4,10 +4,10 @@ import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.Users.User;
 import java.util.Scanner;
 
-public class WomanLoveLenguageQuestions extends Couples {
-    private int points;
+public  class WomanLoveLenguageQuestions extends Couples {
+    private int points = 0;
     private Scanner scanner;
-    public love_lenguage_states love_lenguage_partner;
+    public love_lenguage_states_man love_lenguage_partner;
     public WomanLoveLenguageQuestions(Scanner sn, User user){
         super(user);
         this.scanner = sn;
@@ -59,52 +59,50 @@ public class WomanLoveLenguageQuestions extends Couples {
             SecondQuestion();
         }
         this.points += returnPoints(response);}
-}
 
     @Override
     protected void ThirdQuestion() {
-        System.out.println("When it comes to affection, what is most meaningful to you in day-to-day interactions ?");
-        System.out.println("a) Frequent small gestures, like hand-holding, cuddling, and physical closeness");
-        System.out.println("b) Compliments and verbal affirmations that make me feel valued");
-        System.out.println("c) Helping out without being asked showing attentiveness through actions");
-        System.out.println("d) Giving me space while still being there for me when I need support");
-        String response = this.scanner.nextLine();
-
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
-            ThirdQuestion();
+            System.out.println("When it comes to affection, what is most meaningful to you in day-to-day interactions ?");
+            System.out.println("a) Frequent small gestures, like hand-holding, cuddling, and physical closeness");
+            System.out.println("b) Compliments and verbal affirmations that make me feel valued");
+            System.out.println("c) Helping out without being asked showing attentiveness through actions");
+            System.out.println("d) Giving me space while still being there for me when I need support");
+            String response = this.scanner.nextLine();
+            if(!validateResponse(response)){
+                System.out.println("You response is not valid, Tried again");
+                ThirdQuestion();
+            }
+            this.points += returnPoints(response);
         }
-        this.points += returnPoints(response);
-    }
 
-    @Override
-    public void FourthQuestion() {
-        System.out.println("If you and your partner have limited time together, how would you most want to spend it ?");
-        System.out.println("a) Just enjoying quality time, like a quiet night in or an adventure together");
-        System.out.println("b) Talking openly about life, dreams, and building a deep connection");
-        System.out.println("c) Focusing on practical things like planning or working on something together");
-        System.out.println("d) Respecting each other's space and then reconnecting when we're both free");
-        String response = this.scanner.nextLine();
+        @Override
+        public void FourthQuestion() {
+            System.out.println("If you and your partner have limited time together, how would you most want to spend it ?");
+            System.out.println("a) Just enjoying quality time, like a quiet night in or an adventure together");
+            System.out.println("b) Talking openly about life, dreams, and building a deep connection");
+            System.out.println("c) Focusing on practical things like planning or working on something together");
+            System.out.println("d) Respecting each other's space and then reconnecting when we're both free");
+            String response = this.scanner.nextLine();
 
-        if((!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
-            FourthQuestion();
+            if(!validateResponse(response)){
+                System.out.println("You response is not valid, Tried again");
+                FourthQuestion();
+            }
+            this.points += returnPoints(response);
         }
-        this.points += returnPoints(response);
-    }
 
-    @Override
-    public void FifthQuestion() {
-        System.out.println("How important is it for you that your partner goes out of their way to make you feel special on important dates (anniversaries, birthdays, tsc.) ?");
-        System.out.println("a) very important, I love when my partner plans something memorable and thoughtful");
-        System.out.println("b) It's meaningful, but even a heartfelt message or note is enough");
-        System.out.println("c) Nice, but I prefer small gestures year-round rather than big celebrations");
-        System.out.println("d) I don't place much emphasis on these dates, it's about how treat me daily");
-        String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
-            FifthQuestion();
+        @Override
+        public void FifthQuestion() {
+            System.out.println("How important is it for you that your partner goes out of their way to make you feel special on important dates (anniversaries, birthdays, tsc.) ?");
+            System.out.println("a) very important, I love when my partner plans something memorable and thoughtful");
+            System.out.println("b) It's meaningful, but even a heartfelt message or note is enough");
+            System.out.println("c) Nice, but I prefer small gestures year-round rather than big celebrations");
+            System.out.println("d) I don't place much emphasis on these dates, it's about how treat me daily");
+            String response = this.scanner.nextLine();
+            if(!validateResponse(response)){
+                System.out.println("You response is not valid, Tried again");
+                FifthQuestion();
+            }
+            this.points += returnPoints(response);
         }
-        this.points += returnPoints(response);
-    }
 }
