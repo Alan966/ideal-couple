@@ -8,7 +8,7 @@ public class ManLoveLenguageQuestions extends Couples {
     private int points = 0;
     private Scanner scanner;
     public love_lenguage_states love_lenguage_partner;
-    public ManLoveLenguageQuestions(Scanner sn, User user){
+    public ManLoveLenguageQuestions(Scanner sn, User user) {
         super(user);
         this.scanner = sn;
     }

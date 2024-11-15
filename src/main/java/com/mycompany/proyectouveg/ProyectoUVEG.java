@@ -3,11 +3,11 @@
  */
 package com.mycompany.proyectouveg;
 
+import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.FindEmotionalPartnerService;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
-import com.mycompany.proyectouveg.FindCouple.Services;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
 import com.mycompany.proyectouveg.Users.Gender;
 import com.mycompany.proyectouveg.Users.User;
@@ -69,9 +69,10 @@ public class ProyectoUVEG {
     }
     public static void SetCoupleSupport(Scanner sc, User user){
         Gender response_gender = user.getGender();
-        Services emotional_service = null;
-        Services life_and_goals = null;
-        Services love_lenguage_and_affection = null;
+        Couples emotional_service = null;
+        Couples life_and_goals = null;
+        Couples love_lenguage_and_affection = null;
+
         // Here we execute to for know their emotional sevice
         switch (response_gender){
             case Masculino -> {

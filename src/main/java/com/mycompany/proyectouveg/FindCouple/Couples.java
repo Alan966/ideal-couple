@@ -4,6 +4,7 @@ import com.mycompany.proyectouveg.Users.User;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 public abstract class Couples {
     public User user;
@@ -17,7 +18,7 @@ public abstract class Couples {
         FourthQuestion();
         FifthQuestion();
     }
-    protected abstract void start();
+    public abstract void start();
     public boolean couldPlay(){
         Calendar now = new GregorianCalendar();
         int difference = this.user.getBirthday().getYear() - now.getTime().getYear();
@@ -50,4 +51,5 @@ public abstract class Couples {
     protected abstract void ThirdQuestion();
     protected abstract  void FourthQuestion();
     protected abstract void FifthQuestion();
+
 }
