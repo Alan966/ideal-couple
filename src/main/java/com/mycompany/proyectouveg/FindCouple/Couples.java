@@ -23,7 +23,6 @@ public abstract class Couples {
         Calendar now = new GregorianCalendar();
         int difference = this.user.getBirthday().getYear() - now.getTime().getYear();
         if (difference > 18 || difference < -18 ) {
-            System.out.println("Hora de Coitorrear!!");
             return true;
         }
         System.out.println("Cierra la computadora");

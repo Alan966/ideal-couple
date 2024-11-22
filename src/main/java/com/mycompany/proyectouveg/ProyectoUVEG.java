@@ -4,6 +4,8 @@
 package com.mycompany.proyectouveg;
 
 import com.mycompany.proyectouveg.FindCouple.Couples;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.ManLifestyleAndSocietyPreferences;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferences;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.FindEmotionalPartnerService;
@@ -72,6 +74,7 @@ public class ProyectoUVEG {
         Couples emotional_service = null;
         Couples life_and_goals = null;
         Couples love_lenguage_and_affection = null;
+        Couples life_and_social_preference = null;
 
         // Here we execute to for know their emotional sevice
         switch (response_gender){
@@ -79,20 +82,24 @@ public class ProyectoUVEG {
                 emotional_service =  new ManEmotionalQuestions(sc, user);
                 life_and_goals = new ManLifeGoalsQuestions(sc, user);
                 love_lenguage_and_affection = new ManLoveLenguageQuestions(sc, user);
+                life_and_social_preference = new ManLifestyleAndSocietyPreferences(sc, user);
                 break;
             }
             case Femenino -> {
                 emotional_service = new WomanEmotionalQuestions(sc, user);
                 life_and_goals = new WomanLifeGoalsQuestions(sc, user);
                 love_lenguage_and_affection = new WomanLoveLenguageQuestions(sc, user);
+                life_and_social_preference = new WomanLifestyleAndSocietyPreferences(sc, user);
                 break;
             }
         }
         emotional_service.start();
         life_and_goals.start();
         love_lenguage_and_affection.start();
+        life_and_social_preference.start();
         System.out.println(user.getEmotionalPartner());
         System.out.println(user.getLifeAndAmbitions());
         System.out.println(user.getLoveLenguagePartner());
+        System.out.println(user.getLifeAndSocialPreferencesCouple());
     }
 }

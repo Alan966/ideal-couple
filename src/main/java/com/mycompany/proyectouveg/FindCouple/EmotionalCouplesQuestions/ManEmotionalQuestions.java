@@ -4,11 +4,10 @@ import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.FindCouple.*;
 import java.util.Scanner;
 
-public final class ManEmotionalQuestions extends Couples {
+public final class  ManEmotionalQuestions  extends Couples {
     private int points = 0;
     private emotional_states_woman emotions_partner;
     private Scanner scanner;
-
     public ManEmotionalQuestions(Scanner scanner, User user) {
         super(user);
         this.scanner = scanner;
