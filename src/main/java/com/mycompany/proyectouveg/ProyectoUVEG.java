@@ -24,28 +24,14 @@ import java.util.Scanner;
  * @author alanu
  */
 public class ProyectoUVEG {
-    static FindEmotionalPartnerService made_couples = new FindEmotionalPartnerService();
     public static void main(String[] args) {
         StartGame(DB.getUsers());
     }
-    //StartGame: is the method that initialice the program
     public  static void StartGame(ArrayList<User> users){
         Scanner sc = new Scanner(System.in);
         User user = AddNewUser(sc);
         SetCoupleSupport(sc, user);
-        users.add(user);
-        System.out.println("This is your id: "+ user.getUserId());
-        System.out.println("This is your couple emotional :"+ user.getEmotionalPartner());
-        System.out.println("This is your life and goal partner : "+ user.getLifeAndAmbitions());
-        System.out.println("Has finish to upload the users ?");
-        System.out.println("Response true or false");
-        if(sc.nextLine().equals("true")){
-            return;
-        }else{
-            made_couples.setOrder(false);
-            StartGame(users);
-        }
-        made_couples.sortUsersByGender();
+        System.out.println("Now is time to give some some recomendations ");
     }
     public static User AddNewUser(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
@@ -97,9 +83,10 @@ public class ProyectoUVEG {
         life_and_goals.start();
         love_lenguage_and_affection.start();
         life_and_social_preference.start();
-        System.out.println(user.getEmotionalPartner());
-        System.out.println(user.getLifeAndAmbitions());
-        System.out.println(user.getLoveLenguagePartner());
-        System.out.println(user.getLifeAndSocialPreferencesCouple());
+        System.out.println("This is your id: "+ user.getUserId());
+        System.out.println("This is your Emotional partner result:"+ user.getEmotionalPartner());
+        System.out.println("This is your Life and Goals partner result : "+ user.getLifeAndAmbitions());
+        System.out.println("This is your Love Lenguage And Affection partner result : "+ user.getLoveLenguagePartner());
+        System.out.println("This is your Life and Social Preferences partner result: "+ user.getLifeAndSocialPreferencesCouple());
     }
 }
