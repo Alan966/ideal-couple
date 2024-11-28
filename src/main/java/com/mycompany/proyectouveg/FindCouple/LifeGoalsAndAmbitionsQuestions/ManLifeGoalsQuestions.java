@@ -40,8 +40,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I would prefer she focuses more on family, but can still work if she wants");
         System.out.println("d) I prefer a partner who focuses on family ans supports my career");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -55,8 +54,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I prefer that we set mutual goals and work closely as a team");
         System.out.println("d) I want to lead in setting goals, and I prefer she supports me in achieving them");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -70,8 +68,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I'm fine with sharing responsibilities, but I'm open to being the primary provider");
         System.out.println("d) I prefer to be the primary financial provider, with her focusing on family or supporting me.");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -85,8 +82,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I'm okay with her prioritizing family over career in the near future");
         System.out.println("d) I want her to prioritize family as soon as possible, with me focusing on providing");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -100,8 +96,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I prefer stability, but I'm open to relocating if it's important for both of us");
         System.out.println("d) I prefer a stable home life and expect her to prioritize that over travel or relication");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FifthQuestion();
         }
         this.points += returnPoints(response);

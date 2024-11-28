@@ -40,10 +40,9 @@ public class ManLoveLenguageQuestions extends Couples {
         System.out.println("c) I'm okay with affection, but it doesn't need to be constant");
         System.out.println("d) I don't place a lot of emphasis on physical affection");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FirstQuestion();
-        }
+        };
         this.points += returnPoints(response);
     }
 
@@ -56,9 +55,8 @@ public class ManLoveLenguageQuestions extends Couples {
         System.out.println("d) I don't rely much on words of affirmation, I show and feel love in other ways");
         String response = this.scanner.nextLine();
         if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
             SecondQuestion();
-        }
+        };
         this.points += returnPoints(response);}
     @Override
     protected void ThirdQuestion (){
@@ -68,10 +66,9 @@ public class ManLoveLenguageQuestions extends Couples {
         System.out.println("c) I enjoy it, but as long we connect regularly, it doesn't need to be constant");
         System.out.println("d) I value having my own time and space and prefer less focused attention");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             ThirdQuestion();
-        }
+        };
         this.points += returnPoints(response);}
 
     @Override
@@ -82,10 +79,9 @@ public class ManLoveLenguageQuestions extends Couples {
         System.out.println("c) I'm fine with gifts ut don't need them to feel connected");
         System.out.println("d) I don't place much emphasis on gifts as an expression of love");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
-            FourthQuestion();
-        }
+       if (!validateResponse(response)){
+           FourthQuestion();
+       };
         this.points += returnPoints(response);
     }
 
@@ -97,11 +93,9 @@ public class ManLoveLenguageQuestions extends Couples {
         System.out.println("c) It's nice occasionally, but I prefer independence in tasks");
         System.out.println("d) I don't expect or need practical support as a show of love");
         String response = this.scanner.nextLine();
-
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FifthQuestion();
-        }
+        };
         this.points += returnPoints(response);
     }
 }

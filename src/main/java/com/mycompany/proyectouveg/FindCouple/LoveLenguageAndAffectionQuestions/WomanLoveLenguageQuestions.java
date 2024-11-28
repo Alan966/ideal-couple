@@ -39,8 +39,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
         System.out.println("c) Helping me with small tasks or taking care of something I' struggling with");
         System.out.println("d) Giving me space to process alone but checking in on me later");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -54,8 +53,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
         System.out.println("c) Through small acts, like helping with errands or giving me a gift now and them");
         System.out.println("d) By respecting my boundaries and showing they trust me");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             SecondQuestion();
         }
         this.points += returnPoints(response);}
@@ -68,8 +66,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
             System.out.println("c) Helping out without being asked showing attentiveness through actions");
             System.out.println("d) Giving me space while still being there for me when I need support");
             String response = this.scanner.nextLine();
-            if(!validateResponse(response)){
-                System.out.println("You response is not valid, Tried again");
+            if (!validateResponse(response)){
                 ThirdQuestion();
             }
             this.points += returnPoints(response);
@@ -83,9 +80,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
             System.out.println("c) Focusing on practical things like planning or working on something together");
             System.out.println("d) Respecting each other's space and then reconnecting when we're both free");
             String response = this.scanner.nextLine();
-
-            if(!validateResponse(response)){
-                System.out.println("You response is not valid, Tried again");
+            if (!validateResponse(response)){
                 FourthQuestion();
             }
             this.points += returnPoints(response);
@@ -99,8 +94,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
             System.out.println("c) Nice, but I prefer small gestures year-round rather than big celebrations");
             System.out.println("d) I don't place much emphasis on these dates, it's about how treat me daily");
             String response = this.scanner.nextLine();
-            if(!validateResponse(response)){
-                System.out.println("You response is not valid, Tried again");
+            if (!validateResponse(response)){
                 FifthQuestion();
             }
             this.points += returnPoints(response);

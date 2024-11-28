@@ -41,8 +41,7 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) Mostly staying in or spending time with close friends and famility");
         System.out.println("d) Relaxing at home or enjoying a quiet weekend with just us");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -56,8 +55,7 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I'd prefer someone who has a smaller social circle and enjoys quiet nights");
         System.out.println("d) I'm looking for someone who values time at home with a relaxed routine");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -71,8 +69,7 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) Work isn't everything, I'd prefer someone who values downtime more");
         System.out.println("d) I want someone who prioritizes a low-stress, leisurely lifestyle");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -86,8 +83,7 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I like a partner who enjoys spending most of his time with me");
         System.out.println("d) I prefer someone who values our time together over personal space");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -101,8 +97,8 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I'd prefer someone who limits social gatherings to close friends and family");
         System.out.println("d) I'm looking for someone who values quiet time and isn't very social");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
+            FifthQuestion();
         }
         this.points += returnPoints(response);
     }

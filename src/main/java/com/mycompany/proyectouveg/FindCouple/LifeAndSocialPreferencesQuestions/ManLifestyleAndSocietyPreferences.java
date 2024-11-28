@@ -42,8 +42,7 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) Mostly staying in or having quiet time with close friends or family");
         System.out.println("d) Staying in, enjoying personal time, or relaxing together");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -57,8 +56,7 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I'd prefer someone who enjoys small, intimate gatherings more than big events");
         System.out.println("d) I'm looking for someone who's more introverted and enjoys quiet nights");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+         if (!validateResponse(response)){
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -72,8 +70,7 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I need a good amount of personal time to recharge");
         System.out.println("d) I highly value personal space and alone time");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -87,8 +84,7 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) It's fine if we have different energy levels as long as we compromise");
         System.out.println("d) No very important I don't mind if our energy levels differ");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -102,9 +98,7 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         System.out.println("c) I lean toward a relaxed lifestyle, with more time for personal interests");
         System.out.println("d) I prefer minimal work stress and a lifestyle focused on enjoy and relaxation");
         String response = this.scanner.nextLine();
-
-        if(!validateResponse(response)){
-            System.out.println("You response is not valid, Tried again");
+        if (!validateResponse(response)){
             FifthQuestion();
         }
         this.points += returnPoints(response);
