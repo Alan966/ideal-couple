@@ -5,7 +5,7 @@ import com.mycompany.proyectouveg.Users.User;
 
 public class ManTipsToGetCouple implements TipsToGetCouple {
     private User user;
-     private String [][] tips_emotional_womans = {
+     private String [][] tips_emotional_mens = {
              {"Spend 10 - 15 minutes meditating to improve your emotional control and reduce impulsive reactions. Apps Like Headspace or Calm can help",
                      "Start your day at 5 - 6 am to build discipline and give yourself time to reflect or plan without distractions",
                      "Avoid overreacting to problems, instead, pause, take a deep breath, and think critically before responding",
@@ -41,16 +41,19 @@ public class ManTipsToGetCouple implements TipsToGetCouple {
 
     @Override
     public String[] getTipsForCuple() {
+        if(this.emotional_state_woman == null){
+            getEmotionalWomanCouple();
+        }
         String [] default_string = {"", "", ""};
         switch (this.emotional_state_woman){
             case emotional_states_woman.emotionally_engaged:
-                return tips_emotional_womans[0];
+                return tips_emotional_mens[0];
             case emotional_states_woman.emotionally_balanced:
-                return tips_emotional_womans[1];
+                return tips_emotional_mens[1];
             case emotional_states_woman.emotionally_independent:
-                return tips_emotional_womans[2];
+                return tips_emotional_mens[2];
             case emotional_states_woman.emotionally_reserved:
-                return tips_emotional_womans[3];
+                return tips_emotional_mens[3];
             default:
                 return default_string;
         }
