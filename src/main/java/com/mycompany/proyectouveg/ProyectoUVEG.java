@@ -8,7 +8,6 @@ import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.M
 import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferences;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
-import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.FindEmotionalPartnerService;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
 import com.mycompany.proyectouveg.Users.Gender;

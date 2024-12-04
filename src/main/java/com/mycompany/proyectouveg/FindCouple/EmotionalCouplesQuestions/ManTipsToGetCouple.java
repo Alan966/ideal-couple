@@ -6,53 +6,54 @@ import com.mycompany.proyectouveg.Users.User;
 public class ManTipsToGetCouple implements TipsToGetCouple {
     private User user;
      private String [][] tips_emotional_mens = {
-             {"Spend 10 - 15 minutes meditating to improve your emotional control and reduce impulsive reactions. Apps Like Headspace or Calm can help",
-                     "Start your day at 5 - 6 am to build discipline and give yourself time to reflect or plan without distractions",
-                     "Avoid overreacting to problems, instead, pause, take a deep breath, and think critically before responding",
-                     "Martial arts, weightlifting, or long-distance running helps build mental and physical resilience",
-                     "Write down your thoughts daily to process emotions privately rather than venting outward"
+             {"Wake up early and set a daily routine: Structure your day to build dicipline. Start with simple habits like exercising or journaling every morning",
+                     "Practice control in challeging situations: Stay calm when things go wrong - pause before react. Use breathing exercise like 4-7-8 technique to manage stress",
+                     "Lift weights or train in martial arts: Physical strength builds confidence ans symbolizes protection. Martial arts also improve mental dicipline",
+                     "Limit emotional over-sharing: Share only that is necessary when discussing problems. Focus on being a good listener rather than seeking validation",
+                     "Read books on philosophy: Dive into Meditations by Marcus Aurelius or The Obstacle Is the Way by Ryan holiday to develop a stoic mindset"
              },
-             {"Start with Emotional Intelligence 2.0 by Travis Bradberry to learn empathy and balance in communication",
-                     "Dedicate 15-20 minutes daily to actively listen to others without interrupting, Reflect on what they share rather than offering immediate solutions",
-                     "Explore activities like yoga, painting, or a team sport to maintain a well-rounded lifestyle",
-                     "Every Sunday, plan how to balance work and social connections",
-                     "List three things you're grateful for every night. This will make you more aware of what you value and help in grounding relationships"
+             {"Practice solving puzzles daily: Spend 15 minutes on Sudoku, chess or logic puzzles to sharpen problem-solving skills",
+                     "Break down problems into steps: Whenever you face an issue, write it out and identify actionable steps instead of being overwhelmed",
+                     "Improve decision-making under pressure: Use simulation exercise like playing strategy games: civilization or chess",
+                     "Learn affective communication: Use techniques like active listening and asking clarifying questions to understand other's perspectives",
+                     "Keep a solution-oriented journal: Reflect daily on problems you faced and how you resolved them, reinforcing a constructive mindset"
              },
-             {"Establish day routine (exercise work, relaxation) that doesn't depend on anyone else for motivation or structure",
-                     "Write down short-term and long-term goals. Regularly assess your progress independently",
-                     "Reduce or eliminate posting for likes or comments. Focus on real-world accomplishments",
-                     "Travel alone, or spend time doing activities like hiking or exploring a city by yourself to develop self-sufficiency",
-                     "Learn a new skill or take up challenging hobby like learning a language or mastering a musical instrument"
+             {"Set daily for deep conversations: Talk to someone(friend, coworker or family member) and focus solely on listening without interrupting",
+                     "Practice active listening: Repeat what other person said to confirm you understand, and avoid focus solely on listening without interrupting",
+                     "Attend a public speaking or improv class: These improve you ability to express yourself and adapt to different conversational dynamics",
+                     "Limit distractions in social settings: When speaking to someone, keep your phone away to ensure undivided attention",
+                     "Read books on empathy and communication: Try How to Win Friends and Influence People by Dale Carnegie or Nonviolent Communication by Marshall Rosenberg"
              },
-             {"Practice sharing one emotion you felt during the day with a friend or famility member. Over time this becomes natural",
-                     "Hug loved ones more often or use small acts of kindness (like cooking for someone) to show care",
-                     "Volunteering or participating in local events can help you connect with others and express yourself naturally",
-                     "Stories with emotional depth help you process and understand emotions better",
-                     "Share a small but personal detail yourself during conversations, gradually open up to others as trust builds"
+             {"Practice vulnerability: Share one meaningful thought or feeling with someone close to you each day. Start small and build trust gradually",
+                     "Develop emotional awareness: Reflect on your emotions daily by journaling - write down that yu felt, why and how you reacted",
+                     "Volunteer for cause you care about : Helping others fosters empathy and emotional understanding ",
+                     "Learn emotional expression through art: Practice drawing, writing poetry, or playing music to connect with and express your feelings",
+                     "Seek therapy or counseling (if needed): A professional can help you explore and undestand your emotions in safe, guide way"
              }
      };
-    private emotional_states emotional_state_woman;
+    private emotional_states emotional_state_men;
     public ManTipsToGetCouple(User user){
         this.user = user;
     }
-    private void getEmotionalWomanCouple(){
-        this.emotional_state_woman = user.getEmotionalPartner();
+    private void getEmotionalMenState(){
+        MakeCouplesServices couple_service = new MakeCouplesServices(this.user);
+        emotional_state_men = couple_service.getMenEmotionalCouple();
     }
 
     @Override
-    public String[] getTipsForCuple() {
-        if(this.emotional_state_woman == null){
-            getEmotionalWomanCouple();
+    public String[] getTips() {
+        if(this.emotional_state_men == null){
+            getEmotionalMenState();
         }
         String [] default_string = {"", "", ""};
-        switch (this.emotional_state_woman){
-            case emotional_states_woman.emotionally_engaged:
+        switch (this.emotional_state_men){
+            case emotional_states_man.stoic_protector:
                 return tips_emotional_mens[0];
-            case emotional_states_woman.emotionally_balanced:
+            case emotional_states_man.calm_problem_solver:
                 return tips_emotional_mens[1];
-            case emotional_states_woman.emotionally_independent:
+            case emotional_states_man.balanced_listener:
                 return tips_emotional_mens[2];
-            case emotional_states_woman.emotionally_reserved:
+            case emotional_states_man.emotional_connection:
                 return tips_emotional_mens[3];
             default:
                 return default_string;
