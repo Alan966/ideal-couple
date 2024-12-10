@@ -28,7 +28,7 @@ public class WomanLifestyleAndSocietyPreferences extends Couples {
         }else if(points <= 15){
             life_and_social_preferences_couples = life_and_social_preferences_states_man.socially_flexible_partner;
         }else{
-            life_and_social_preferences_couples = life_and_social_preferences_states_man.socially_driver_parner;
+            life_and_social_preferences_couples = life_and_social_preferences_states_man.socially_driver_partner;
         }
         this.user.setLifeAndSocialPreferences(life_and_social_preferences_couples);
     }

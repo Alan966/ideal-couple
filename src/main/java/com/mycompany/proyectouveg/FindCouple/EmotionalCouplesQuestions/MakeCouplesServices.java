@@ -1,20 +1,13 @@
 package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
-import com.mycompany.proyectouveg.DB;
-import com.mycompany.proyectouveg.Users.Gender;
+
 import com.mycompany.proyectouveg.Users.User;
-
-
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MakeCouplesServices {
     private User user;
     public  MakeCouplesServices( User user){
         this.user = user;
     }
-    public emotional_states_man getWomenEmotionalCouple(){
+    public emotional_states_man getMenEmotionalCouple(){
         switch (this.user.getEmotionalPartner()){
             case emotional_states_woman.emotionally_engaged:
                 return emotional_states_man.stoic_protector;
@@ -26,7 +19,7 @@ public class MakeCouplesServices {
                 return emotional_states_man.emotional_connection;
         }
     }
-    public emotional_states_woman getMenEmotionalCouple(){
+    public emotional_states_woman getWomenEmotionalCouple(){
         switch (this.user.getEmotionalPartner()){
             case emotional_states_man.stoic_protector:
                 return  emotional_states_woman.emotionally_engaged;
