@@ -3,7 +3,7 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
-public class WomanTipsToGetCouple implements TipsToGetCouple {
+public class WomanEmotionalTips implements TipsToGetCouple {
     private User user;
     private String [] [] tips_emotional_women = {
             {"Start gratitude journal:Write down three things you're thankful for every day. It fosters emotional positivity and openness to others",
@@ -34,7 +34,7 @@ public class WomanTipsToGetCouple implements TipsToGetCouple {
             }
     };
     private emotional_states emotional_state_woman;
-    public WomanTipsToGetCouple (User user){
+    public WomanEmotionalTips(User user){
         this.user = user;
     }
     private void getEmotionalWomanState(){

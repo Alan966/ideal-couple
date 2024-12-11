@@ -3,7 +3,7 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
-public class ManTipsToGetCouple implements TipsToGetCouple {
+public class ManEmotionalTips implements TipsToGetCouple {
     private User user;
      private String [][] tips_emotional_mens = {
              {"Wake up early and set a daily routine: Structure your day to build dicipline. Start with simple habits like exercising or journaling every morning",
@@ -32,7 +32,7 @@ public class ManTipsToGetCouple implements TipsToGetCouple {
              }
      };
     private emotional_states emotional_state_men;
-    public ManTipsToGetCouple(User user){
+    public ManEmotionalTips(User user){
         this.user = user;
     }
     private void getEmotionalMenState(){

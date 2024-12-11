@@ -4,7 +4,7 @@ import com.mycompany.proyectouveg.Users.User;
 
 public class MakeCouplesServices {
     private User user;
-    public  MakeCouplesServices( User user){
+    public MakeCouplesServices(User user){
         this.user = user;
     }
     public emotional_states_man getMenEmotionalCouple(){

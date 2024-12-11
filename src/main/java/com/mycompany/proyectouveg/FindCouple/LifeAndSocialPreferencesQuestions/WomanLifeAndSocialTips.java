@@ -3,7 +3,7 @@ package com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions;
 import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
-public class WomanTipsGetCouple implements TipsToGetCouple {
+public class WomanLifeAndSocialTips implements TipsToGetCouple {
     private User user;
     private life_and_social_preferences_states_woman life_and_social_preferences;
     private String [][] tips_life_social_preference_woman = {
@@ -36,7 +36,7 @@ public class WomanTipsGetCouple implements TipsToGetCouple {
                     "Be transparent About Needs: Communicate your preference for personal space with friends and loved ones to avoid misunderstandings"
             }
     };
-    public WomanTipsGetCouple(User user){
+    public WomanLifeAndSocialTips(User user){
         this.user = user;
     }
     private void getSocialPreferenceState(){
