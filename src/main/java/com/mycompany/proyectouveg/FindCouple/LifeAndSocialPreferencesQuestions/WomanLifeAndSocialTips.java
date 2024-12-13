@@ -46,6 +46,9 @@ public class WomanLifeAndSocialTips implements TipsToGetCouple {
 
     @Override
     public String[] getTips() {
+        if(this.life_and_social_preferences == null){
+            getSocialPreferenceState();
+        }
         switch (this.life_and_social_preferences){
             case life_and_social_preferences_states_woman.socially_engaged_partner:
                 return tips_life_social_preference_woman[0];
