@@ -8,34 +8,37 @@ public class ManLifeGoalsAndAmbitionsTips implements TipsToGetCouple {
     private  life_and_ambitions_states_man life_and_ambitions_states;
     private String [][] tips_life_and_ambitions = {
             {
-                "Set Clear Career Goals: Define a long-term vision for your career and beak it into actionable short-term objectives: For example: commit to completing one professional certification or advancing your skills in a specific area within 6 months",
-                    "Schedule Quality Time: Create a habit of scheduling intentional time wit your partner (or future partner), even during busy weeks. Use tools like Google Calendar to balance work with quality time",
-                    "Learn Active Listening: Practice listening without interrupting or offering solutions. Start with one conversation daily where you focus entirely on understanding the other person's perspective",
-                    "Develop Financial Discipline: Learn budgeting and start investing. Tools like Mint or personal finace books (Rich Dad Poor Dad) can help you become financially dependable",
-                "Stay Curious About Your Partner's Career: Learn about her field. Ask questions, celebrate her milestones, and think about how you can practically support her goals"
+                "Set Clear Long-term Goals: Dedicate 30 minutes daily to defining your professional and personal goals, breaking them into achievable steps with deadlines",
+                 "Develop a Work Ethic Routine: Wake up at 5:30 am every day to work on your priorities  - whether career, fitness, or personal growth",
+                 "Network strategically: Attend industry events and social mixers weekly to connect with ambitious individuals. Join Linkedln groups or professional clubs",
+                    "Invest in Personal Development: Take online courses, attend seminars , or read one self-improvement book every month",
+                    "Practice resilience : Commit to 10 minutes of mindfulness meditation daily to handle stress and staty focused on your goals"
             },
             {
-                "Develop a habit of collaboration: Engage in team-based activities like sports, volunteering, or group projects to hone you your teamwork skills, Focus on problem solving others rather rather than taking sole control ",
-                    "Practice Emotional Transparency: Share your thoughts and feelings openly with trusted friends or family members to get comfortable with emotional vulnerability. Try journaling daily to articulate your emotions",
-                    "Strengthen Communication Skills: Practice summarizing what someone says before responding. For example: So you're saying you think we should , ensures clarity and builds trust",
-                    "create shared plans: Get into the habit of making collaborative plans, whether it's planning a trip with friends or managing a group project. This build the mindset of working toward mutual goals",
-                    "Read about team Dynamics: Books Like The Five Dysfunctions of a Team by Patrick Lencioni or Crucial Conversations can help you understand and improve your collaboration abilities"
+                "Join a Team activity: Participate in weekly sports or group projects (joining a soccer team or collaborative workshops) to build teamwork skills",
+                    "Improve communication: Practice active listening by summarizing others's  points before responding in conversations especially during team discussions",
+                    "Schedule Balanced Routines: Spend equal time on career goals and personal relationships. Use a planner to allocate specific hours for work and social time",
+                    "Volunteer: Dedicate one weekend a month to volunteering at charity or community event, focusing on collaboration and giving back",
+                    "Learn Conflict Resolution: Read books on effective negotiation and conflict managment and apply the techniques in real-world situations"
             },
             {
-                "Connect wit family regularly: Strengthen your bond with family members by calling or visiting them regularly. Start with one meaningful conversation per week",
-                    "Learn Domestic Skills: Practice cooking, cleaning and managing a household, Choose a simple meal to master and cook it weekly. This will prepare you contribute meaningfully at home",
-                    "Be Reliable: Show up consistently for commitments, whether it's for friends, family, or work. Develop a reputation for being dependable and supportive ",
-                    "Volunteer with community or Family-Centered Activities: Participe in activities like mentoring kids, coaching sports, or family-focused charity work. This helps you cultivate a nurturing mindset",
-                    "Plan for the future: Think about where you want to live, the kind of family dynamic you envision, and start saving for it . Open a savings acocunt or create vision board for your future home life"
+                "Learn Basic Domestic Skills: Dedicate wekends to improving skills like cooking, cleaning , and childcare by helping family members or taking online courses",
+                    "Strengthen Bonds: Spend time weekly with close family: Organizing dinners or simply catching up - to reinforce family values",
+                    "Set financial Goals: Start budgeting your income to prioritize savings for future family plans ",
+                    "Improve Patience and Understanding: Practice spending time with kids or older family members to develop nurturing qualities",
+                    "Find a family oriented role model: Seek guidance or mentorship from men in your community who embody strong family values"
             },
             {
-                "Build financial independence: Focus on saving 20% of your income and investing in assets. Learn about budgeting and financial planning through apps like YNAB or courses on Coursera",
-                    "Cultivate Strong Decision-Making Skills: Start making firm, small, decisions daily and stick to them, For example, decide on a plan for your day the night before and execute it fully",
-                    "Work on leadership: Take on leadership roles at work or in community projects. Build confidence in managing responsibilities and guiding others",
-                    "Develop a clear vision of stability: Write down what 'security' means to you (financially, emotionally, physically) and work toward it systematically. Start with building an emergency fund (3 - 6 months of expenses)",
-                    "Be consistent and reliable: Create daily routines that demonstrate reliability, wake up at the same time, exercising, and meeting deadlines. This builds the trustworthiness associated with being a provider"
+                "Develop Financial Literacy: Enroll in a online finance course(budgeting, investments) and allocate time weekly to manage your money efficiently",
+                    "Focus on Health: Commit to fitness regimen, 4 workout sessions per week, to build physical endurance and log-term vitality for providing support",
+                    "Master Decision_Making: Practice evaluating decisions (big or small) by writing down pros and const daily improving your ability to lead",
+                    "Cultivate Calm Leadership: Dedicate 15 minutes daily to journaling or reflecting on challenges, identify ways to lead with composure and fairness",
+                    "Learn skills for independence: Focus on improving essential skills like home maintenance, car repairs, or emergency preparedness to embody self-reliance"
             }
 };
+    public  ManLifeGoalsAndAmbitionsTips(User user){
+        this.user = user;
+    }
     private void getLifeAndAmbitionsPreferenceState(){
         MakeCouplesService couple_service = new MakeCouplesService(this.user);
         this.life_and_ambitions_states = couple_service.getMenLifeAndAmbitionsCouple();
