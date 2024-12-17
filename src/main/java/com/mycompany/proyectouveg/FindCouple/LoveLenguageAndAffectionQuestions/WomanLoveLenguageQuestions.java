@@ -99,4 +99,10 @@ public  class WomanLoveLenguageQuestions extends Couples {
             }
             this.points += returnPoints(response);
         }
+
+    @Override
+    public String[] getAdvices() {
+        WomanLoveLenguageTips woman_love_lenguage = new WomanLoveLenguageTips(this.user);
+        return woman_love_lenguage.getTips();
+    }
 }

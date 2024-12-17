@@ -4,7 +4,6 @@ import com.mycompany.proyectouveg.Users.User;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Scanner;
 
 public abstract class Couples {
     public User user;
@@ -50,5 +49,5 @@ public abstract class Couples {
     protected abstract void ThirdQuestion();
     protected abstract  void FourthQuestion();
     protected abstract void FifthQuestion();
-
+    protected  abstract String[] getAdvices();
 }

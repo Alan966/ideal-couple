@@ -104,4 +104,9 @@ public class ManLifestyleAndSocietyPreferences extends Couples {
         this.points += returnPoints(response);
     }
 
+    @Override
+    public String[] getAdvices() {
+        ManLifeAndSocialTips man_life_and_social = new ManLifeAndSocialTips(this.user);
+        return man_life_and_social.getTips();
+    }
 }

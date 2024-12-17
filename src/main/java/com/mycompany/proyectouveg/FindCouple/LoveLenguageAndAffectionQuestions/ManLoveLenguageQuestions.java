@@ -98,4 +98,10 @@ public class ManLoveLenguageQuestions extends Couples {
         };
         this.points += returnPoints(response);
     }
+
+    @Override
+    public String[] getAdvices() {
+        ManLoveLenguageTips man_love_lenguage = new ManLoveLenguageTips(this.user);
+        return man_love_lenguage.getTips();
+    }
 }

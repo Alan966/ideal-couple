@@ -100,4 +100,10 @@ public class WomanEmotionalQuestions extends Couples {
         }
         this.points += returnPoints(response);
     }
+
+    @Override
+    public String[] getAdvices() {
+        WomanEmotionalTips woman_emotional_tips = new WomanEmotionalTips(this.user);
+       return  woman_emotional_tips.getTips();
+    }
 }

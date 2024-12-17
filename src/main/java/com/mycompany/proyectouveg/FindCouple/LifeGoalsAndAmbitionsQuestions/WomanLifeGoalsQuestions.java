@@ -99,4 +99,10 @@ public class WomanLifeGoalsQuestions extends Couples {
         }
         this.points += returnPoints(response);
     }
+
+    @Override
+    public String[] getAdvices() {
+        WomanLifeAndGoalsTips woman_life_and_goals = new WomanLifeAndGoalsTips(this.user);
+        return woman_life_and_goals.getTips();
+    }
 }

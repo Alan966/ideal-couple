@@ -101,4 +101,10 @@ public class ManLifeGoalsQuestions extends Couples {
         }
         this.points += returnPoints(response);
     }
+
+    @Override
+    public String[] getAdvices() {
+        ManLifeGoalsAndAmbitionsTips man_life_and_ambitions = new ManLifeGoalsAndAmbitionsTips(this.user);
+        return man_life_and_ambitions.getTips();
+    }
 }

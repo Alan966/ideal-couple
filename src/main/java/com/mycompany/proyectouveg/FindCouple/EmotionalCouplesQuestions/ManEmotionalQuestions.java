@@ -1,5 +1,6 @@
 package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageTips;
 import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.FindCouple.*;
 import java.util.Scanner;
@@ -105,5 +106,9 @@ public final class  ManEmotionalQuestions  extends Couples {
             FifthQuestion();
         }
         this.points += returnPoints(response);
+    }
+    public String[] getAdvices(){
+        ManLoveLenguageTips man_love_lenguage = new ManLoveLenguageTips(this.user);
+        return man_love_lenguage.getTips();
     }
 }
