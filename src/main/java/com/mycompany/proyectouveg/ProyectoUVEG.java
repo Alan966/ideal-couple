@@ -87,5 +87,21 @@ public class ProyectoUVEG {
         System.out.println("This is your Life and Goals partner result : "+ user.getLifeAndAmbitions());
         System.out.println("This is your Love Lenguage And Affection partner result : "+ user.getLoveLenguagePartner());
         System.out.println("This is your Life and Social Preferences partner result: "+ user.getLifeAndSocialPreferencesCouple());
+        String [] emotional_service_advices = emotional_service.getAdvices();
+        String [] life_and_goals_advices = life_and_goals.getAdvices();
+        String [] love_lenguage_advices = love_lenguage_and_affection.getAdvices();
+        String [] life_and_social_advices = life_and_social_preference.getAdvices();
+        printAdvices(emotional_service_advices);
+        printAdvices(life_and_goals_advices);
+        printAdvices(love_lenguage_advices);
+        printAdvices(life_and_social_advices);
+    }
+    private static  void printAdvices(String [] advices){
+        int string_advice = advices.length;
+        int i = 0;
+        while(i < string_advice){
+            System.out.println(advices[i]);
+            i++;
+        }
     }
 }
