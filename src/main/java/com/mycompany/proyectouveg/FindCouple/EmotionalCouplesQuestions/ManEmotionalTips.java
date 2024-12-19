@@ -3,6 +3,8 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
+import static com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states_man.*;
+
 public class ManEmotionalTips implements TipsToGetCouple {
     private User user;
      private String [][] tips_emotional_mens = {
@@ -45,18 +47,12 @@ public class ManEmotionalTips implements TipsToGetCouple {
         if(this.emotional_state_men == null){
             getEmotionalMenState();
         }
-        String [] default_string = {"", "", ""};
-        switch (this.emotional_state_men){
-            case emotional_states_man.stoic_protector:
-                return tips_emotional_mens[0];
-            case emotional_states_man.calm_problem_solver:
-                return tips_emotional_mens[1];
-            case emotional_states_man.balanced_listener:
-                return tips_emotional_mens[2];
-            case emotional_states_man.emotional_connection:
-                return tips_emotional_mens[3];
-            default:
-                return default_string;
-        }
+        emotional_states_man emotional_state = (emotional_states_man)  this.emotional_state_men;
+            return switch (emotional_state) {
+                case stoic_protector -> tips_emotional_mens[0];
+                case calm_problem_solver -> tips_emotional_mens[1];
+                case balanced_listener -> tips_emotional_mens[2];
+                default -> tips_emotional_mens[3];
+            };
     }
 }

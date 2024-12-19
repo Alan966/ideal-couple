@@ -50,15 +50,12 @@ public class WomanLifeAndGoalsTips implements TipsToGetCouple {
         if (this.life_and_ambitions_states == null){
             getLifeAndAmbitionsPreferenceState();
         }
-        switch (this.life_and_ambitions_states){
-            case life_and_ambitions_states_woman.highly_ambitious_career:
-                return  tips_life_and_ambitions[0];
-            case life_and_ambitions_states_woman.team_oriented_woman:
-                return tips_life_and_ambitions[1];
-            case life_and_ambitions_states_woman.family_focused_supportive:
-                return tips_life_and_ambitions[2];
-            default:
-                return tips_life_and_ambitions[3];
-        }
+        life_and_ambitions_states_woman life_and_ambitions = (life_and_ambitions_states_woman) this.life_and_ambitions_states;
+        return switch (life_and_ambitions) {
+            case highly_ambitious_career -> tips_life_and_ambitions[0];
+            case team_oriented_woman -> tips_life_and_ambitions[1];
+            case family_focused_supportive -> tips_life_and_ambitions[2];
+            default -> tips_life_and_ambitions[3];
+        };
     }
 }

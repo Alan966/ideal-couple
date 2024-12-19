@@ -47,17 +47,12 @@ public class WomanEmotionalTips implements TipsToGetCouple {
         if(this.emotional_state_woman == null){
             getEmotionalWomanState();
         }
-        switch (this.emotional_state_woman) {
-            case emotional_states_woman.emotionally_engaged:
-                return tips_emotional_women[0];
-            case emotional_states_woman.emotionally_balanced:
-                return tips_emotional_women[1];
-            case emotional_states_woman.emotionally_independent:
-                return  tips_emotional_women[2];
-            case emotional_states_woman.emotionally_reserved:
-                return tips_emotional_women[3];
-            default:
-                return default_string;
-        }
+        emotional_states_woman emotional_state = (emotional_states_woman) this.emotional_state_woman;
+        return switch (emotional_state) {
+            case emotionally_engaged -> tips_emotional_women[0];
+            case emotionally_balanced -> tips_emotional_women[1];
+            case emotionally_independent -> tips_emotional_women[2];
+            default ->tips_emotional_women[3];
+        };
     }
 }

@@ -108,7 +108,7 @@ public final class  ManEmotionalQuestions  extends Couples {
         this.points += returnPoints(response);
     }
     public String[] getAdvices(){
-        ManLoveLenguageTips man_love_lenguage = new ManLoveLenguageTips(this.user);
-        return man_love_lenguage.getTips();
+        ManEmotionalTips man_emotional = new ManEmotionalTips(this.user);
+        return man_emotional.getTips();
     }
 }

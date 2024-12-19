@@ -30,7 +30,6 @@ public class ProyectoUVEG {
         Scanner sc = new Scanner(System.in);
         User user = AddNewUser(sc);
         SetCoupleSupport(sc, user);
-        System.out.println("Now is time to give some some recomendations ");
     }
     public static User AddNewUser(Scanner sc){
         System.out.println("Ingresa los siguientes valores para crear un Usuario: ");

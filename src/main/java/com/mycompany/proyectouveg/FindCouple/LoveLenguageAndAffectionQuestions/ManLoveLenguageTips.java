@@ -49,15 +49,13 @@ public class ManLoveLenguageTips implements TipsToGetCouple {
         if(this.love_lenguage_states == null){
             getLoveLenguageAndAffectionState();
         }
-        switch (this.love_lenguage_states){
-            case love_lenguage_states_man.thoughtful_emotionally_engaged:
-                return tips_love_and_lenguage[0];
-            case love_lenguage_states_man.supportive_balanced_partner:
-                return  tips_love_and_lenguage[1];
-            case love_lenguage_states_man.low_key_reliable_partner:
-                return  tips_love_and_lenguage[2];
-            default:
-                return tips_love_and_lenguage[3];
-        }
+
+        love_lenguage_states_man love_lenguage_state = (love_lenguage_states_man) this.love_lenguage_states;
+        return switch (love_lenguage_state) {
+            case thoughtful_emotionally_engaged -> tips_love_and_lenguage[0];
+            case supportive_balanced_partner -> tips_love_and_lenguage[1];
+            case low_key_reliable_partner -> tips_love_and_lenguage[2];
+            default -> tips_love_and_lenguage[3];
+        };
     }
 }
