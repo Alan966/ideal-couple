@@ -5,10 +5,10 @@ import com.mycompany.proyectouveg.Users.User;
 
 import java.util.Scanner;
 
-public class WomanLifestyleAndSocietyPreferences extends Couples {
+public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
     private int points = 0;
     private final Scanner scanner;
-    public WomanLifestyleAndSocietyPreferences(Scanner sn, User user){
+    public WomanLifestyleAndSocietyPreferenceQuestions(Scanner sn, User user){
         super(user);
         this.scanner = sn;
     }

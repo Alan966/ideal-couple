@@ -4,8 +4,8 @@
 package com.mycompany.proyectouveg;
 
 import com.mycompany.proyectouveg.FindCouple.Couples;
-import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.ManLifestyleAndSocietyPreferences;
-import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferences;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.ManLifestyleAndSocietyPreferenceQuestions;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferenceQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
@@ -67,14 +67,14 @@ public class ProyectoUVEG {
                 emotional_service =  new ManEmotionalQuestions(sc, user);
                 life_and_goals = new ManLifeGoalsQuestions(sc, user);
                 love_lenguage_and_affection = new ManLoveLenguageQuestions(sc, user);
-                life_and_social_preference = new ManLifestyleAndSocietyPreferences(sc, user);
+                life_and_social_preference = new ManLifestyleAndSocietyPreferenceQuestions(sc, user);
                 break;
             }
             case Femenino -> {
                 emotional_service = new WomanEmotionalQuestions(sc, user);
                 life_and_goals = new WomanLifeGoalsQuestions(sc, user);
                 love_lenguage_and_affection = new WomanLoveLenguageQuestions(sc, user);
-                life_and_social_preference = new WomanLifestyleAndSocietyPreferences(sc, user);
+                life_and_social_preference = new WomanLifestyleAndSocietyPreferenceQuestions(sc, user);
                 break;
             }
         }
