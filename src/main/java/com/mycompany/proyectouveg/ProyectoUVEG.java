@@ -10,6 +10,7 @@ import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.M
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
+import com.mycompany.proyectouveg.FindCouple.StartCouples;
 import com.mycompany.proyectouveg.Users.Gender;
 import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.ManLifeGoalsQuestions;
@@ -19,30 +20,39 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
  * @author alanu
  */
 public class ProyectoUVEG {
     public static void main(String[] args) {
-        StartGame(DB.getUsers());
-    }
-    public  static void StartGame(ArrayList<User> users){
         Scanner sc = new Scanner(System.in);
-        User user = AddNewUser(sc);
-        SetCoupleSupport(sc, user);
+        User user = getUser(sc);
+        getUserInfo(user);
+        StartCouples start_couples = new StartCouples(user, sc);
+        String [] [] advices = start_couples.getAdvices();
+        for (String[] advice : advices) {
+            printAdvices(advice);
+        }
     }
-    public static User AddNewUser(Scanner sc){
-        System.out.println("Ingresa los siguientes valores para crear un Usuario: ");
+    private static void  getUserInfo(User user){
+        System.out.println("This is your id: " + user.getUserId());
+        System.out.println("This is your Emotional partner result:" + user.getEmotionalPartner());
+        System.out.println("This is your Life and Goals partner result : " + user.getLifeAndAmbitions());
+        System.out.println("This is your Love Lenguage And Affection partner result : " + user.getLoveLenguagePartner());
+        System.out.println("This is your Life and Social Preferences partner result: " + user.getLifeAndSocialPreferencesCouple());
+    }
+    public static User getUser
+            (Scanner sc) {
+        System.out.println("Ingresa los siguientes valores para evaluarte un Usuario: ");
         System.out.println("Ingresa el nombre");
-        String first_name  = sc.nextLine();
+        String first_name = sc.nextLine();
         System.out.println("Ingresa el apellido");
-        String last_name  = sc.nextLine();
+        String last_name = sc.nextLine();
         System.out.println("Ingresa el sexo");
         String response_gender_scanner = sc.nextLine();
         Gender gender;
-        if(response_gender_scanner.equals("Masculino")){
+        if (response_gender_scanner.equalsIgnoreCase("masculino")) {
             gender = Gender.Masculino;
-        }else{
+        } else {
             gender = Gender.Femenino;
         }
         System.out.println("Ingresa email");
@@ -53,52 +63,10 @@ public class ProyectoUVEG {
         String birthday = sc.nextLine();
         return new User(first_name, last_name, gender, email, password, birthday);
     }
-    public static void SetCoupleSupport(Scanner sc, User user){
-        Gender response_gender = user.getGender();
-        Couples emotional_service = null;
-        Couples life_and_goals = null;
-        Couples love_lenguage_and_affection = null;
-        Couples life_and_social_preference = null;
-
-        // Here we execute to for know their emotional sevice
-        switch (response_gender){
-            case Masculino -> {
-                emotional_service =  new ManEmotionalQuestions(sc, user);
-                life_and_goals = new ManLifeGoalsQuestions(sc, user);
-                love_lenguage_and_affection = new ManLoveLenguageQuestions(sc, user);
-                life_and_social_preference = new ManLifestyleAndSocietyPreferenceQuestions(sc, user);
-                break;
-            }
-            case Femenino -> {
-                emotional_service = new WomanEmotionalQuestions(sc, user);
-                life_and_goals = new WomanLifeGoalsQuestions(sc, user);
-                love_lenguage_and_affection = new WomanLoveLenguageQuestions(sc, user);
-                life_and_social_preference = new WomanLifestyleAndSocietyPreferenceQuestions(sc, user);
-                break;
-            }
-        }
-        emotional_service.start();
-        life_and_goals.start();
-        love_lenguage_and_affection.start();
-        life_and_social_preference.start();
-        System.out.println("This is your id: "+ user.getUserId());
-        System.out.println("This is your Emotional partner result:"+ user.getEmotionalPartner());
-        System.out.println("This is your Life and Goals partner result : "+ user.getLifeAndAmbitions());
-        System.out.println("This is your Love Lenguage And Affection partner result : "+ user.getLoveLenguagePartner());
-        System.out.println("This is your Life and Social Preferences partner result: "+ user.getLifeAndSocialPreferencesCouple());
-        String [] emotional_service_advices = emotional_service.getAdvices();
-        String [] life_and_goals_advices = life_and_goals.getAdvices();
-        String [] love_lenguage_advices = love_lenguage_and_affection.getAdvices();
-        String [] life_and_social_advices = life_and_social_preference.getAdvices();
-        printAdvices(emotional_service_advices);
-        printAdvices(life_and_goals_advices);
-        printAdvices(love_lenguage_advices);
-        printAdvices(life_and_social_advices);
-    }
-    private static  void printAdvices(String [] advices){
-        int string_advice = advices.length;
+    private static void printAdvices(String[] advices) {
+        int length_advice = advices.length;
         int i = 0;
-        while(i < string_advice){
+        while (i < length_advice) {
             System.out.println(advices[i]);
             i++;
         }
