@@ -3,10 +3,12 @@ package com.mycompany.proyectouveg.Users;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states;
 import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.life_and_ambitions_states;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.love_lenguage_states;
 import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.life_and_social_preferences_states;
+
 public class User implements IUser {
     private int id_user;
     private String first_name;
@@ -36,17 +38,22 @@ public class User implements IUser {
         int day = Integer.parseInt(year_mo_da.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
     }
+
     @Override
     public void setEmotionalPartner(emotional_states emotional_parnet) {
         this.emotional_parnet = emotional_parnet;
-    };
+    }
+
+    ;
+
     @Override
-    public void  setLifeAndAmbitionPartner(life_and_ambitions_states life_am){
+    public void setLifeAndAmbitionPartner(life_and_ambitions_states life_am) {
         this.life_and_ambition_partner = life_am;
     }
 
     @Override
-    public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {}
+    public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {
+    }
 
 
     public void setBirthday(String birthday) {
@@ -54,7 +61,9 @@ public class User implements IUser {
         int month = Integer.parseInt(birthday.split("/")[1]);
         int day = Integer.parseInt(birthday.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
-    };
+    }
+
+    ;
 
     public void setFistName(String first_name) {
         this.first_name = first_name;
@@ -73,10 +82,11 @@ public class User implements IUser {
     }
 
 
-    public void  setLoveLenguagePartner( love_lenguage_states loveL_lenguage_partner){
+    public void setLoveLenguagePartner(love_lenguage_states loveL_lenguage_partner) {
         this.love_lenguage_partner = loveL_lenguage_partner;
     }
-    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_social_preferences_couple){
+
+    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_social_preferences_couple) {
         this.life_and_social_preferences_couple = life_and_social_preferences_couple;
     }
 
@@ -87,6 +97,7 @@ public class User implements IUser {
     public emotional_states getEmotionalPartner() {
         return this.emotional_parnet;
     }
+
     public life_and_ambitions_states getLifeAndAmbitions() {
         return this.life_and_ambition_partner;
     }
@@ -99,6 +110,7 @@ public class User implements IUser {
     public int getUserId() {
         return this.id_user;
     }
+
     public java.lang.String getFullName() {
         return this.first_name + " " + this.last_name;
     }
@@ -125,7 +137,7 @@ public class User implements IUser {
     }
 
 
-    public void insetAmount(int amount){
+    public void insetAmount(int amount) {
         //TODO: Implement process to Premium Users
         this.amount_count = amount;
         this.is_premium = true;
@@ -142,8 +154,10 @@ public class User implements IUser {
             String[] strings = {};
             return strings;
         }
-        if(this.gender == Gender.Masculino){
-        return QuestionsPremiumMen();
+        if (this.gender == Gender.Masculino) {
+            return QuestionsPremiumMen();
+        } else {
+            return QuestionsPremiumWoman();
         }
     }
 
@@ -163,7 +177,21 @@ public class User implements IUser {
         return premium_questions;
     }
 
-    private void QuestionsPremiumWoman() {
-        System.out.println("Action Two");
-    };
+    private String[] QuestionsPremiumWoman() {
+        String[] premium_questions = {
+                "How do you typically react when you face stress?",
+                "How do you prioritize your physical health?",
+                "When faced with a difficult decision, how do you approach it?",
+                "How do you deal with negative emotions like sadness or anger?",
+                "How do you feel about self-care and personal time?",
+                "How do you approach your relationships with family and friends?",
+                "When it comes to your goals how do you approach them?",
+                "How do you respond when things don't go as planned ?",
+                "How do you feel about your own body image?",
+                "How do you balance your career and personal life?",
+        };
+        return premium_questions;
+    }
+
+    ;
 };
