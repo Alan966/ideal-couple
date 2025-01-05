@@ -35,8 +35,5 @@ public interface IUser {
     public emotional_states getEmotionalPartner();
     public life_and_ambitions_states getLifeAndAmbitions();
 
-    public void Authentication (String username, String password);
-    public boolean isAuthenticated();
-    public void generateToken();
 
 }

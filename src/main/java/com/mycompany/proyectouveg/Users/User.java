@@ -13,8 +13,6 @@ public class User implements IUser {
     private String last_name;
     private Gender gender;
     private String email;
-    private boolean is_authenticated;
-    private String token;
     private String password;
     private emotional_states emotional_parnet;
     private life_and_ambitions_states life_and_ambition_partner;
@@ -22,6 +20,8 @@ public class User implements IUser {
     private life_and_social_preferences_states life_and_social_preferences_couple;
     double id_counter = 0.00000001;
     Calendar birhtday;
+    private boolean is_premium = false;
+    private int amount_count = 0;
 
     public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da) {
         id_counter++;
@@ -87,7 +87,7 @@ public class User implements IUser {
     public emotional_states getEmotionalPartner() {
         return this.emotional_parnet;
     }
-    public life_and_ambitions_states getLifeAndAmbitions(){
+    public life_and_ambitions_states getLifeAndAmbitions() {
         return this.life_and_ambition_partner;
     }
 
@@ -125,54 +125,45 @@ public class User implements IUser {
     }
 
 
-    public void Authentication(String username, String password) {
-        //TODO: Implement database for authenticated
-        if (username.equals("changeThisUsername")) {
-            is_authenticated = true;
-            generateToken(username);
-        } else {
-            is_authenticated = false;
+    public void insetAmount(int amount){
+        //TODO: Implement process to Premium Users
+        this.amount_count = amount;
+        this.is_premium = true;
+    }
+
+    public boolean isPremium() {
+        return is_premium;
+    }
+
+
+    public String[] getPremiumQuestions() {
+        if (this.is_premium == false) {
+            System.out.println("This user is not premium");
+            String[] strings = {};
+            return strings;
+        }
+        if(this.gender == Gender.Masculino){
+        return QuestionsPremiumMen();
         }
     }
 
-    public boolean isAuthenticated() {
-        return is_authenticated;
+    private String[] QuestionsPremiumMen() {
+        String[] premium_questions = {
+                "When faced with a challenge, How do you typically react ?",
+                "How do you feel about making major decisions on your own?",
+                "How do you respond when someone challenges your opinion or ideas?",
+                "When things go wrong in your life, What's your first reaction?",
+                "How do you handle your finances?",
+                "When faced with difficult emotional situation, what do you do?",
+                "How do you view personal fitness and health ?",
+                "How do you manage your time during the day? ",
+                "When someone asks you for help, how do you approach it?",
+                "How do you feel about taking on responsibility in a group or organization?"
+        };
+        return premium_questions;
     }
 
-    @Override
-    public void generateToken() {
-
-    }
-
-    public void generateToken(String username) {
-        token = username + ":" + new Date().getTime();
-    }
-
-    public void getAction(Actions_enums action) {
-        if (token.isEmpty()) {
-            System.out.println("Token is empty");
-        }
-        switch (action) {
-            case action_one -> ActionOne();
-            case action_two -> ActionTwo();
-            case action_three -> ActionThree();
-            case action_four -> ActionFour();
-        }
-    }
-
-    private void ActionOne() {
-        System.out.println("Action One");
-    }
-
-    private void ActionTwo() {
+    private void QuestionsPremiumWoman() {
         System.out.println("Action Two");
-    }
-
-    private void ActionThree() {
-        System.out.println("Action Three");
-    }
-
-    private void ActionFour() {
-        System.out.println("Action Four");
-    }
-}
+    };
+};
