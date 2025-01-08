@@ -32,6 +32,16 @@ public class ProyectoUVEG {
         for (String[] advice : advices) {
             printAdvices(advice);
         }
+        System.out.println("Do you want to become premium ?");
+        System.out.println("Answer true if you want false if you don't want");
+        String answer = sc.nextLine().trim().toLowerCase();
+        if (answer.equals("true")){
+            System.out.println("Please insert the amount ");
+            int amount = Integer.parseInt(sc.nextLine());
+            user.insetAmount(amount);
+            user.maybeProcessPremium(sc);
+        }
+
     }
     private static void  getUserInfo(User user){
         System.out.println("This is your id: " + user.getUserId());

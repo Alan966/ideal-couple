@@ -3,6 +3,7 @@ package com.mycompany.proyectouveg.Users;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states;
 import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.life_and_ambitions_states;
@@ -139,26 +140,38 @@ public class User implements IUser {
 
     public void insetAmount(int amount) {
         //TODO: Implement process to Premium Users
-        this.amount_count = amount;
-        this.is_premium = true;
+        this.amount_count += amount;
+        if (this.amount_count > 100) {
+            this.is_premium = true;
+        }
     }
 
     public boolean isPremium() {
         return is_premium;
     }
 
-
-    public String[] getPremiumQuestions() {
+    public void maybeProcessPremium(Scanner sc) {
         if (this.is_premium == false) {
-            System.out.println("This user is not premium");
-            String[] strings = {};
-            return strings;
+            System.out.println("You're not Premium So sorry");
         }
+        startProcessPremium(sc);
+    };
+
+    private void startProcessPremium(Scanner sc) {
+        String[] premium_questions = getPremiumQuestions();
+        int count = 0;
+        do {
+            System.out.println(premium_questions[count]);
+            String response = sc.nextLine();
+            count++;
+        } while (count != premium_questions.length);
+    }
+
+    private String[] getPremiumQuestions() {
         if (this.gender == Gender.Masculino) {
             return QuestionsPremiumMen();
-        } else {
-            return QuestionsPremiumWoman();
         }
+        return QuestionsPremiumWoman();
     }
 
     private String[] QuestionsPremiumMen() {
@@ -192,6 +205,71 @@ public class User implements IUser {
         };
         return premium_questions;
     }
-
     ;
+    private String[][] getAnswersQuestionsManPremium(){
+        String [][] premium_answers = {
+                {
+                    "a) I avoid it until I can no longer escape",
+                        "b) I try to deal with it, but I can be overwhelmed",
+                        "c) I take the time to think through possible solutions",
+                        "d) I face it head-on and deal with whatever comes my way"
+                },
+                {
+                    "a) I prefer to ask for advice and seek consensus",
+                        "b) I make the decision, but I'm always unsure",
+                        "c) I weigh the pros and cons, then take responsibility for my choice",
+                        "c) I trus my gut and maje the decisions swiftly, regardless or what others think"
+                },
+                {
+                    "a) I get defensive and argue my point harder",
+                        "b) I explain myself calmly, but i get frustrated",
+                        "c) I listen to the other person's argument and consider it",
+                        "d) I remain calm and either agree, disagree, or walk away if it's not worth the energy"
+                },
+                {
+                    "a) I blame others and external circumstances",
+                        "b) I feel sorry for myself for a while",
+                        "c) I analyze what went wrong and adjust accordingly",
+                        "d) I don't waste time complaining, I take immediate action to fix it"
+                },
+                {
+                    "a) I avoid thinking about it and let things happen on their own",
+                        "b) I try to save but often spend impulsively",
+                        "c) I budget and save with some room for flexibility",
+                        "d) I have clear financial goals and stick to a strict plan"
+                },
+                {
+                    "a) I ignore it and hope it goes away",
+                        "b) I talk to friends or family to get advice",
+                        "c) I deal with it privately, but I try to stay strong",
+                        "d) I face the situation directly and process the emotions without hesitation"
+                },
+                {
+                    "a) I don't have time for fitness, it's not important to me",
+                        "b) I try to work out sometimes, but it's not a priority",
+                        "c) I maintain a regular workout routine but can slack off occasionally",
+                        "d) I have disciplined fitness routine and prioritize my health"
+                },
+                {
+                    "a) I react to whatever comes my way, and time is often wasted",
+                        "b) I try to organize myself but often get sidetracked",
+                        "c) I have to-do list, but sometimes I don't follow through",
+                        "d) I have a structured daily routine and make sure I stick to it"
+                },
+                {
+                    "a) I avoid helping, as I don't like getting involved in others' problems",
+                        "b) I help, but I get frustrated or expect something in return",
+                        "c) I offer help if i can, but I expect the person to figure out most of it on their own",
+                        "d) I offer my help wilingly and expect nothing in return"
+                },
+                {
+                    "a) I avoid it; I prefer to stay out of the spotlight",
+                        "b) I take on some responsibilities but often find them overwhelming",
+                        "c) I take on responsibilities and complete them, even under pressure",
+                        "d) I actively seek out responsibility and thrive when leading others"
+                }
+        };
+        return premium_answers;
+    }
+
 };
