@@ -160,8 +160,10 @@ public class User implements IUser {
     private void startProcessPremium(Scanner sc) {
         String[] premium_questions = getPremiumQuestions();
         int count = 0;
+        String [][] answers = getPremiumAnswers();
         do {
             System.out.println(premium_questions[count]);
+            printAnswers(answers[count]);
             String response = sc.nextLine();
             count++;
         } while (count != premium_questions.length);
@@ -173,6 +175,12 @@ public class User implements IUser {
         }
         return QuestionsPremiumWoman();
     }
+    private String[][] getPremiumAnswers() {
+        if(this.gender == Gender.Masculino){
+            return getAnswersQuestionsManPremium();
+        }
+        return getAnswersQuestionsWomanPremium();
+    };
 
     private String[] QuestionsPremiumMen() {
         String[] premium_questions = {
@@ -270,6 +278,78 @@ public class User implements IUser {
                 }
         };
         return premium_answers;
-    }
+    };
+    private String[][] getAnswersQuestionsWomanPremium(){
+        String [][] premium_answers = {
+                {
+                    "a) I avoid dealing with it and try to distract myself",
+                        "b) I acknowledge it , but i tend to bottle it up and feel overwhelmed",
+                        "c) I take time to process my feelings and take some small actions to manage it",
+                        "d) I handle it, calmly, analyze the situation,a nd focus on solutions"
+                },
+                {
+                    "a) I don't pay much attention to my health and make unhealthy choices",
+                        "b) I try to be healthy but struggle to keep consistent",
+                        "c) I exercise occasionally and eat somewhat balanced meals",
+                        "d) I maintain regular exercise routine and prioritize my health with balanced meals",
+                },
+                {
+                    "a) I avoid making decisions and let others choose for me",
+                        "b) I feel overwhelmed and struggle to make the right decision",
+                        "c) I seek advice from others and weigh the options",
+                        "d) I trust my intuition, research the options, and make a decision confidenly"
+                },
+                {
+                    "a) I repress them and try to ignore how I feel",
+                        "b) I express them impulsively and sometimes regret it",
+                        "c) I reflect on my feelings and try to understand where they come from",
+                        "d) I process them calmly and take constructive action to move forward"
+                },
+                {
+                    "a) I rarely make time for myself and feel guilty when I do",
+                        "b) I occasionally take time for self-care but feel like I'm neglecting responsibilities",
+                        "c) I try to prioritize self-care, but it often feels like a luxury",
+                        "d) I regularly schedule time for self-care and understand it's importance for my well-being"
+                },
+                {
+                    "a) I avoid conflict and sometimes let my boundaries be crossed",
+                        "b) I sometimes struggle to set boundaries and speak up for myself",
+                        "c) I maintain healthy relationships, but I can be easily overwhelmed by them",
+                        "d) I establish and maintain healthy boundaries, while nurturing strong, supportive relationships"
+                },
+                {
+                    "a) I lack clear goals and often feel lost or uncertain about what I want",
+                        "b) I have some goals but often procrastinate and feel overwhelmed",
+                        "c) I set goals and try to stay focused, though I sometimes get distracted",
+                        "d) I have clear, actionable goals and consistently work towards them with discipline"
+                },
+                {
+                    "a) I become discouraged and give up easily",
+                        "b) I feel frustrated, but I try to move on without much reflection",
+                        "c) I analyze the situation, adjust my approach, and try again",
+                        "d) I stay calm, reassess my strategy, and move forward with determination"
+                },
+                {
+                    "a) I feel uncomfortable and dissatisfied with my body most of the time",
+                        "b) I have moments of self-doubt but try to focus on the positives",
+                        "c) I accept my body, but I still strive for improvements",
+                        "d) I feel confident and comfortable in my body and take care of it"
+                },
+                {
+                    "a) I'm completely absorbed in my work and struggle to maintain personal relationships",
+                        "b) I try to balance both, but I often feel overwhelmed and out of sync",
+                        "c) I manage both reasonably well but sometimes feel like something gives",
+                        "d) I maintain a strong balance between my career and personal life, ensure both thrive"
+                }
+        };
+        return premium_answers;
+    };
+    private void printAnswers(String[] answers){
+        int length = answers.length - 1;
+        do{
+            System.out.println(answers[length]);
+            length--;
 
+        }while (length >= 0);
+    }
 };
