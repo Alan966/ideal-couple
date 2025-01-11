@@ -5,8 +5,17 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+import com.mycompany.proyectouveg.FindCouple.Couples;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
+import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
 import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.ManLifestyleAndSocietyPreferenceQuestions;
+import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferenceQuestions;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.ManLifeGoalsQuestions;
+import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.WomanLifeGoalsQuestions;
 import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.life_and_ambitions_states;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
+import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
 import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.love_lenguage_states;
 import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.life_and_social_preferences_states;
 
@@ -21,12 +30,23 @@ public class User implements IUser {
     private life_and_ambitions_states life_and_ambition_partner;
     private love_lenguage_states love_lenguage_partner;
     private life_and_social_preferences_states life_and_social_preferences_couple;
-    double id_counter = 0.00000001;
-    Calendar birhtday;
+    private double id_counter = 0.00000001;
+    private Calendar birhtday;
     private boolean is_premium = false;
     private int amount_count = 0;
+    private Scanner sc;
+    private Couples emotional;
+    private Couples love_lenguage;
+    private Couples life_and_goals;
+    private Couples life_and_social;
+    private String [] [] advices = {
+            {},
+            {},
+            {},
+            {}
+    };
 
-    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da) {
+    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc) {
         id_counter++;
         this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
@@ -38,6 +58,7 @@ public class User implements IUser {
         int month = Integer.parseInt(year_mo_da.split("/")[1]) - 1;
         int day = Integer.parseInt(year_mo_da.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
+        this.sc = sc;
     }
 
     @Override
@@ -147,8 +168,41 @@ public class User implements IUser {
             return;
         }
         startProcessPremium(sc, this.gender);
+    };
+    private void setCouplesMale() {
+        this.emotional = new ManEmotionalQuestions(this.sc, this);
+        this.life_and_goals = new ManLifeGoalsQuestions(this.sc, this);
+        this.love_lenguage = new ManLoveLenguageQuestions(this.sc, this);
+        this.life_and_social = new ManLifestyleAndSocietyPreferenceQuestions(this.sc, this);
     }
 
-    ;
+    private void setCouplesFemale() {
+        this.emotional = new WomanEmotionalQuestions(this.sc, this);
+        this.life_and_goals = new WomanLifeGoalsQuestions(this.sc, this);
+        this.love_lenguage = new WomanLoveLenguageQuestions(this.sc, this);
+        this.life_and_social = new WomanLifestyleAndSocietyPreferenceQuestions(this.sc, this
+        );
+    }
+    private void setCouplesServices() {
+        if (this.gender == Gender.Masculino) {
+            setCouplesMale();
+        } else {
+            setCouplesFemale();
+        }
+    }
+    public void start(){
+        setCouplesServices();
+        this.emotional.start();
+        this.life_and_goals.start();
+        this.love_lenguage.start();
+        this.life_and_social.start();
+    }
+    public  String[] [] getAdvices(){
+        this.advices[0] = this.emotional.getAdvices();
+        this.advices[1] = this.life_and_goals.getAdvices();
+        this.advices[2] = this.love_lenguage.getAdvices();
+        this.advices[3] = this.life_and_social.getAdvices();
+        return this.advices;
+    }
 
 };

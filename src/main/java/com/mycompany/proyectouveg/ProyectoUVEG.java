@@ -3,20 +3,8 @@
  */
 package com.mycompany.proyectouveg;
 
-import com.mycompany.proyectouveg.FindCouple.Couples;
-import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.ManLifestyleAndSocietyPreferenceQuestions;
-import com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions.WomanLifestyleAndSocietyPreferenceQuestions;
-import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageQuestions;
-import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.WomanLoveLenguageQuestions;
-import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.ManEmotionalQuestions;
-import com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.WomanEmotionalQuestions;
-import com.mycompany.proyectouveg.FindCouple.StartCouples;
 import com.mycompany.proyectouveg.Users.Gender;
 import com.mycompany.proyectouveg.Users.User;
-import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.ManLifeGoalsQuestions;
-import com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions.WomanLifeGoalsQuestions;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -26,9 +14,9 @@ public class ProyectoUVEG {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         User user = getUser(sc);
+        user.start();
         getUserInfo(user);
-        StartCouples start_couples = new StartCouples(user, sc);
-        String [] [] advices = start_couples.getAdvices();
+        String [] [] advices = user.getAdvices();
         for (String[] advice : advices) {
             printAdvices(advice);
         }
@@ -71,7 +59,7 @@ public class ProyectoUVEG {
         String password = sc.nextLine();
         System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
         String birthday = sc.nextLine();
-        return new User(first_name, last_name, gender, email, password, birthday);
+        return new User(first_name, last_name, gender, email, password, birthday, sc);
     }
     private static void printAdvices(String[] advices) {
         int length_advice = advices.length;
