@@ -20,16 +20,16 @@ public class ProyectoUVEG {
         for (String[] advice : advices) {
             printAdvices(advice);
         }
-        System.out.println("Do you want to become premium ?");
-        System.out.println("Answer true if you want false if you don't want");
-        String answer = sc.nextLine().trim().toLowerCase();
-        if (answer.equals("true")){
+        if(user.isPremium() == false){
+            System.out.println("Do you want to become premium ?");
+            System.out.println("Answer true if you want false if you don't want");
+            String answer = sc.nextLine().trim().toLowerCase();
+            if (answer.equals("false")) return;
             System.out.println("Please insert the amount ");
             int amount = Integer.parseInt(sc.nextLine());
             user.setAmount(amount);
-            user.maybeStartProcessPremium(sc);
         }
-
+        user.maybeStartProcessPremium(sc);
     }
     private static void  getUserInfo(User user){
         System.out.println("This is your id: " + user.getUserId());
@@ -59,6 +59,12 @@ public class ProyectoUVEG {
         String password = sc.nextLine();
         System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
         String birthday = sc.nextLine();
+        System.out.println("Quieres poner dinero en tu cuenta");
+        String response = sc.nextLine();
+        if(response.equals(("Si"))){
+            int amount = sc.nextInt();
+            return new User(first_name, last_name, gender, email, password, birthday, sc, amount);
+        }
         return new User(first_name, last_name, gender, email, password, birthday, sc);
     }
     private static void printAdvices(String[] advices) {

@@ -45,8 +45,7 @@ public class User implements IUser {
             {},
             {}
     };
-
-    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc) {
+    private void ConstructorUser(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc){
         id_counter++;
         this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
@@ -60,7 +59,16 @@ public class User implements IUser {
         this.birhtday = new GregorianCalendar(year, month, day);
         this.sc = sc;
     }
-
+    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc) {
+        ConstructorUser(first_name, last_name, gender, email, password, year_mo_da, sc);
+    }
+    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc, int amount) {
+        ConstructorUser(first_name, last_name, gender, email, password, year_mo_da, sc);
+        this.amount_count = amount;
+        if(this.amount_count > 100){
+            this.is_premium = true;
+        }
+    }
     @Override
     public void setEmotionalPartner(emotional_states emotional_parnet) {
         this.emotional_parnet = emotional_parnet;
@@ -169,7 +177,6 @@ public class User implements IUser {
 
     public void maybeStartProcessPremium(Scanner sc) {
         if (this.is_premium == false) {
-            System.out.println("You're not Premium So sorry");
             return;
         }
         startProcessPremium(sc, this.gender);
