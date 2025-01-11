@@ -112,7 +112,7 @@ public class User implements IUser {
         return this.id_user;
     }
 
-    public java.lang.String getFullName() {
+    public String getFullName() {
         return this.first_name + " " + this.last_name;
     }
 
@@ -161,12 +161,18 @@ public class User implements IUser {
         String[] premium_questions = getPremiumQuestions();
         int count = 0;
         String [][] answers = getPremiumAnswers();
+        String[] responses = new  String[10];
         do {
             System.out.println(premium_questions[count]);
             printAnswers(answers[count]);
             String response = sc.nextLine();
+            responses[count] = response;
             count++;
         } while (count != premium_questions.length);
+        System.out.println("Your answers was");
+        for (String response : responses){
+            System.out.println(response);
+        }
     }
 
     private String[] getPremiumQuestions() {
