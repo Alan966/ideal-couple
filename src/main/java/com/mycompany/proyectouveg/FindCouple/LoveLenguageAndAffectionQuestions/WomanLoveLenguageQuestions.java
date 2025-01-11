@@ -29,7 +29,7 @@ public  class WomanLoveLenguageQuestions extends Couples {
         }else {
             love_lenguage_partner = love_lenguage_states_man.thoughtful_emotionally_engaged;
         }
-        this.user.setLoveLenguagePartner(love_lenguage_partner);
+        this.user.setLenguageAndAffectionPartner(love_lenguage_partner);
     }
     @Override
     protected void FirstQuestion() {

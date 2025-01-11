@@ -38,8 +38,8 @@ public class ProyectoUVEG {
         if (answer.equals("true")){
             System.out.println("Please insert the amount ");
             int amount = Integer.parseInt(sc.nextLine());
-            user.insetAmount(amount);
-            user.maybeProcessPremium(sc);
+            user.setAmount(amount);
+            user.maybeStartProcessPremium(sc);
         }
 
     }
