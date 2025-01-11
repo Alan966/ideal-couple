@@ -28,7 +28,7 @@ public interface IUser {
     public void setLifeAndAmbitionPartner(life_and_ambitions_states life_and_ambitions_partner);
 
     public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner);
-
+    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter);
 
     // Getters methods
     public int getUserId();

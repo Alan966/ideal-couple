@@ -75,7 +75,12 @@ public class User implements IUser {
 
     @Override
     public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {
+        this.love_lenguage_partner = love_lenguage_and_affection_partner;
     }
+    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter){
+        this.life_and_social_preferences_couple = life_and_society_parter;
+    }
+
 
 
     public void setBirthday(String birthday) {
