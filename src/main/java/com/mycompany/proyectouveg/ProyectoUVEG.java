@@ -20,9 +20,9 @@ public class ProyectoUVEG {
         for (String[] advice : advices) {
             printAdvices(advice);
         }
-        if(user.isPremium() == false){
+        if(!user.isPremium()){
             System.out.println("Do you want to become premium ?");
-            System.out.println("Answer true if you want false if you don't want");
+            System.out.println("Answer false you don't want to become premium");
             String answer = sc.nextLine().trim().toLowerCase();
             if (answer.equals("false")) return;
             System.out.println("Please insert the amount ");

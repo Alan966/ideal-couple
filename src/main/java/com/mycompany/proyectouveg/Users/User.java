@@ -176,7 +176,7 @@ public class User implements IUser {
     }
 
     public void maybeStartProcessPremium(Scanner sc) {
-        if (this.is_premium == false) {
+        if (!this.is_premium) {
             return;
         }
         startProcessPremium(sc, this.gender);
