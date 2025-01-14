@@ -12,11 +12,6 @@ public interface IUser {
     // Setter methods
     public void setBirthday(String birthday);
 
-    public void setFistName(String first_name);
-
-    public void setLastName(String last_name);
-
-    public void setGender(Gender gender);
 
     public void setEmail(String email);
 

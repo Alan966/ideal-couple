@@ -50,32 +50,32 @@ public class User implements IUser {
         id_counter++;
         System.out.println("Ingresa los siguientes valores para evaluarte un Usuario: ");
         System.out.println("Ingresa el nombre");
-        String first_name = sc.nextLine();
+        String _first_name = sc.nextLine();
         System.out.println("Ingresa el apellido");
-        String last_name = sc.nextLine();
+        String _last_name = sc.nextLine();
         System.out.println("Ingresa el sexo");
         String response_gender_scanner = sc.nextLine();
-        Gender gender;
+        Gender _gender;
         if (response_gender_scanner.equalsIgnoreCase("masculino")) {
-            gender = Gender.Masculino;
+            _gender = Gender.Masculino;
         } else {
-            gender = Gender.Femenino;
+            _gender = Gender.Femenino;
         }
         System.out.println("Ingresa email");
         String email = sc.nextLine();
         System.out.println("Ingresa Password");
         String password = sc.nextLine();
         System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
-        String birthday = sc.nextLine();
+        String _birthday = sc.nextLine();
         this.id_user = (int) Math.ceil((id_counter * 100000000));
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.gender = gender;
+        this.first_name = _first_name;
+        this.last_name = _last_name;
+        this.gender = _gender;
         this.email = email;
         this.password = password;
-        int year = Integer.parseInt(birthday.split("/")[0]);
-        int month = Integer.parseInt(birthday.split("/")[1]) - 1;
-        int day = Integer.parseInt(birthday.split("/")[2]);
+        int year = Integer.parseInt(_birthday.split("/")[0]);
+        int month = Integer.parseInt(_birthday.split("/")[1]) - 1;
+        int day = Integer.parseInt(_birthday.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
         this.sc = sc;
     }
@@ -96,24 +96,24 @@ public class User implements IUser {
     }
 
     @Override
-    public void setEmotionalPartner(emotional_states emotional_parnet) {
-        this.emotional_parnet = emotional_parnet;
+    public void setEmotionalPartner(emotional_states _emotional_parnet) {
+        this.emotional_parnet = _emotional_parnet;
     }
 
     ;
 
     @Override
-    public void setLifeAndAmbitionPartner(life_and_ambitions_states life_am) {
-        this.life_and_ambition_partner = life_am;
+    public void setLifeAndAmbitionPartner(life_and_ambitions_states _life_ambitious_states) {
+        this.life_and_ambition_partner = _life_ambitious_states;
     }
 
     @Override
-    public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {
-        this.love_lenguage_partner = love_lenguage_and_affection_partner;
+    public void setLenguageAndAffectionPartner(love_lenguage_states _love_lenguage_and_affection_partner) {
+        this.love_lenguage_partner = _love_lenguage_and_affection_partner;
     }
 
-    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter) {
-        this.life_and_social_preferences_couple = life_and_society_parter;
+    public void setLifeAndSocialPreferences(life_and_social_preferences_states _life_and_society_parter) {
+        this.life_and_social_preferences_couple = _life_and_society_parter;
     }
 
 
@@ -126,17 +126,6 @@ public class User implements IUser {
 
     ;
 
-    public void setFistName(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public void setLastName(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
 
     public void setEmail(String email) {
         this.email = email;
