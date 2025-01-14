@@ -39,36 +39,62 @@ public class User implements IUser {
     private Couples love_lenguage;
     private Couples life_and_goals;
     private Couples life_and_social;
-    private String [] [] advices = {
+    private String[][] advices = {
             {},
             {},
             {},
             {}
     };
-    private void ConstructorUser(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc){
+
+    private void ConstructorUser(Scanner sc) {
         id_counter++;
+        System.out.println("Ingresa los siguientes valores para evaluarte un Usuario: ");
+        System.out.println("Ingresa el nombre");
+        String first_name = sc.nextLine();
+        System.out.println("Ingresa el apellido");
+        String last_name = sc.nextLine();
+        System.out.println("Ingresa el sexo");
+        String response_gender_scanner = sc.nextLine();
+        Gender gender;
+        if (response_gender_scanner.equalsIgnoreCase("masculino")) {
+            gender = Gender.Masculino;
+        } else {
+            gender = Gender.Femenino;
+        }
+        System.out.println("Ingresa email");
+        String email = sc.nextLine();
+        System.out.println("Ingresa Password");
+        String password = sc.nextLine();
+        System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
+        String birthday = sc.nextLine();
         this.id_user = (int) Math.ceil((id_counter * 100000000));
         this.first_name = first_name;
         this.last_name = last_name;
         this.gender = gender;
         this.email = email;
         this.password = password;
-        int year = Integer.parseInt(year_mo_da.split("/")[0]);
-        int month = Integer.parseInt(year_mo_da.split("/")[1]) - 1;
-        int day = Integer.parseInt(year_mo_da.split("/")[2]);
+        int year = Integer.parseInt(birthday.split("/")[0]);
+        int month = Integer.parseInt(birthday.split("/")[1]) - 1;
+        int day = Integer.parseInt(birthday.split("/")[2]);
         this.birhtday = new GregorianCalendar(year, month, day);
         this.sc = sc;
     }
-    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc) {
-        ConstructorUser(first_name, last_name, gender, email, password, year_mo_da, sc);
-    }
-    public User(String first_name, String last_name, Gender gender, String email, String password, String year_mo_da, Scanner sc, int amount) {
-        ConstructorUser(first_name, last_name, gender, email, password, year_mo_da, sc);
-        this.amount_count = amount;
-        if(this.amount_count > 100){
-            this.is_premium = true;
+
+    public User(Scanner sc) {
+        ConstructorUser(sc);
+        System.out.println("Quieres poner dinero en tu cuenta");
+        String response = sc.nextLine();
+        if (response.equals(("Si"))) {
+            System.out.println("Ingresa la cantidad que quieres poner en tu cuenta");
+            int amount = sc.nextInt();
+            this.amount_count = amount;
+            if (this.amount_count > 100) {
+                this.is_premium = true;
+            }
         }
+
     }
+
     @Override
     public void setEmotionalPartner(emotional_states emotional_parnet) {
         this.emotional_parnet = emotional_parnet;
@@ -85,10 +111,10 @@ public class User implements IUser {
     public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner) {
         this.love_lenguage_partner = love_lenguage_and_affection_partner;
     }
-    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter){
+
+    public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter) {
         this.life_and_social_preferences_couple = life_and_society_parter;
     }
-
 
 
     public void setBirthday(String birthday) {
@@ -180,7 +206,10 @@ public class User implements IUser {
             return;
         }
         startProcessPremium(sc, this.gender);
-    };
+    }
+
+    ;
+
     private void setCouplesMale() {
         this.emotional = new ManEmotionalQuestions(this.sc, this);
         this.life_and_goals = new ManLifeGoalsQuestions(this.sc, this);
@@ -195,6 +224,7 @@ public class User implements IUser {
         this.life_and_social = new WomanLifestyleAndSocietyPreferenceQuestions(this.sc, this
         );
     }
+
     private void setCouplesServices() {
         if (this.gender == Gender.Masculino) {
             setCouplesMale();
@@ -202,14 +232,16 @@ public class User implements IUser {
             setCouplesFemale();
         }
     }
-    public void start(){
+
+    public void start() {
         setCouplesServices();
         this.emotional.start();
         this.life_and_goals.start();
         this.love_lenguage.start();
         this.life_and_social.start();
     }
-    public  String[] [] getAdvices(){
+
+    public String[][] getAdvices() {
         this.advices[0] = this.emotional.getAdvices();
         this.advices[1] = this.life_and_goals.getAdvices();
         this.advices[2] = this.love_lenguage.getAdvices();

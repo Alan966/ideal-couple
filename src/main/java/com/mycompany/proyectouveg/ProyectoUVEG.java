@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ProyectoUVEG {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        User user = getUser(sc);
+        User user = new User(sc);
         user.start();
         getUserInfo(user);
         String [] [] advices = user.getAdvices();
@@ -37,35 +37,6 @@ public class ProyectoUVEG {
         System.out.println("This is your Life and Goals partner result : " + user.getLifeAndAmbitions());
         System.out.println("This is your Love Lenguage And Affection partner result : " + user.getLoveLenguagePartner());
         System.out.println("This is your Life and Social Preferences partner result: " + user.getLifeAndSocialPreferencesCouple());
-    }
-    public static User getUser
-            (Scanner sc) {
-        System.out.println("Ingresa los siguientes valores para evaluarte un Usuario: ");
-        System.out.println("Ingresa el nombre");
-        String first_name = sc.nextLine();
-        System.out.println("Ingresa el apellido");
-        String last_name = sc.nextLine();
-        System.out.println("Ingresa el sexo");
-        String response_gender_scanner = sc.nextLine();
-        Gender gender;
-        if (response_gender_scanner.equalsIgnoreCase("masculino")) {
-            gender = Gender.Masculino;
-        } else {
-            gender = Gender.Femenino;
-        }
-        System.out.println("Ingresa email");
-        String email = sc.nextLine();
-        System.out.println("Ingresa Password");
-        String password = sc.nextLine();
-        System.out.println("Ingresa la fecha de nacimiento en este formato yyyy/mm/day");
-        String birthday = sc.nextLine();
-        System.out.println("Quieres poner dinero en tu cuenta");
-        String response = sc.nextLine();
-        if(response.equals(("Si"))){
-            int amount = sc.nextInt();
-            return new User(first_name, last_name, gender, email, password, birthday, sc, amount);
-        }
-        return new User(first_name, last_name, gender, email, password, birthday, sc);
     }
     private static void printAdvices(String[] advices) {
         int length_advice = advices.length;
