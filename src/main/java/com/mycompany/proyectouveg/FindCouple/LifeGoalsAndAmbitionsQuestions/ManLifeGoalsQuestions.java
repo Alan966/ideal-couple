@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ManLifeGoalsQuestions extends Couples {
     private int points = 0;
     private life_and_ambitions_states_woman life_and_ambitions_partner;
-    private Scanner scanner;
+    private final Scanner scanner;
     public ManLifeGoalsQuestions(Scanner scanner, User user){
         super(user);
         this.scanner = scanner;
@@ -104,7 +104,7 @@ public class ManLifeGoalsQuestions extends Couples {
 
     @Override
     public String[] getAdvices() {
-        ManLifeGoalsAndAmbitionsTips man_life_and_ambitions = new ManLifeGoalsAndAmbitionsTips(this.user);
+        final ManLifeGoalsAndAmbitionsTips man_life_and_ambitions = new ManLifeGoalsAndAmbitionsTips(this.user);
         return man_life_and_ambitions.getTips();
     }
 }

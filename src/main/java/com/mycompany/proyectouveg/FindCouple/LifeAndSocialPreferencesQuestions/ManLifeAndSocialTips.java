@@ -4,9 +4,9 @@ import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
 public class ManLifeAndSocialTips implements TipsToGetCouple {
-    private User user;
-    private life_and_social_preferences_states_man life_and_social_preferences_states;
-    private String[][] tips_life_social_preference_mens = {
+    private final User user;
+    private  life_and_social_preferences_states_man life_and_social_preferences_states;
+    private final String[][] tips_life_social_preference_mens = {
             {
                     "Organize Gatherings Regularly: Start hosting small events like dinners, outings, or game nights to build your social circle and leadership in social settings",
                     "Practice Public Speaking: Join groups like Toastmasters to improve confidence in speaking and leading discussions",
@@ -37,12 +37,12 @@ public class ManLifeAndSocialTips implements TipsToGetCouple {
             }
     };
 
-    public ManLifeAndSocialTips(User user) {
-        this.user = user;
+    public ManLifeAndSocialTips(User _user) {
+        this.user = _user;
     }
 
     private void getSocialPreferenceState() {
-        MakeCouplesServices couple_service = new MakeCouplesServices(this.user);
+        final MakeCouplesServices couple_service = new MakeCouplesServices(this.user);
         this.life_and_social_preferences_states = couple_service.getManLifeAnSocialPreferencesCouple();
     }
 
@@ -52,7 +52,7 @@ public class ManLifeAndSocialTips implements TipsToGetCouple {
         if (this.life_and_social_preferences_states == null) {
             getSocialPreferenceState();
         }
-        life_and_social_preferences_states_man life_ans_social_state = (life_and_social_preferences_states_man) this.life_and_social_preferences_states;
+        final life_and_social_preferences_states_man life_ans_social_state = (life_and_social_preferences_states_man) this.life_and_social_preferences_states;
         return switch (life_ans_social_state) {
             case socially_driver_partner -> tips_life_social_preference_mens[0];
             case socially_flexible_partner -> tips_life_social_preference_mens[1];

@@ -105,7 +105,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
 
     @Override
     public String[] getAdvices() {
-        WomanLifeAndSocialTips woman_life_and_social = new WomanLifeAndSocialTips(this.user);
+        final WomanLifeAndSocialTips woman_life_and_social = new WomanLifeAndSocialTips(this.user);
         return woman_life_and_social.getTips();
     }
 }

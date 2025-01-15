@@ -6,21 +6,24 @@ import static com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.em
 import static com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states_man.*;
 
 public class MakeCouplesServices {
-    private User user;
-    public MakeCouplesServices(User user){
-        this.user = user;
+    private final User user;
+
+    public MakeCouplesServices(User _user) {
+        this.user = _user;
     }
-    public emotional_states_man getMenEmotionalCouple(){
-        emotional_states_woman emotional_state = (emotional_states_woman) this.user.getEmotionalPartner();
-            return switch (emotional_state) {
-                case emotionally_engaged -> stoic_protector;
-                case emotionally_balanced -> balanced_listener;
-                case emotionally_independent -> calm_problem_solver;
-                default -> emotional_connection;
-            };
+
+    public emotional_states_man getMenEmotionalCouple() {
+        final emotional_states_woman emotional_state = (emotional_states_woman) this.user.getEmotionalPartner();
+        return switch (emotional_state) {
+            case emotionally_engaged -> stoic_protector;
+            case emotionally_balanced -> balanced_listener;
+            case emotionally_independent -> calm_problem_solver;
+            default -> emotional_connection;
+        };
     }
-    public emotional_states_woman getWomenEmotionalCouple(){
-        emotional_states_man emotional_state = (emotional_states_man) this.user.getEmotionalPartner();
+
+    public emotional_states_woman getWomenEmotionalCouple() {
+        final emotional_states_man emotional_state = (emotional_states_man) this.user.getEmotionalPartner();
         return switch (emotional_state) {
             case stoic_protector -> emotionally_engaged;
             case balanced_listener -> emotionally_balanced;

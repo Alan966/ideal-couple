@@ -4,9 +4,9 @@ import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
 public class WomanLifeAndGoalsTips implements TipsToGetCouple {
-    private User user;
+    private final User user;
     private life_and_ambitions_states_woman life_and_ambitions_states;
-    private String [] [] tips_life_and_ambitions = {
+    private final String [] [] tips_life_and_ambitions = {
             {
                 "Set daily Career Goals: Allocate 30 minutes each morning to outline the day's top three tasks that directly advance your career goals",
                     "Expand your network: Attend one networking event or industry meetup weekly to build relationships with like-minded professionals",
@@ -37,8 +37,8 @@ public class WomanLifeAndGoalsTips implements TipsToGetCouple {
             }
     };
 
-    public WomanLifeAndGoalsTips(User user){
-        this.user = user;
+    public WomanLifeAndGoalsTips(User _user){
+        this.user = _user;
     }
     private void getLifeAndAmbitionsPreferenceState(){
         MakeCouplesService couple_service = new MakeCouplesService(this.user);
@@ -50,7 +50,7 @@ public class WomanLifeAndGoalsTips implements TipsToGetCouple {
         if (this.life_and_ambitions_states == null){
             getLifeAndAmbitionsPreferenceState();
         }
-        life_and_ambitions_states_woman life_and_ambitions = (life_and_ambitions_states_woman) this.life_and_ambitions_states;
+        final life_and_ambitions_states_woman life_and_ambitions = (life_and_ambitions_states_woman) this.life_and_ambitions_states;
         return switch (life_and_ambitions) {
             case highly_ambitious_career -> tips_life_and_ambitions[0];
             case team_oriented_woman -> tips_life_and_ambitions[1];

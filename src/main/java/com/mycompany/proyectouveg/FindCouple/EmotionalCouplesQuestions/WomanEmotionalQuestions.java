@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class WomanEmotionalQuestions extends Couples {
     private int points = 0;
     private emotional_states_man emotional_partner;
-    private Scanner scanner;
-    public WomanEmotionalQuestions(Scanner scanner, User user) {
-        super(user);
-        this.scanner = scanner;
+    private final Scanner scanner;
+    public WomanEmotionalQuestions(Scanner _scanner, User _user) {
+        super(_user);
+        this.scanner = _scanner;
     }
     public void start(){
         boolean user_could_play = couldPlay();
@@ -103,7 +103,7 @@ public class WomanEmotionalQuestions extends Couples {
 
     @Override
     public String[] getAdvices() {
-        WomanEmotionalTips woman_emotional_tips = new WomanEmotionalTips(this.user);
+        final WomanEmotionalTips woman_emotional_tips = new WomanEmotionalTips(this.user);
        return  woman_emotional_tips.getTips();
     }
 }

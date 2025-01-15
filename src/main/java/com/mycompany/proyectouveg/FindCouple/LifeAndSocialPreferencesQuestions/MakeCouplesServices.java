@@ -2,12 +2,12 @@ package com.mycompany.proyectouveg.FindCouple.LifeAndSocialPreferencesQuestions;
 
 import com.mycompany.proyectouveg.Users.User;
 public class MakeCouplesServices {
-    private User user;
-    public  MakeCouplesServices (User user){
-        this.user = user;
+    private final User user;
+    public  MakeCouplesServices (User _user){
+        this.user = _user;
     }
     public life_and_social_preferences_states_man getManLifeAnSocialPreferencesCouple(){
-        life_and_social_preferences_states_woman life_and_social_state = (life_and_social_preferences_states_woman) this.user.getLifeAndSocialPreferencesCouple();
+        final life_and_social_preferences_states_woman life_and_social_state = (life_and_social_preferences_states_woman) this.user.getLifeAndSocialPreferencesCouple();
         return switch (life_and_social_state) {
             case socially_engaged_partner ->
                     life_and_social_preferences_states_man.socially_driver_partner;
@@ -20,7 +20,7 @@ public class MakeCouplesServices {
     }
 
     public life_and_social_preferences_states_woman getWomanLifeAndSocialPreferencesCouple(){
-        life_and_social_preferences_states_man life_and_social_preference = (life_and_social_preferences_states_man) this.user.getLifeAndSocialPreferencesCouple();
+        final life_and_social_preferences_states_man life_and_social_preference = (life_and_social_preferences_states_man) this.user.getLifeAndSocialPreferencesCouple();
         return switch (life_and_social_preference) {
             case socially_driver_partner ->
                     life_and_social_preferences_states_woman.socially_engaged_partner;

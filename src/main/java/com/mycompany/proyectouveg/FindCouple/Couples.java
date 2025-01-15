@@ -6,9 +6,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public abstract class Couples {
-    public User user;
-    public Couples(User user){
-        this.user = user;
+    public final User user;
+    public Couples(User _user){
+        this.user = _user;
     }
     public void executeQuestions(){
         FirstQuestion();

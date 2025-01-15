@@ -4,8 +4,8 @@ import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
 public class WomanEmotionalTips implements TipsToGetCouple {
-    private User user;
-    private String [] [] tips_emotional_women = {
+    private final User user;
+    private final String [] [] tips_emotional_women = {
             {"Start gratitude journal:Write down three things you're thankful for every day. It fosters emotional positivity and openness to others",
                     "Practice active appreciation: Compliment or thank someone daily to build emotional bonds and show you warmth",
                     "Join a group focused on connection: Attend workshops like storytelling, creative writing or expressive dance to share emotions openly with others",
@@ -34,8 +34,8 @@ public class WomanEmotionalTips implements TipsToGetCouple {
             }
     };
     private emotional_states emotional_state_woman;
-    public WomanEmotionalTips(User user){
-        this.user = user;
+    public WomanEmotionalTips(User _user){
+        this.user = _user;
     }
     private void getEmotionalWomanState(){
         MakeCouplesServices couple_service = new MakeCouplesServices(this.user);
@@ -43,7 +43,6 @@ public class WomanEmotionalTips implements TipsToGetCouple {
     }
     @Override
     public String[] getTips() {
-        String [] default_string = {"", "", ""};
         if(this.emotional_state_woman == null){
             getEmotionalWomanState();
         }

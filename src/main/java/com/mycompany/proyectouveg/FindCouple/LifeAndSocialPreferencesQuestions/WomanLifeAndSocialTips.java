@@ -4,9 +4,9 @@ import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
 public class WomanLifeAndSocialTips implements TipsToGetCouple {
-    private User user;
+    private final User user;
     private life_and_social_preferences_states_woman life_and_social_preferences;
-    private String[][] tips_life_social_preference_woman = {
+    private final String[][] tips_life_social_preference_woman = {
             {
                     "Join Social Clubs or Groups: Participate in clubs or events like book clubs, fitness classes, or professional networks to expand your circle",
                     "Host Gatherings Regularly: Organize small get-togethers, such as coffee chats, game nights, or brunches, to nature connections",
@@ -37,8 +37,8 @@ public class WomanLifeAndSocialTips implements TipsToGetCouple {
             }
     };
 
-    public WomanLifeAndSocialTips(User user) {
-        this.user = user;
+    public WomanLifeAndSocialTips(User _user) {
+        this.user = _user;
     }
 
     private void getSocialPreferenceState() {
@@ -51,7 +51,7 @@ public class WomanLifeAndSocialTips implements TipsToGetCouple {
         if (this.life_and_social_preferences == null) {
             getSocialPreferenceState();
         }
-        life_and_social_preferences_states_woman life_and_social_state = (life_and_social_preferences_states_woman) this.life_and_social_preferences;
+        final life_and_social_preferences_states_woman life_and_social_state = (life_and_social_preferences_states_woman) this.life_and_social_preferences;
         return switch (life_and_social_state) {
             case socially_engaged_partner -> tips_life_social_preference_woman[0];
             case socially_flexible_partner -> tips_life_social_preference_woman[1];

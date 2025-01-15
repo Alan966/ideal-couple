@@ -8,10 +8,10 @@ import java.util.Scanner;
 public final class  ManEmotionalQuestions  extends Couples {
     private int points = 0;
     private emotional_states_woman emotions_partner;
-    private Scanner scanner;
-    public ManEmotionalQuestions(Scanner scanner, User user) {
-        super(user);
-        this.scanner = scanner;
+    private final Scanner scanner;
+    public ManEmotionalQuestions(Scanner _scanner, User _user) {
+        super(_user);
+        this.scanner = _scanner;
     }
 
     public void start(){

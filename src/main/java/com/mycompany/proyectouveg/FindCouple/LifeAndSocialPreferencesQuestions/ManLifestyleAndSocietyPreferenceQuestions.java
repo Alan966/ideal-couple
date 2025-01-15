@@ -9,9 +9,9 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
     private int points = 0;
     private final Scanner scanner;
 
-    public ManLifestyleAndSocietyPreferenceQuestions(Scanner sn, User user){
-        super(user);
-        this.scanner = sn;
+    public ManLifestyleAndSocietyPreferenceQuestions(Scanner _sn, User _user){
+        super(_user);
+        this.scanner = _sn;
     }
     @Override
     public void start() {
@@ -106,7 +106,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
 
     @Override
     public String[] getAdvices() {
-        ManLifeAndSocialTips man_life_and_social = new ManLifeAndSocialTips(this.user);
+        final ManLifeAndSocialTips man_life_and_social = new ManLifeAndSocialTips(this.user);
         return man_life_and_social.getTips();
     }
 }
