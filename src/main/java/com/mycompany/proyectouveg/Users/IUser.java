@@ -75,7 +75,7 @@ public interface IUser {
         for (String response : responses) {
             System.out.println(response);
         }
-        System.out.println("Your points was: "+ count_points);
+        System.out.println("Your points was: " + count_points);
     }
 
     private static boolean validateResponse(String response) {
@@ -291,4 +291,6 @@ public interface IUser {
 
         } while (length >= 0);
     }
+
+    public abstract void start();
 }

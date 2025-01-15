@@ -15,6 +15,7 @@ public class WomanEmotionalQuestions extends Couples {
         this.scanner = _scanner;
     }
 
+    @Override
     public void start() {
         boolean user_could_play = couldPlay();
         if (!user_could_play) {
@@ -35,6 +36,7 @@ public class WomanEmotionalQuestions extends Couples {
         this.user.setEmotionalPartner(emotional_partner);
     }
 
+    @Override
     protected void FirstQuestion() {
         System.out.println("How do you feel when your partner expresses their emotions openly ?");
         System.out.println("a) I appreciate it, as it shows vulnerability and trust");
@@ -49,6 +51,7 @@ public class WomanEmotionalQuestions extends Couples {
         this.points += returnPoints(response);
     }
 
+    @Override
     protected void SecondQuestion() {
         System.out.println("What's the ideal way for partner to handle conflict?");
         System.out.println("a) Address the issue calmly talk it through with mutual undestanding");

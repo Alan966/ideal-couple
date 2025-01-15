@@ -15,6 +15,7 @@ public final class ManEmotionalQuestions extends Couples {
         this.scanner = _scanner;
     }
 
+    @Override
     public void start() {
         boolean user_could_play = couldPlay();
         if (!user_could_play) {
@@ -109,6 +110,7 @@ public final class ManEmotionalQuestions extends Couples {
         this.points += returnPoints(response);
     }
 
+    @Override
     public String[] getAdvices() {
         ManEmotionalTips man_emotional = new ManEmotionalTips(this.user);
         return man_emotional.getTips();

@@ -3,7 +3,6 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 import com.mycompany.proyectouveg.FindCouple.TipsToGetCouple;
 import com.mycompany.proyectouveg.Users.User;
 
-import static com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.emotional_states_man.*;
 
 public class ManEmotionalTips implements TipsToGetCouple {
     private final User user;

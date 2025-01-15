@@ -112,11 +112,12 @@ public class User implements IUser {
         this.love_lenguage_partner = _love_lenguage_and_affection_partner;
     }
 
+    @Override
     public void setLifeAndSocialPreferences(life_and_social_preferences_states _life_and_society_parter) {
         this.life_and_social_preferences_couple = _life_and_society_parter;
     }
 
-
+    @Override
     public void setBirthday(String birthday) {
         int year = Integer.parseInt(birthday.split("/")[0]);
         int month = Integer.parseInt(birthday.split("/")[1]);
@@ -126,23 +127,27 @@ public class User implements IUser {
 
     ;
 
-
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
 
+    @Override
     public love_lenguage_states getLoveLenguagePartner() {
         return this.love_lenguage_partner;
     }
 
+    @Override
     public emotional_states getEmotionalPartner() {
         return this.emotional_parnet;
     }
 
+    @Override
     public life_and_ambitions_states getLifeAndAmbitions() {
         return this.life_and_ambition_partner;
     }
 
+    @Override
     public life_and_social_preferences_states getLifeAndSocialPreferencesCouple() {
         return this.life_and_social_preferences_couple;
     }
@@ -152,32 +157,37 @@ public class User implements IUser {
         return this.id_user;
     }
 
+    @Override
     public String getFullName() {
         return this.first_name + " " + this.last_name;
     }
 
+    @Override
     public String getFirstName() {
         return this.first_name;
     }
 
+    @Override
     public String getLastName() {
         return this.last_name;
     }
 
+    @Override
     public Gender getGender() {
         return this.gender;
     }
 
+    @Override
     public String getEmail() {
         return this.email;
     }
 
-
+    @Override
     public Date getBirthday() {
         return this.birhtday.getTime();
     }
 
-
+    @Override
     public void setAmount(int amount) {
         //TODO: Implement process to Premium Users
         this.amount_count += amount;
@@ -186,6 +196,7 @@ public class User implements IUser {
         }
     }
 
+    @Override
     public boolean isPremium() {
         return is_premium;
     }
@@ -222,6 +233,7 @@ public class User implements IUser {
         }
     }
 
+    @Override
     public void start() {
         setCouplesServices();
         this.emotional.start();
@@ -229,6 +241,7 @@ public class User implements IUser {
         this.love_lenguage.start();
         this.life_and_social.start();
     }
+
 
     public String[][] getAdvices() {
         this.advices[0] = this.emotional.getAdvices();
