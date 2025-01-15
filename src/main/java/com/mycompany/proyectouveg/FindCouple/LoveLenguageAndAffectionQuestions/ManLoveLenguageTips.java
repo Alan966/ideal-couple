@@ -6,7 +6,7 @@ import com.mycompany.proyectouveg.Users.User;
 public class ManLoveLenguageTips implements TipsToGetCouple {
     private final User user;
     private love_lenguage_states_man love_lenguage_states;
-    private final String[][] tips_love_and_lenguage = {
+    private static final String[][] tips_love_and_lenguage = {
             {
                     "Practice Active Listening Daily: Dedicate time to truly listening to people, focusing on their words without interrupting or planning your response. Repeat back or summarize what you hear to show understanding",
                     "Express Appreciation Regularly: Start by writing small notes or messages to people you care about, expressing gratitude for what they bring to your life. This helps you develop emotional openness",

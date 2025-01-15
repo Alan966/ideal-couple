@@ -2,34 +2,40 @@ package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
 import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.Users.User;
+
 import java.util.Scanner;
+
 public class WomanEmotionalQuestions extends Couples {
     private int points = 0;
     private emotional_states_man emotional_partner;
     private final Scanner scanner;
+
     public WomanEmotionalQuestions(Scanner _scanner, User _user) {
         super(_user);
         this.scanner = _scanner;
     }
-    public void start(){
+
+    public void start() {
         boolean user_could_play = couldPlay();
-        if(!user_could_play){
+        if (!user_could_play) {
             System.out.println("Finish the game");
             return;
-        };
+        }
+        ;
         executeQuestions();
-        if(points < 8){
+        if (points < 8) {
             emotional_partner = emotional_states_man.stoic_protector;
-        }else if(points <= 12 ){
+        } else if (points <= 12) {
             emotional_partner = emotional_states_man.calm_problem_solver;
-        }else if(points <= 17 ){
+        } else if (points <= 17) {
             emotional_partner = emotional_states_man.balanced_listener;
-        }else {
+        } else {
             emotional_partner = emotional_states_man.emotional_connection;
         }
         this.user.setEmotionalPartner(emotional_partner);
     }
-    protected void FirstQuestion(){
+
+    protected void FirstQuestion() {
         System.out.println("How do you feel when your partner expresses their emotions openly ?");
         System.out.println("a) I appreciate it, as it shows vulnerability and trust");
         System.out.println("b) I feel comfortable, as long as it's balanced");
@@ -42,7 +48,8 @@ public class WomanEmotionalQuestions extends Couples {
         }
         this.points += returnPoints(response);
     }
-    protected void SecondQuestion(){
+
+    protected void SecondQuestion() {
         System.out.println("What's the ideal way for partner to handle conflict?");
         System.out.println("a) Address the issue calmly talk it through with mutual undestanding");
         System.out.println("b) Be assertive, but listen to my side of the story");
@@ -64,7 +71,7 @@ public class WomanEmotionalQuestions extends Couples {
         System.out.println("c) Stay calm and let me vent without saying much");
         System.out.println("d) offer logical solutions rather than getting too emotional");
         String response = this.scanner.nextLine();
-        if(!validateResponse(response)){
+        if (!validateResponse(response)) {
             System.out.println("Your response is invalid,tried again");
             ThirdQuestion();
         }
@@ -79,7 +86,7 @@ public class WomanEmotionalQuestions extends Couples {
         System.out.println("c) it's okay occasionally, but I prefer strength most of the time");
         System.out.println("d) I prefer my partner to be emotionally strong and not show much vulnerability");
         String response = scanner.nextLine();
-        if(!validateResponse(response)){
+        if (!validateResponse(response)) {
             System.out.println("Your response is invalid,tried again");
             FourthQuestion();
         }
@@ -94,7 +101,7 @@ public class WomanEmotionalQuestions extends Couples {
         System.out.println("c) stay composed and focus on solving the problem rather than talking about emotions");
         System.out.println("d) Stay composed and focus on solving the problem rather than talking about emotions ");
         String response = scanner.nextLine();
-        if(!validateResponse(response)){
+        if (!validateResponse(response)) {
             System.out.println("Your response is invalid,tried again");
             FifthQuestion();
         }
@@ -104,6 +111,6 @@ public class WomanEmotionalQuestions extends Couples {
     @Override
     public String[] getAdvices() {
         final WomanEmotionalTips woman_emotional_tips = new WomanEmotionalTips(this.user);
-       return  woman_emotional_tips.getTips();
+        return woman_emotional_tips.getTips();
     }
 }

@@ -6,7 +6,7 @@ import com.mycompany.proyectouveg.Users.User;
 public class WomanLoveLenguageTips implements TipsToGetCouple {
     private final User user;
     private love_lenguage_states_woman love_lenguage_states;
-    private final String[][] tips_life_and_ambitions = {
+    private static final String[][] tips_life_and_ambitions = {
             {
                     "Start a Daily Gratitude Practice:Spend 5 minutes daily reflecting on what you appreciate about people in your life. This trains you to express gratitude more naturally",
                     "Practice Physical Affection with Close Loved Ones: Hug your friends or family members when greeting or saying goodbye. If you're shy, start small with light touches on the arm or hand ",

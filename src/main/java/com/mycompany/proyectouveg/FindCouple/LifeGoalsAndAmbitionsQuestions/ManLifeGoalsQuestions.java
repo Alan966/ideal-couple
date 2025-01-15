@@ -1,13 +1,16 @@
 package com.mycompany.proyectouveg.FindCouple.LifeGoalsAndAmbitionsQuestions;
+
 import com.mycompany.proyectouveg.FindCouple.Couples;
 import com.mycompany.proyectouveg.Users.User;
+
 import java.util.Scanner;
 
 public class ManLifeGoalsQuestions extends Couples {
     private int points = 0;
     private life_and_ambitions_states_woman life_and_ambitions_partner;
     private final Scanner scanner;
-    public ManLifeGoalsQuestions(Scanner scanner, User user){
+
+    public ManLifeGoalsQuestions(Scanner scanner, User user) {
         super(user);
         this.scanner = scanner;
     }
@@ -15,18 +18,18 @@ public class ManLifeGoalsQuestions extends Couples {
     @Override
     public void start() {
         boolean user_could_play = couldPlay();
-        if(!user_could_play){
+        if (!user_could_play) {
             System.out.println("Finish the game");
             return;
         }
         executeQuestions();
-        if(points <= 5){
+        if (points <= 5) {
             life_and_ambitions_partner = life_and_ambitions_states_woman.traditional_family_oriented;
-        }else if (points <= 10){
+        } else if (points <= 10) {
             life_and_ambitions_partner = life_and_ambitions_states_woman.family_focused_supportive;
-        }else if(points <= 15){
+        } else if (points <= 15) {
             life_and_ambitions_partner = life_and_ambitions_states_woman.team_oriented_woman;
-        }else {
+        } else {
             life_and_ambitions_partner = life_and_ambitions_states_woman.highly_ambitious_career;
         }
         this.user.setLifeAndAmbitionPartner(life_and_ambitions_partner);
@@ -40,7 +43,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I would prefer she focuses more on family, but can still work if she wants");
         System.out.println("d) I prefer a partner who focuses on family ans supports my career");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -54,7 +57,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I prefer that we set mutual goals and work closely as a team");
         System.out.println("d) I want to lead in setting goals, and I prefer she supports me in achieving them");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -68,7 +71,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I'm fine with sharing responsibilities, but I'm open to being the primary provider");
         System.out.println("d) I prefer to be the primary financial provider, with her focusing on family or supporting me.");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -82,7 +85,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I'm okay with her prioritizing family over career in the near future");
         System.out.println("d) I want her to prioritize family as soon as possible, with me focusing on providing");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -96,7 +99,7 @@ public class ManLifeGoalsQuestions extends Couples {
         System.out.println("c) I prefer stability, but I'm open to relocating if it's important for both of us");
         System.out.println("d) I prefer a stable home life and expect her to prioritize that over travel or relication");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FifthQuestion();
         }
         this.points += returnPoints(response);

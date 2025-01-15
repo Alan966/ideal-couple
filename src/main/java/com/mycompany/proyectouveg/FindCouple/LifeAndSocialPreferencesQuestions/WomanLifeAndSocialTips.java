@@ -6,7 +6,7 @@ import com.mycompany.proyectouveg.Users.User;
 public class WomanLifeAndSocialTips implements TipsToGetCouple {
     private final User user;
     private life_and_social_preferences_states_woman life_and_social_preferences;
-    private final String[][] tips_life_social_preference_woman = {
+    private static final String[][] tips_life_social_preference_woman = {
             {
                     "Join Social Clubs or Groups: Participate in clubs or events like book clubs, fitness classes, or professional networks to expand your circle",
                     "Host Gatherings Regularly: Organize small get-togethers, such as coffee chats, game nights, or brunches, to nature connections",

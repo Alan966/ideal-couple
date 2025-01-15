@@ -7,7 +7,7 @@ import static com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions.em
 
 public class ManEmotionalTips implements TipsToGetCouple {
     private final User user;
-    private final String[][] tips_emotional_mens = {
+    private static final String[][] tips_emotional_mens = {
             {"Wake up early and set a daily routine: Structure your day to build dicipline. Start with simple habits like exercising or journaling every morning",
                     "Practice control in challeging situations: Stay calm when things go wrong - pause before react. Use breathing exercise like 4-7-8 technique to manage stress",
                     "Lift weights or train in martial arts: Physical strength builds confidence ans symbolizes protection. Martial arts also improve mental dicipline",

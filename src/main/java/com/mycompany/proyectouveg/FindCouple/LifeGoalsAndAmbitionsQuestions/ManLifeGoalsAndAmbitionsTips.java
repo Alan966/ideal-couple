@@ -6,7 +6,7 @@ import com.mycompany.proyectouveg.Users.User;
 public class ManLifeGoalsAndAmbitionsTips implements TipsToGetCouple {
     private final User user;
     private life_and_ambitions_states_man life_and_ambitions_states;
-    private final String[][] tips_life_and_ambitions = {
+    private static final String[][] tips_life_and_ambitions = {
             {
                     "Set Clear Long-term Goals: Dedicate 30 minutes daily to defining your professional and personal goals, breaking them into achievable steps with deadlines",
                     "Develop a Work Ethic Routine: Wake up at 5:30 am every day to work on your priorities  - whether career, fitness, or personal growth",

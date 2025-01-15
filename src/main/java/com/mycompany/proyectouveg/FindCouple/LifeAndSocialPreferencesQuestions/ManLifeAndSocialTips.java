@@ -5,8 +5,8 @@ import com.mycompany.proyectouveg.Users.User;
 
 public class ManLifeAndSocialTips implements TipsToGetCouple {
     private final User user;
-    private  life_and_social_preferences_states_man life_and_social_preferences_states;
-    private final String[][] tips_life_social_preference_mens = {
+    private life_and_social_preferences_states_man life_and_social_preferences_states;
+    private static final String[][] tips_life_social_preference_mens = {
             {
                     "Organize Gatherings Regularly: Start hosting small events like dinners, outings, or game nights to build your social circle and leadership in social settings",
                     "Practice Public Speaking: Join groups like Toastmasters to improve confidence in speaking and leading discussions",

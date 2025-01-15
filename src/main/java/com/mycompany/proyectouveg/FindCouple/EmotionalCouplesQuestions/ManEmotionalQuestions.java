@@ -1,20 +1,21 @@
 package com.mycompany.proyectouveg.FindCouple.EmotionalCouplesQuestions;
 
-import com.mycompany.proyectouveg.FindCouple.LoveLenguageAndAffectionQuestions.ManLoveLenguageTips;
 import com.mycompany.proyectouveg.Users.User;
 import com.mycompany.proyectouveg.FindCouple.*;
+
 import java.util.Scanner;
 
-public final class  ManEmotionalQuestions  extends Couples {
+public final class ManEmotionalQuestions extends Couples {
     private int points = 0;
     private emotional_states_woman emotions_partner;
     private final Scanner scanner;
+
     public ManEmotionalQuestions(Scanner _scanner, User _user) {
         super(_user);
         this.scanner = _scanner;
     }
 
-    public void start(){
+    public void start() {
         boolean user_could_play = couldPlay();
         if (!user_could_play) {
             System.out.println("Finish the game");
@@ -107,7 +108,8 @@ public final class  ManEmotionalQuestions  extends Couples {
         }
         this.points += returnPoints(response);
     }
-    public String[] getAdvices(){
+
+    public String[] getAdvices() {
         ManEmotionalTips man_emotional = new ManEmotionalTips(this.user);
         return man_emotional.getTips();
     }

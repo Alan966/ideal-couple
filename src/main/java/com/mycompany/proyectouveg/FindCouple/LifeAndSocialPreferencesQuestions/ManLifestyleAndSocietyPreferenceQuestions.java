@@ -9,26 +9,27 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
     private int points = 0;
     private final Scanner scanner;
 
-    public ManLifestyleAndSocietyPreferenceQuestions(Scanner _sn, User _user){
+    public ManLifestyleAndSocietyPreferenceQuestions(Scanner _sn, User _user) {
         super(_user);
         this.scanner = _sn;
     }
+
     @Override
     public void start() {
         boolean user_could_play = couldPlay();
-        if(!user_could_play){
+        if (!user_could_play) {
             System.out.println("Finish the game");
             return;
         }
         executeQuestions();
         life_and_social_preferences_states life_and_social_preferences_couple;
-        if(points <= 5){
+        if (points <= 5) {
             life_and_social_preferences_couple = life_and_social_preferences_states_woman.personal_space_oriented_partner;
-        }else if(points <= 10){
+        } else if (points <= 10) {
             life_and_social_preferences_couple = life_and_social_preferences_states_woman.home_oriented_partner;
-        }else if(points <= 15){
+        } else if (points <= 15) {
             life_and_social_preferences_couple = life_and_social_preferences_states_woman.socially_flexible_partner;
-        }else{
+        } else {
             life_and_social_preferences_couple = life_and_social_preferences_states_woman.socially_engaged_partner;
         }
         this.user.setLifeAndSocialPreferences(life_and_social_preferences_couple);
@@ -42,7 +43,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) Mostly staying in or having quiet time with close friends or family");
         System.out.println("d) Staying in, enjoying personal time, or relaxing together");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -56,7 +57,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I'd prefer someone who enjoys small, intimate gatherings more than big events");
         System.out.println("d) I'm looking for someone who's more introverted and enjoys quiet nights");
         String response = this.scanner.nextLine();
-         if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -70,7 +71,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I need a good amount of personal time to recharge");
         System.out.println("d) I highly value personal space and alone time");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -84,7 +85,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) It's fine if we have different energy levels as long as we compromise");
         System.out.println("d) No very important I don't mind if our energy levels differ");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -98,7 +99,7 @@ public class ManLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I lean toward a relaxed lifestyle, with more time for personal interests");
         System.out.println("d) I prefer minimal work stress and a lifestyle focused on enjoy and relaxation");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FifthQuestion();
         }
         this.points += returnPoints(response);

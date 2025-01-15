@@ -8,26 +8,28 @@ import java.util.Scanner;
 public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
     private int points = 0;
     private final Scanner scanner;
-    public WomanLifestyleAndSocietyPreferenceQuestions(Scanner sn, User user){
+
+    public WomanLifestyleAndSocietyPreferenceQuestions(Scanner sn, User user) {
         super(user);
         this.scanner = sn;
     }
+
     @Override
     public void start() {
         boolean user_could_play = couldPlay();
-        if(!user_could_play){
+        if (!user_could_play) {
             System.out.println("Finish the game");
             return;
         }
         executeQuestions();
         life_and_social_preferences_states life_and_social_preferences_couples;
-        if(points <= 5){
+        if (points <= 5) {
             life_and_social_preferences_couples = life_and_social_preferences_states_man.laid_back_private_partner;
-        }else if(points <= 10){
+        } else if (points <= 10) {
             life_and_social_preferences_couples = life_and_social_preferences_states_man.family_oriented_partner;
-        }else if(points <= 15){
+        } else if (points <= 15) {
             life_and_social_preferences_couples = life_and_social_preferences_states_man.socially_flexible_partner;
-        }else{
+        } else {
             life_and_social_preferences_couples = life_and_social_preferences_states_man.socially_driver_partner;
         }
         this.user.setLifeAndSocialPreferences(life_and_social_preferences_couples);
@@ -41,7 +43,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) Mostly staying in or spending time with close friends and famility");
         System.out.println("d) Relaxing at home or enjoying a quiet weekend with just us");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FirstQuestion();
         }
         this.points += returnPoints(response);
@@ -55,7 +57,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I'd prefer someone who has a smaller social circle and enjoys quiet nights");
         System.out.println("d) I'm looking for someone who values time at home with a relaxed routine");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             SecondQuestion();
         }
         this.points += returnPoints(response);
@@ -69,7 +71,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) Work isn't everything, I'd prefer someone who values downtime more");
         System.out.println("d) I want someone who prioritizes a low-stress, leisurely lifestyle");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             ThirdQuestion();
         }
         this.points += returnPoints(response);
@@ -83,7 +85,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I like a partner who enjoys spending most of his time with me");
         System.out.println("d) I prefer someone who values our time together over personal space");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FourthQuestion();
         }
         this.points += returnPoints(response);
@@ -97,7 +99,7 @@ public class WomanLifestyleAndSocietyPreferenceQuestions extends Couples {
         System.out.println("c) I'd prefer someone who limits social gatherings to close friends and family");
         System.out.println("d) I'm looking for someone who values quiet time and isn't very social");
         String response = this.scanner.nextLine();
-        if (!validateResponse(response)){
+        if (!validateResponse(response)) {
             FifthQuestion();
         }
         this.points += returnPoints(response);
