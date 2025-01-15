@@ -23,6 +23,7 @@ public interface IUser {
     public void setLifeAndAmbitionPartner(life_and_ambitions_states life_and_ambitions_partner);
 
     public void setLenguageAndAffectionPartner(love_lenguage_states love_lenguage_and_affection_partner);
+
     public void setLifeAndSocialPreferences(life_and_social_preferences_states life_and_society_parter);
 
     // Getters methods
@@ -57,27 +58,31 @@ public interface IUser {
 
     default void startProcessPremium(Scanner sc, Gender gender) {
         String[] premium_questions = getPremiumQuestions(gender);
-        int count = 0;
+        int count_questions = 0;
+        int count_points = 0;
         String[][] answers = this.getPremiumAnswers(gender);
         String[] responses = new String[10];
         do {
-            System.out.println(premium_questions[count]);
-            printAnswers(answers[count]);
+            System.out.println(premium_questions[count_questions]);
+            printAnswers(answers[count_questions]);
             String response = sc.nextLine();
-            responses[count] = response;
-            count++;
-        } while (count != premium_questions.length);
+            if (validateResponse(response)) {
+                count_points += returnPoints(response);
+                count_questions++;
+            }
+        } while (count_questions != premium_questions.length);
         System.out.println("Your answers was");
         for (String response : responses) {
             System.out.println(response);
         }
+        System.out.println("Your points was: "+ count_points);
     }
 
-    private boolean validateResponse(String response) {
+    private static boolean validateResponse(String response) {
         return response.equals("a") || response.equals("b") || response.equals("c") || response.equals("d");
     }
 
-    private int returnPoints(String response) {
+    private static int returnPoints(String response) {
         switch (response) {
             case "a":
                 return 4;

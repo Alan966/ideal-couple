@@ -63,5 +63,5 @@ public abstract class Couples {
 
     protected abstract void FifthQuestion();
 
-    protected abstract String[] getAdvices();
+    public abstract String[] getAdvices();
 }

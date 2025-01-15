@@ -237,5 +237,4 @@ public class User implements IUser {
         this.advices[3] = this.life_and_social.getAdvices();
         return this.advices;
     }
-
 };
